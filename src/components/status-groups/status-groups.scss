@@ -1,0 +1,98 @@
+/**
+ * © Copyright IBM Corp. 2022, 2023
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+$side-panel-width: 175px;
+
+.hdm--custom-layout-container {
+  grid-template-columns: 1fr 7fr !important;
+  
+  > div {
+    border: unset !important;
+  }
+  
+  .status-groups {
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+    margin: 1rem 0 1rem 1rem;
+    width: $side-panel-width;
+    
+    &__heading {
+      display: flex;
+      flex-direction: column;
+      font-size: 1.25rem;
+      padding: 1rem 1rem 0;
+    }
+    
+    &__subheading {
+      color: #525252;
+      font-size: 0.875rem;
+      line-height: 2rem;
+    }
+    
+    &__groupby {
+      .cds--list-box__menu {
+        min-width: $side-panel-width;
+      }
+    }
+    
+    &__reset {
+      bottom: 0;
+      position: sticky;
+      z-index: 1;
+    }
+    
+    &__scroll-area {
+      height: 100%;
+      overflow-y: auto;
+    }
+    
+    .status-card {
+      display: flex;
+      flex-direction: column;
+      font-size: 0.875rem;
+      justify-content: left;
+      margin: 0.5rem 0;
+      
+      &__label {
+        display: inline-block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 110px;
+      }
+      
+      &__status-row {
+        display: inline-flex;
+        flex-direction: row;
+      }
+      
+      &__status {
+        color: #000;
+        margin: 0.5rem 0.5rem 0.5rem 0;
+        text-align: center;
+      }
+    }
+
+    .cds--accordion__heading {
+      justify-content: flex-end;
+    }
+
+    .cds--accordion__title {
+      padding-left: unset;
+      padding-right: 0.5rem;
+      width: unset;
+    }
+  }
+}
+
+.sb-show-main {
+  .status-groups__scroll-area {
+    .cds--accordion__item > button {
+      padding-left: 1rem;
+    }
+  }
+}

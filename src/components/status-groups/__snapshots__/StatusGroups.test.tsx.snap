@@ -1,0 +1,1800 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StatusGroups should match sample snapshot 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="status-groups"
+        role="contentinfo"
+      >
+        <div
+          class="status-groups__heading"
+        >
+          Alerts workflow 
+          <span
+            class="status-groups__subheading"
+          >
+            New / Ack'd / Tkt'd
+          </span>
+        </div>
+        <div
+          class="cds--dropdown__wrapper cds--list-box__wrapper status-groups__groupby cds--dropdown__wrapper--inline cds--list-box__wrapper--inline"
+        >
+          
+          <div
+            class="cds--dropdown cds--dropdown--inline cds--list-box"
+            id="status-group-selector"
+          >
+            <button
+              aria-activedescendant=""
+              aria-controls="downshift-0-menu"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-labelledby="downshift-0-label"
+              class="cds--list-box__field"
+              id="downshift-0-toggle-button"
+              role="combobox"
+              tabindex="0"
+              title="All"
+              type="button"
+            >
+              <span
+                class="cds--list-box__label"
+              >
+                All
+              </span>
+              <div
+                class="cds--list-box__menu-icon"
+              >
+                <svg
+                  aria-label="Open menu"
+                  fill="currentColor"
+                  focusable="false"
+                  height="16"
+                  name="chevron--down"
+                  preserveAspectRatio="xMidYMid meet"
+                  role="img"
+                  viewBox="0 0 16 16"
+                  width="16"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M8 11L3 6 3.7 5.3 8 9.6 12.3 5.3 13 6z"
+                  />
+                  <title>
+                    Open menu
+                  </title>
+                </svg>
+              </div>
+            </button>
+            <ul
+              aria-labelledby="downshift-0-label"
+              class="cds--list-box__menu"
+              id="downshift-0-menu"
+              role="listbox"
+            />
+          </div>
+        </div>
+        <ul
+          class="cds--accordion status-groups__scroll-area cds--accordion--end"
+        >
+          <li
+            class="cds--accordion__item"
+          >
+            <button
+              aria-controls="accordion-item-64"
+              aria-expanded="false"
+              class="cds--accordion__heading"
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                class="cds--accordion__arrow"
+                fill="currentColor"
+                focusable="false"
+                height="16"
+                preserveAspectRatio="xMidYMid meet"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M11 8L6 13 5.3 12.3 9.6 8 5.3 3.7 6 3z"
+                />
+              </svg>
+              <div
+                class="cds--accordion__title"
+                dir="auto"
+              >
+                <div
+                  class="status-card"
+                >
+                  <span
+                    class="status-card__label"
+                    title="All alerts"
+                  >
+                    All alerts
+                  </span>
+                  <div
+                    class="status-card__status-row"
+                  >
+                    <span
+                      class="cds--popover-container cds--popover--caret cds--popover--high-contrast cds--popover--top cds--tooltip cds--icon-tooltip"
+                    >
+                      <div
+                        class="cds--tooltip-trigger__wrapper"
+                      >
+                        <button
+                          aria-labelledby="tooltip-2"
+                          class="cds--btn--icon-only status-card__status cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary cds--btn--icon-only cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary"
+                          style="background-color: rgb(255, 131, 137);"
+                          type="button"
+                        >
+                          58
+                        </button>
+                      </div>
+                      <span
+                        aria-hidden="true"
+                        class="cds--popover"
+                        id="tooltip-2"
+                        role="tooltip"
+                      >
+                        <span
+                          class="cds--popover-content cds--tooltip-content"
+                        >
+                          58 new
+                        </span>
+                        <span
+                          class="cds--popover-caret"
+                        />
+                      </span>
+                    </span>
+                    <span
+                      class="cds--popover-container cds--popover--caret cds--popover--high-contrast cds--popover--top cds--tooltip cds--icon-tooltip"
+                    >
+                      <div
+                        class="cds--tooltip-trigger__wrapper"
+                      >
+                        <button
+                          aria-labelledby="tooltip-5"
+                          class="cds--btn--icon-only status-card__status cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary cds--btn--icon-only cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary"
+                          style="background-color: rgb(255, 183, 132);"
+                          type="button"
+                        >
+                          1
+                        </button>
+                      </div>
+                      <span
+                        aria-hidden="true"
+                        class="cds--popover"
+                        id="tooltip-5"
+                        role="tooltip"
+                      >
+                        <span
+                          class="cds--popover-content cds--tooltip-content"
+                        >
+                          1 acknowledged
+                        </span>
+                        <span
+                          class="cds--popover-caret"
+                        />
+                      </span>
+                    </span>
+                    <span
+                      class="cds--popover-container cds--popover--caret cds--popover--high-contrast cds--popover--top cds--tooltip cds--icon-tooltip"
+                    >
+                      <div
+                        class="cds--tooltip-trigger__wrapper"
+                      >
+                        <button
+                          aria-labelledby="tooltip-8"
+                          class="cds--btn--icon-only status-card__status cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary cds--btn--icon-only cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary"
+                          style="background-color: rgb(255, 131, 137);"
+                          type="button"
+                        >
+                          23
+                        </button>
+                      </div>
+                      <span
+                        aria-hidden="true"
+                        class="cds--popover"
+                        id="tooltip-8"
+                        role="tooltip"
+                      >
+                        <span
+                          class="cds--popover-content cds--tooltip-content"
+                        >
+                          23 ticketed
+                        </span>
+                        <span
+                          class="cds--popover-caret"
+                        />
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </button>
+            <div
+              class="cds--accordion__content"
+              id="accordion-item-64"
+            >
+              <div
+                class="status-card"
+              >
+                <span
+                  class="status-card__label"
+                  title="Critical"
+                >
+                  Critical
+                </span>
+                <div
+                  class="status-card__status-row"
+                >
+                  <span
+                    class="cds--popover-container cds--popover--caret cds--popover--high-contrast cds--popover--top cds--tooltip cds--icon-tooltip"
+                  >
+                    <div
+                      class="cds--tooltip-trigger__wrapper"
+                    >
+                      <button
+                        aria-labelledby="tooltip-11"
+                        class="cds--btn--icon-only status-card__status cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary cds--btn--icon-only cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary"
+                        style="background-color: rgb(255, 131, 137);"
+                        type="button"
+                      >
+                        4
+                      </button>
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="cds--popover"
+                      id="tooltip-11"
+                      role="tooltip"
+                    >
+                      <span
+                        class="cds--popover-content cds--tooltip-content"
+                      >
+                        4 new
+                      </span>
+                      <span
+                        class="cds--popover-caret"
+                      />
+                    </span>
+                  </span>
+                  <span
+                    class="cds--popover-container cds--popover--caret cds--popover--high-contrast cds--popover--top cds--tooltip cds--icon-tooltip"
+                  >
+                    <div
+                      class="cds--tooltip-trigger__wrapper"
+                    >
+                      <button
+                        aria-labelledby="tooltip-14"
+                        class="cds--btn--icon-only status-card__status cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary cds--btn--icon-only cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary"
+                        style="background-color: rgb(224, 224, 224);"
+                        type="button"
+                      >
+                        0
+                      </button>
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="cds--popover"
+                      id="tooltip-14"
+                      role="tooltip"
+                    >
+                      <span
+                        class="cds--popover-content cds--tooltip-content"
+                      >
+                        0 acknowledged
+                      </span>
+                      <span
+                        class="cds--popover-caret"
+                      />
+                    </span>
+                  </span>
+                  <span
+                    class="cds--popover-container cds--popover--caret cds--popover--high-contrast cds--popover--top cds--tooltip cds--icon-tooltip"
+                  >
+                    <div
+                      class="cds--tooltip-trigger__wrapper"
+                    >
+                      <button
+                        aria-labelledby="tooltip-17"
+                        class="cds--btn--icon-only status-card__status cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary cds--btn--icon-only cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary"
+                        style="background-color: rgb(255, 131, 137);"
+                        type="button"
+                      >
+                        1
+                      </button>
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="cds--popover"
+                      id="tooltip-17"
+                      role="tooltip"
+                    >
+                      <span
+                        class="cds--popover-content cds--tooltip-content"
+                      >
+                        1 ticketed
+                      </span>
+                      <span
+                        class="cds--popover-caret"
+                      />
+                    </span>
+                  </span>
+                </div>
+              </div>
+              <div
+                class="status-card"
+              >
+                <span
+                  class="status-card__label"
+                  title="Major"
+                >
+                  Major
+                </span>
+                <div
+                  class="status-card__status-row"
+                >
+                  <span
+                    class="cds--popover-container cds--popover--caret cds--popover--high-contrast cds--popover--top cds--tooltip cds--icon-tooltip"
+                  >
+                    <div
+                      class="cds--tooltip-trigger__wrapper"
+                    >
+                      <button
+                        aria-labelledby="tooltip-20"
+                        class="cds--btn--icon-only status-card__status cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary cds--btn--icon-only cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary"
+                        style="background-color: rgb(255, 183, 132);"
+                        type="button"
+                      >
+                        2
+                      </button>
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="cds--popover"
+                      id="tooltip-20"
+                      role="tooltip"
+                    >
+                      <span
+                        class="cds--popover-content cds--tooltip-content"
+                      >
+                        2 new
+                      </span>
+                      <span
+                        class="cds--popover-caret"
+                      />
+                    </span>
+                  </span>
+                  <span
+                    class="cds--popover-container cds--popover--caret cds--popover--high-contrast cds--popover--top cds--tooltip cds--icon-tooltip"
+                  >
+                    <div
+                      class="cds--tooltip-trigger__wrapper"
+                    >
+                      <button
+                        aria-labelledby="tooltip-23"
+                        class="cds--btn--icon-only status-card__status cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary cds--btn--icon-only cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary"
+                        style="background-color: rgb(255, 183, 132);"
+                        type="button"
+                      >
+                        1
+                      </button>
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="cds--popover"
+                      id="tooltip-23"
+                      role="tooltip"
+                    >
+                      <span
+                        class="cds--popover-content cds--tooltip-content"
+                      >
+                        1 acknowledged
+                      </span>
+                      <span
+                        class="cds--popover-caret"
+                      />
+                    </span>
+                  </span>
+                  <span
+                    class="cds--popover-container cds--popover--caret cds--popover--high-contrast cds--popover--top cds--tooltip cds--icon-tooltip"
+                  >
+                    <div
+                      class="cds--tooltip-trigger__wrapper"
+                    >
+                      <button
+                        aria-labelledby="tooltip-26"
+                        class="cds--btn--icon-only status-card__status cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary cds--btn--icon-only cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary"
+                        style="background-color: rgb(255, 183, 132);"
+                        type="button"
+                      >
+                        6
+                      </button>
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="cds--popover"
+                      id="tooltip-26"
+                      role="tooltip"
+                    >
+                      <span
+                        class="cds--popover-content cds--tooltip-content"
+                      >
+                        6 ticketed
+                      </span>
+                      <span
+                        class="cds--popover-caret"
+                      />
+                    </span>
+                  </span>
+                </div>
+              </div>
+              <div
+                class="status-card"
+              >
+                <span
+                  class="status-card__label"
+                  title="Minor"
+                >
+                  Minor
+                </span>
+                <div
+                  class="status-card__status-row"
+                >
+                  <span
+                    class="cds--popover-container cds--popover--caret cds--popover--high-contrast cds--popover--top cds--tooltip cds--icon-tooltip"
+                  >
+                    <div
+                      class="cds--tooltip-trigger__wrapper"
+                    >
+                      <button
+                        aria-labelledby="tooltip-29"
+                        class="cds--btn--icon-only status-card__status cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary cds--btn--icon-only cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary"
+                        style="background-color: rgb(253, 220, 105);"
+                        type="button"
+                      >
+                        12
+                      </button>
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="cds--popover"
+                      id="tooltip-29"
+                      role="tooltip"
+                    >
+                      <span
+                        class="cds--popover-content cds--tooltip-content"
+                      >
+                        12 new
+                      </span>
+                      <span
+                        class="cds--popover-caret"
+                      />
+                    </span>
+                  </span>
+                  <span
+                    class="cds--popover-container cds--popover--caret cds--popover--high-contrast cds--popover--top cds--tooltip cds--icon-tooltip"
+                  >
+                    <div
+                      class="cds--tooltip-trigger__wrapper"
+                    >
+                      <button
+                        aria-labelledby="tooltip-32"
+                        class="cds--btn--icon-only status-card__status cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary cds--btn--icon-only cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary"
+                        style="background-color: rgb(224, 224, 224);"
+                        type="button"
+                      >
+                        0
+                      </button>
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="cds--popover"
+                      id="tooltip-32"
+                      role="tooltip"
+                    >
+                      <span
+                        class="cds--popover-content cds--tooltip-content"
+                      >
+                        0 acknowledged
+                      </span>
+                      <span
+                        class="cds--popover-caret"
+                      />
+                    </span>
+                  </span>
+                  <span
+                    class="cds--popover-container cds--popover--caret cds--popover--high-contrast cds--popover--top cds--tooltip cds--icon-tooltip"
+                  >
+                    <div
+                      class="cds--tooltip-trigger__wrapper"
+                    >
+                      <button
+                        aria-labelledby="tooltip-35"
+                        class="cds--btn--icon-only status-card__status cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary cds--btn--icon-only cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary"
+                        style="background-color: rgb(253, 220, 105);"
+                        type="button"
+                      >
+                        14
+                      </button>
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="cds--popover"
+                      id="tooltip-35"
+                      role="tooltip"
+                    >
+                      <span
+                        class="cds--popover-content cds--tooltip-content"
+                      >
+                        14 ticketed
+                      </span>
+                      <span
+                        class="cds--popover-caret"
+                      />
+                    </span>
+                  </span>
+                </div>
+              </div>
+              <div
+                class="status-card"
+              >
+                <span
+                  class="status-card__label"
+                  title="Warning"
+                >
+                  Warning
+                </span>
+                <div
+                  class="status-card__status-row"
+                >
+                  <span
+                    class="cds--popover-container cds--popover--caret cds--popover--high-contrast cds--popover--top cds--tooltip cds--icon-tooltip"
+                  >
+                    <div
+                      class="cds--tooltip-trigger__wrapper"
+                    >
+                      <button
+                        aria-labelledby="tooltip-38"
+                        class="cds--btn--icon-only status-card__status cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary cds--btn--icon-only cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary"
+                        style="background-color: rgb(69, 137, 255);"
+                        type="button"
+                      >
+                        13
+                      </button>
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="cds--popover"
+                      id="tooltip-38"
+                      role="tooltip"
+                    >
+                      <span
+                        class="cds--popover-content cds--tooltip-content"
+                      >
+                        13 new
+                      </span>
+                      <span
+                        class="cds--popover-caret"
+                      />
+                    </span>
+                  </span>
+                  <span
+                    class="cds--popover-container cds--popover--caret cds--popover--high-contrast cds--popover--top cds--tooltip cds--icon-tooltip"
+                  >
+                    <div
+                      class="cds--tooltip-trigger__wrapper"
+                    >
+                      <button
+                        aria-labelledby="tooltip-41"
+                        class="cds--btn--icon-only status-card__status cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary cds--btn--icon-only cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary"
+                        style="background-color: rgb(224, 224, 224);"
+                        type="button"
+                      >
+                        0
+                      </button>
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="cds--popover"
+                      id="tooltip-41"
+                      role="tooltip"
+                    >
+                      <span
+                        class="cds--popover-content cds--tooltip-content"
+                      >
+                        0 acknowledged
+                      </span>
+                      <span
+                        class="cds--popover-caret"
+                      />
+                    </span>
+                  </span>
+                  <span
+                    class="cds--popover-container cds--popover--caret cds--popover--high-contrast cds--popover--top cds--tooltip cds--icon-tooltip"
+                  >
+                    <div
+                      class="cds--tooltip-trigger__wrapper"
+                    >
+                      <button
+                        aria-labelledby="tooltip-44"
+                        class="cds--btn--icon-only status-card__status cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary cds--btn--icon-only cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary"
+                        style="background-color: rgb(69, 137, 255);"
+                        type="button"
+                      >
+                        2
+                      </button>
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="cds--popover"
+                      id="tooltip-44"
+                      role="tooltip"
+                    >
+                      <span
+                        class="cds--popover-content cds--tooltip-content"
+                      >
+                        2 ticketed
+                      </span>
+                      <span
+                        class="cds--popover-caret"
+                      />
+                    </span>
+                  </span>
+                </div>
+              </div>
+              <div
+                class="status-card"
+              >
+                <span
+                  class="status-card__label"
+                  title="Information"
+                >
+                  Information
+                </span>
+                <div
+                  class="status-card__status-row"
+                >
+                  <span
+                    class="cds--popover-container cds--popover--caret cds--popover--high-contrast cds--popover--top cds--tooltip cds--icon-tooltip"
+                  >
+                    <div
+                      class="cds--tooltip-trigger__wrapper"
+                    >
+                      <button
+                        aria-labelledby="tooltip-47"
+                        class="cds--btn--icon-only status-card__status cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary cds--btn--icon-only cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary"
+                        style="background-color: rgb(208, 226, 255);"
+                        type="button"
+                      >
+                        15
+                      </button>
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="cds--popover"
+                      id="tooltip-47"
+                      role="tooltip"
+                    >
+                      <span
+                        class="cds--popover-content cds--tooltip-content"
+                      >
+                        15 new
+                      </span>
+                      <span
+                        class="cds--popover-caret"
+                      />
+                    </span>
+                  </span>
+                  <span
+                    class="cds--popover-container cds--popover--caret cds--popover--high-contrast cds--popover--top cds--tooltip cds--icon-tooltip"
+                  >
+                    <div
+                      class="cds--tooltip-trigger__wrapper"
+                    >
+                      <button
+                        aria-labelledby="tooltip-50"
+                        class="cds--btn--icon-only status-card__status cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary cds--btn--icon-only cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary"
+                        style="background-color: rgb(224, 224, 224);"
+                        type="button"
+                      >
+                        0
+                      </button>
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="cds--popover"
+                      id="tooltip-50"
+                      role="tooltip"
+                    >
+                      <span
+                        class="cds--popover-content cds--tooltip-content"
+                      >
+                        0 acknowledged
+                      </span>
+                      <span
+                        class="cds--popover-caret"
+                      />
+                    </span>
+                  </span>
+                  <span
+                    class="cds--popover-container cds--popover--caret cds--popover--high-contrast cds--popover--top cds--tooltip cds--icon-tooltip"
+                  >
+                    <div
+                      class="cds--tooltip-trigger__wrapper"
+                    >
+                      <button
+                        aria-labelledby="tooltip-53"
+                        class="cds--btn--icon-only status-card__status cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary cds--btn--icon-only cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary"
+                        style="background-color: rgb(224, 224, 224);"
+                        type="button"
+                      >
+                        0
+                      </button>
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="cds--popover"
+                      id="tooltip-53"
+                      role="tooltip"
+                    >
+                      <span
+                        class="cds--popover-content cds--tooltip-content"
+                      >
+                        0 ticketed
+                      </span>
+                      <span
+                        class="cds--popover-caret"
+                      />
+                    </span>
+                  </span>
+                </div>
+              </div>
+              <div
+                class="status-card"
+              >
+                <span
+                  class="status-card__label"
+                  title="Indeterminate"
+                >
+                  Indeterminate
+                </span>
+                <div
+                  class="status-card__status-row"
+                >
+                  <span
+                    class="cds--popover-container cds--popover--caret cds--popover--high-contrast cds--popover--top cds--tooltip cds--icon-tooltip"
+                  >
+                    <div
+                      class="cds--tooltip-trigger__wrapper"
+                    >
+                      <button
+                        aria-labelledby="tooltip-56"
+                        class="cds--btn--icon-only status-card__status cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary cds--btn--icon-only cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary"
+                        style="background-color: rgb(232, 218, 255);"
+                        type="button"
+                      >
+                        12
+                      </button>
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="cds--popover"
+                      id="tooltip-56"
+                      role="tooltip"
+                    >
+                      <span
+                        class="cds--popover-content cds--tooltip-content"
+                      >
+                        12 new
+                      </span>
+                      <span
+                        class="cds--popover-caret"
+                      />
+                    </span>
+                  </span>
+                  <span
+                    class="cds--popover-container cds--popover--caret cds--popover--high-contrast cds--popover--top cds--tooltip cds--icon-tooltip"
+                  >
+                    <div
+                      class="cds--tooltip-trigger__wrapper"
+                    >
+                      <button
+                        aria-labelledby="tooltip-59"
+                        class="cds--btn--icon-only status-card__status cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary cds--btn--icon-only cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary"
+                        style="background-color: rgb(224, 224, 224);"
+                        type="button"
+                      >
+                        0
+                      </button>
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="cds--popover"
+                      id="tooltip-59"
+                      role="tooltip"
+                    >
+                      <span
+                        class="cds--popover-content cds--tooltip-content"
+                      >
+                        0 acknowledged
+                      </span>
+                      <span
+                        class="cds--popover-caret"
+                      />
+                    </span>
+                  </span>
+                  <span
+                    class="cds--popover-container cds--popover--caret cds--popover--high-contrast cds--popover--top cds--tooltip cds--icon-tooltip"
+                  >
+                    <div
+                      class="cds--tooltip-trigger__wrapper"
+                    >
+                      <button
+                        aria-labelledby="tooltip-62"
+                        class="cds--btn--icon-only status-card__status cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary cds--btn--icon-only cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary"
+                        style="background-color: rgb(224, 224, 224);"
+                        type="button"
+                      >
+                        0
+                      </button>
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="cds--popover"
+                      id="tooltip-62"
+                      role="tooltip"
+                    >
+                      <span
+                        class="cds--popover-content cds--tooltip-content"
+                      >
+                        0 ticketed
+                      </span>
+                      <span
+                        class="cds--popover-caret"
+                      />
+                    </span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <button
+          class="status-groups__reset cds--btn cds--btn--secondary"
+          type="button"
+        >
+          Reset filter
+        </button>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="status-groups"
+      role="contentinfo"
+    >
+      <div
+        class="status-groups__heading"
+      >
+        Alerts workflow 
+        <span
+          class="status-groups__subheading"
+        >
+          New / Ack'd / Tkt'd
+        </span>
+      </div>
+      <div
+        class="cds--dropdown__wrapper cds--list-box__wrapper status-groups__groupby cds--dropdown__wrapper--inline cds--list-box__wrapper--inline"
+      >
+        
+        <div
+          class="cds--dropdown cds--dropdown--inline cds--list-box"
+          id="status-group-selector"
+        >
+          <button
+            aria-activedescendant=""
+            aria-controls="downshift-0-menu"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-labelledby="downshift-0-label"
+            class="cds--list-box__field"
+            id="downshift-0-toggle-button"
+            role="combobox"
+            tabindex="0"
+            title="All"
+            type="button"
+          >
+            <span
+              class="cds--list-box__label"
+            >
+              All
+            </span>
+            <div
+              class="cds--list-box__menu-icon"
+            >
+              <svg
+                aria-label="Open menu"
+                fill="currentColor"
+                focusable="false"
+                height="16"
+                name="chevron--down"
+                preserveAspectRatio="xMidYMid meet"
+                role="img"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8 11L3 6 3.7 5.3 8 9.6 12.3 5.3 13 6z"
+                />
+                <title>
+                  Open menu
+                </title>
+              </svg>
+            </div>
+          </button>
+          <ul
+            aria-labelledby="downshift-0-label"
+            class="cds--list-box__menu"
+            id="downshift-0-menu"
+            role="listbox"
+          />
+        </div>
+      </div>
+      <ul
+        class="cds--accordion status-groups__scroll-area cds--accordion--end"
+      >
+        <li
+          class="cds--accordion__item"
+        >
+          <button
+            aria-controls="accordion-item-64"
+            aria-expanded="false"
+            class="cds--accordion__heading"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              class="cds--accordion__arrow"
+              fill="currentColor"
+              focusable="false"
+              height="16"
+              preserveAspectRatio="xMidYMid meet"
+              viewBox="0 0 16 16"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M11 8L6 13 5.3 12.3 9.6 8 5.3 3.7 6 3z"
+              />
+            </svg>
+            <div
+              class="cds--accordion__title"
+              dir="auto"
+            >
+              <div
+                class="status-card"
+              >
+                <span
+                  class="status-card__label"
+                  title="All alerts"
+                >
+                  All alerts
+                </span>
+                <div
+                  class="status-card__status-row"
+                >
+                  <span
+                    class="cds--popover-container cds--popover--caret cds--popover--high-contrast cds--popover--top cds--tooltip cds--icon-tooltip"
+                  >
+                    <div
+                      class="cds--tooltip-trigger__wrapper"
+                    >
+                      <button
+                        aria-labelledby="tooltip-2"
+                        class="cds--btn--icon-only status-card__status cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary cds--btn--icon-only cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary"
+                        style="background-color: rgb(255, 131, 137);"
+                        type="button"
+                      >
+                        58
+                      </button>
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="cds--popover"
+                      id="tooltip-2"
+                      role="tooltip"
+                    >
+                      <span
+                        class="cds--popover-content cds--tooltip-content"
+                      >
+                        58 new
+                      </span>
+                      <span
+                        class="cds--popover-caret"
+                      />
+                    </span>
+                  </span>
+                  <span
+                    class="cds--popover-container cds--popover--caret cds--popover--high-contrast cds--popover--top cds--tooltip cds--icon-tooltip"
+                  >
+                    <div
+                      class="cds--tooltip-trigger__wrapper"
+                    >
+                      <button
+                        aria-labelledby="tooltip-5"
+                        class="cds--btn--icon-only status-card__status cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary cds--btn--icon-only cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary"
+                        style="background-color: rgb(255, 183, 132);"
+                        type="button"
+                      >
+                        1
+                      </button>
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="cds--popover"
+                      id="tooltip-5"
+                      role="tooltip"
+                    >
+                      <span
+                        class="cds--popover-content cds--tooltip-content"
+                      >
+                        1 acknowledged
+                      </span>
+                      <span
+                        class="cds--popover-caret"
+                      />
+                    </span>
+                  </span>
+                  <span
+                    class="cds--popover-container cds--popover--caret cds--popover--high-contrast cds--popover--top cds--tooltip cds--icon-tooltip"
+                  >
+                    <div
+                      class="cds--tooltip-trigger__wrapper"
+                    >
+                      <button
+                        aria-labelledby="tooltip-8"
+                        class="cds--btn--icon-only status-card__status cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary cds--btn--icon-only cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary"
+                        style="background-color: rgb(255, 131, 137);"
+                        type="button"
+                      >
+                        23
+                      </button>
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="cds--popover"
+                      id="tooltip-8"
+                      role="tooltip"
+                    >
+                      <span
+                        class="cds--popover-content cds--tooltip-content"
+                      >
+                        23 ticketed
+                      </span>
+                      <span
+                        class="cds--popover-caret"
+                      />
+                    </span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </button>
+          <div
+            class="cds--accordion__content"
+            id="accordion-item-64"
+          >
+            <div
+              class="status-card"
+            >
+              <span
+                class="status-card__label"
+                title="Critical"
+              >
+                Critical
+              </span>
+              <div
+                class="status-card__status-row"
+              >
+                <span
+                  class="cds--popover-container cds--popover--caret cds--popover--high-contrast cds--popover--top cds--tooltip cds--icon-tooltip"
+                >
+                  <div
+                    class="cds--tooltip-trigger__wrapper"
+                  >
+                    <button
+                      aria-labelledby="tooltip-11"
+                      class="cds--btn--icon-only status-card__status cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary cds--btn--icon-only cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary"
+                      style="background-color: rgb(255, 131, 137);"
+                      type="button"
+                    >
+                      4
+                    </button>
+                  </div>
+                  <span
+                    aria-hidden="true"
+                    class="cds--popover"
+                    id="tooltip-11"
+                    role="tooltip"
+                  >
+                    <span
+                      class="cds--popover-content cds--tooltip-content"
+                    >
+                      4 new
+                    </span>
+                    <span
+                      class="cds--popover-caret"
+                    />
+                  </span>
+                </span>
+                <span
+                  class="cds--popover-container cds--popover--caret cds--popover--high-contrast cds--popover--top cds--tooltip cds--icon-tooltip"
+                >
+                  <div
+                    class="cds--tooltip-trigger__wrapper"
+                  >
+                    <button
+                      aria-labelledby="tooltip-14"
+                      class="cds--btn--icon-only status-card__status cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary cds--btn--icon-only cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary"
+                      style="background-color: rgb(224, 224, 224);"
+                      type="button"
+                    >
+                      0
+                    </button>
+                  </div>
+                  <span
+                    aria-hidden="true"
+                    class="cds--popover"
+                    id="tooltip-14"
+                    role="tooltip"
+                  >
+                    <span
+                      class="cds--popover-content cds--tooltip-content"
+                    >
+                      0 acknowledged
+                    </span>
+                    <span
+                      class="cds--popover-caret"
+                    />
+                  </span>
+                </span>
+                <span
+                  class="cds--popover-container cds--popover--caret cds--popover--high-contrast cds--popover--top cds--tooltip cds--icon-tooltip"
+                >
+                  <div
+                    class="cds--tooltip-trigger__wrapper"
+                  >
+                    <button
+                      aria-labelledby="tooltip-17"
+                      class="cds--btn--icon-only status-card__status cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary cds--btn--icon-only cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary"
+                      style="background-color: rgb(255, 131, 137);"
+                      type="button"
+                    >
+                      1
+                    </button>
+                  </div>
+                  <span
+                    aria-hidden="true"
+                    class="cds--popover"
+                    id="tooltip-17"
+                    role="tooltip"
+                  >
+                    <span
+                      class="cds--popover-content cds--tooltip-content"
+                    >
+                      1 ticketed
+                    </span>
+                    <span
+                      class="cds--popover-caret"
+                    />
+                  </span>
+                </span>
+              </div>
+            </div>
+            <div
+              class="status-card"
+            >
+              <span
+                class="status-card__label"
+                title="Major"
+              >
+                Major
+              </span>
+              <div
+                class="status-card__status-row"
+              >
+                <span
+                  class="cds--popover-container cds--popover--caret cds--popover--high-contrast cds--popover--top cds--tooltip cds--icon-tooltip"
+                >
+                  <div
+                    class="cds--tooltip-trigger__wrapper"
+                  >
+                    <button
+                      aria-labelledby="tooltip-20"
+                      class="cds--btn--icon-only status-card__status cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary cds--btn--icon-only cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary"
+                      style="background-color: rgb(255, 183, 132);"
+                      type="button"
+                    >
+                      2
+                    </button>
+                  </div>
+                  <span
+                    aria-hidden="true"
+                    class="cds--popover"
+                    id="tooltip-20"
+                    role="tooltip"
+                  >
+                    <span
+                      class="cds--popover-content cds--tooltip-content"
+                    >
+                      2 new
+                    </span>
+                    <span
+                      class="cds--popover-caret"
+                    />
+                  </span>
+                </span>
+                <span
+                  class="cds--popover-container cds--popover--caret cds--popover--high-contrast cds--popover--top cds--tooltip cds--icon-tooltip"
+                >
+                  <div
+                    class="cds--tooltip-trigger__wrapper"
+                  >
+                    <button
+                      aria-labelledby="tooltip-23"
+                      class="cds--btn--icon-only status-card__status cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary cds--btn--icon-only cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary"
+                      style="background-color: rgb(255, 183, 132);"
+                      type="button"
+                    >
+                      1
+                    </button>
+                  </div>
+                  <span
+                    aria-hidden="true"
+                    class="cds--popover"
+                    id="tooltip-23"
+                    role="tooltip"
+                  >
+                    <span
+                      class="cds--popover-content cds--tooltip-content"
+                    >
+                      1 acknowledged
+                    </span>
+                    <span
+                      class="cds--popover-caret"
+                    />
+                  </span>
+                </span>
+                <span
+                  class="cds--popover-container cds--popover--caret cds--popover--high-contrast cds--popover--top cds--tooltip cds--icon-tooltip"
+                >
+                  <div
+                    class="cds--tooltip-trigger__wrapper"
+                  >
+                    <button
+                      aria-labelledby="tooltip-26"
+                      class="cds--btn--icon-only status-card__status cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary cds--btn--icon-only cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary"
+                      style="background-color: rgb(255, 183, 132);"
+                      type="button"
+                    >
+                      6
+                    </button>
+                  </div>
+                  <span
+                    aria-hidden="true"
+                    class="cds--popover"
+                    id="tooltip-26"
+                    role="tooltip"
+                  >
+                    <span
+                      class="cds--popover-content cds--tooltip-content"
+                    >
+                      6 ticketed
+                    </span>
+                    <span
+                      class="cds--popover-caret"
+                    />
+                  </span>
+                </span>
+              </div>
+            </div>
+            <div
+              class="status-card"
+            >
+              <span
+                class="status-card__label"
+                title="Minor"
+              >
+                Minor
+              </span>
+              <div
+                class="status-card__status-row"
+              >
+                <span
+                  class="cds--popover-container cds--popover--caret cds--popover--high-contrast cds--popover--top cds--tooltip cds--icon-tooltip"
+                >
+                  <div
+                    class="cds--tooltip-trigger__wrapper"
+                  >
+                    <button
+                      aria-labelledby="tooltip-29"
+                      class="cds--btn--icon-only status-card__status cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary cds--btn--icon-only cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary"
+                      style="background-color: rgb(253, 220, 105);"
+                      type="button"
+                    >
+                      12
+                    </button>
+                  </div>
+                  <span
+                    aria-hidden="true"
+                    class="cds--popover"
+                    id="tooltip-29"
+                    role="tooltip"
+                  >
+                    <span
+                      class="cds--popover-content cds--tooltip-content"
+                    >
+                      12 new
+                    </span>
+                    <span
+                      class="cds--popover-caret"
+                    />
+                  </span>
+                </span>
+                <span
+                  class="cds--popover-container cds--popover--caret cds--popover--high-contrast cds--popover--top cds--tooltip cds--icon-tooltip"
+                >
+                  <div
+                    class="cds--tooltip-trigger__wrapper"
+                  >
+                    <button
+                      aria-labelledby="tooltip-32"
+                      class="cds--btn--icon-only status-card__status cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary cds--btn--icon-only cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary"
+                      style="background-color: rgb(224, 224, 224);"
+                      type="button"
+                    >
+                      0
+                    </button>
+                  </div>
+                  <span
+                    aria-hidden="true"
+                    class="cds--popover"
+                    id="tooltip-32"
+                    role="tooltip"
+                  >
+                    <span
+                      class="cds--popover-content cds--tooltip-content"
+                    >
+                      0 acknowledged
+                    </span>
+                    <span
+                      class="cds--popover-caret"
+                    />
+                  </span>
+                </span>
+                <span
+                  class="cds--popover-container cds--popover--caret cds--popover--high-contrast cds--popover--top cds--tooltip cds--icon-tooltip"
+                >
+                  <div
+                    class="cds--tooltip-trigger__wrapper"
+                  >
+                    <button
+                      aria-labelledby="tooltip-35"
+                      class="cds--btn--icon-only status-card__status cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary cds--btn--icon-only cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary"
+                      style="background-color: rgb(253, 220, 105);"
+                      type="button"
+                    >
+                      14
+                    </button>
+                  </div>
+                  <span
+                    aria-hidden="true"
+                    class="cds--popover"
+                    id="tooltip-35"
+                    role="tooltip"
+                  >
+                    <span
+                      class="cds--popover-content cds--tooltip-content"
+                    >
+                      14 ticketed
+                    </span>
+                    <span
+                      class="cds--popover-caret"
+                    />
+                  </span>
+                </span>
+              </div>
+            </div>
+            <div
+              class="status-card"
+            >
+              <span
+                class="status-card__label"
+                title="Warning"
+              >
+                Warning
+              </span>
+              <div
+                class="status-card__status-row"
+              >
+                <span
+                  class="cds--popover-container cds--popover--caret cds--popover--high-contrast cds--popover--top cds--tooltip cds--icon-tooltip"
+                >
+                  <div
+                    class="cds--tooltip-trigger__wrapper"
+                  >
+                    <button
+                      aria-labelledby="tooltip-38"
+                      class="cds--btn--icon-only status-card__status cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary cds--btn--icon-only cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary"
+                      style="background-color: rgb(69, 137, 255);"
+                      type="button"
+                    >
+                      13
+                    </button>
+                  </div>
+                  <span
+                    aria-hidden="true"
+                    class="cds--popover"
+                    id="tooltip-38"
+                    role="tooltip"
+                  >
+                    <span
+                      class="cds--popover-content cds--tooltip-content"
+                    >
+                      13 new
+                    </span>
+                    <span
+                      class="cds--popover-caret"
+                    />
+                  </span>
+                </span>
+                <span
+                  class="cds--popover-container cds--popover--caret cds--popover--high-contrast cds--popover--top cds--tooltip cds--icon-tooltip"
+                >
+                  <div
+                    class="cds--tooltip-trigger__wrapper"
+                  >
+                    <button
+                      aria-labelledby="tooltip-41"
+                      class="cds--btn--icon-only status-card__status cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary cds--btn--icon-only cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary"
+                      style="background-color: rgb(224, 224, 224);"
+                      type="button"
+                    >
+                      0
+                    </button>
+                  </div>
+                  <span
+                    aria-hidden="true"
+                    class="cds--popover"
+                    id="tooltip-41"
+                    role="tooltip"
+                  >
+                    <span
+                      class="cds--popover-content cds--tooltip-content"
+                    >
+                      0 acknowledged
+                    </span>
+                    <span
+                      class="cds--popover-caret"
+                    />
+                  </span>
+                </span>
+                <span
+                  class="cds--popover-container cds--popover--caret cds--popover--high-contrast cds--popover--top cds--tooltip cds--icon-tooltip"
+                >
+                  <div
+                    class="cds--tooltip-trigger__wrapper"
+                  >
+                    <button
+                      aria-labelledby="tooltip-44"
+                      class="cds--btn--icon-only status-card__status cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary cds--btn--icon-only cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary"
+                      style="background-color: rgb(69, 137, 255);"
+                      type="button"
+                    >
+                      2
+                    </button>
+                  </div>
+                  <span
+                    aria-hidden="true"
+                    class="cds--popover"
+                    id="tooltip-44"
+                    role="tooltip"
+                  >
+                    <span
+                      class="cds--popover-content cds--tooltip-content"
+                    >
+                      2 ticketed
+                    </span>
+                    <span
+                      class="cds--popover-caret"
+                    />
+                  </span>
+                </span>
+              </div>
+            </div>
+            <div
+              class="status-card"
+            >
+              <span
+                class="status-card__label"
+                title="Information"
+              >
+                Information
+              </span>
+              <div
+                class="status-card__status-row"
+              >
+                <span
+                  class="cds--popover-container cds--popover--caret cds--popover--high-contrast cds--popover--top cds--tooltip cds--icon-tooltip"
+                >
+                  <div
+                    class="cds--tooltip-trigger__wrapper"
+                  >
+                    <button
+                      aria-labelledby="tooltip-47"
+                      class="cds--btn--icon-only status-card__status cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary cds--btn--icon-only cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary"
+                      style="background-color: rgb(208, 226, 255);"
+                      type="button"
+                    >
+                      15
+                    </button>
+                  </div>
+                  <span
+                    aria-hidden="true"
+                    class="cds--popover"
+                    id="tooltip-47"
+                    role="tooltip"
+                  >
+                    <span
+                      class="cds--popover-content cds--tooltip-content"
+                    >
+                      15 new
+                    </span>
+                    <span
+                      class="cds--popover-caret"
+                    />
+                  </span>
+                </span>
+                <span
+                  class="cds--popover-container cds--popover--caret cds--popover--high-contrast cds--popover--top cds--tooltip cds--icon-tooltip"
+                >
+                  <div
+                    class="cds--tooltip-trigger__wrapper"
+                  >
+                    <button
+                      aria-labelledby="tooltip-50"
+                      class="cds--btn--icon-only status-card__status cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary cds--btn--icon-only cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary"
+                      style="background-color: rgb(224, 224, 224);"
+                      type="button"
+                    >
+                      0
+                    </button>
+                  </div>
+                  <span
+                    aria-hidden="true"
+                    class="cds--popover"
+                    id="tooltip-50"
+                    role="tooltip"
+                  >
+                    <span
+                      class="cds--popover-content cds--tooltip-content"
+                    >
+                      0 acknowledged
+                    </span>
+                    <span
+                      class="cds--popover-caret"
+                    />
+                  </span>
+                </span>
+                <span
+                  class="cds--popover-container cds--popover--caret cds--popover--high-contrast cds--popover--top cds--tooltip cds--icon-tooltip"
+                >
+                  <div
+                    class="cds--tooltip-trigger__wrapper"
+                  >
+                    <button
+                      aria-labelledby="tooltip-53"
+                      class="cds--btn--icon-only status-card__status cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary cds--btn--icon-only cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary"
+                      style="background-color: rgb(224, 224, 224);"
+                      type="button"
+                    >
+                      0
+                    </button>
+                  </div>
+                  <span
+                    aria-hidden="true"
+                    class="cds--popover"
+                    id="tooltip-53"
+                    role="tooltip"
+                  >
+                    <span
+                      class="cds--popover-content cds--tooltip-content"
+                    >
+                      0 ticketed
+                    </span>
+                    <span
+                      class="cds--popover-caret"
+                    />
+                  </span>
+                </span>
+              </div>
+            </div>
+            <div
+              class="status-card"
+            >
+              <span
+                class="status-card__label"
+                title="Indeterminate"
+              >
+                Indeterminate
+              </span>
+              <div
+                class="status-card__status-row"
+              >
+                <span
+                  class="cds--popover-container cds--popover--caret cds--popover--high-contrast cds--popover--top cds--tooltip cds--icon-tooltip"
+                >
+                  <div
+                    class="cds--tooltip-trigger__wrapper"
+                  >
+                    <button
+                      aria-labelledby="tooltip-56"
+                      class="cds--btn--icon-only status-card__status cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary cds--btn--icon-only cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary"
+                      style="background-color: rgb(232, 218, 255);"
+                      type="button"
+                    >
+                      12
+                    </button>
+                  </div>
+                  <span
+                    aria-hidden="true"
+                    class="cds--popover"
+                    id="tooltip-56"
+                    role="tooltip"
+                  >
+                    <span
+                      class="cds--popover-content cds--tooltip-content"
+                    >
+                      12 new
+                    </span>
+                    <span
+                      class="cds--popover-caret"
+                    />
+                  </span>
+                </span>
+                <span
+                  class="cds--popover-container cds--popover--caret cds--popover--high-contrast cds--popover--top cds--tooltip cds--icon-tooltip"
+                >
+                  <div
+                    class="cds--tooltip-trigger__wrapper"
+                  >
+                    <button
+                      aria-labelledby="tooltip-59"
+                      class="cds--btn--icon-only status-card__status cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary cds--btn--icon-only cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary"
+                      style="background-color: rgb(224, 224, 224);"
+                      type="button"
+                    >
+                      0
+                    </button>
+                  </div>
+                  <span
+                    aria-hidden="true"
+                    class="cds--popover"
+                    id="tooltip-59"
+                    role="tooltip"
+                  >
+                    <span
+                      class="cds--popover-content cds--tooltip-content"
+                    >
+                      0 acknowledged
+                    </span>
+                    <span
+                      class="cds--popover-caret"
+                    />
+                  </span>
+                </span>
+                <span
+                  class="cds--popover-container cds--popover--caret cds--popover--high-contrast cds--popover--top cds--tooltip cds--icon-tooltip"
+                >
+                  <div
+                    class="cds--tooltip-trigger__wrapper"
+                  >
+                    <button
+                      aria-labelledby="tooltip-62"
+                      class="cds--btn--icon-only status-card__status cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary cds--btn--icon-only cds--btn cds--btn--sm cds--layout--size-sm cds--btn--primary"
+                      style="background-color: rgb(224, 224, 224);"
+                      type="button"
+                    >
+                      0
+                    </button>
+                  </div>
+                  <span
+                    aria-hidden="true"
+                    class="cds--popover"
+                    id="tooltip-62"
+                    role="tooltip"
+                  >
+                    <span
+                      class="cds--popover-content cds--tooltip-content"
+                    >
+                      0 ticketed
+                    </span>
+                    <span
+                      class="cds--popover-caret"
+                    />
+                  </span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <button
+        class="status-groups__reset cds--btn cds--btn--secondary"
+        type="button"
+      >
+        Reset filter
+      </button>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

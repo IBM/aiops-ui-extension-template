@@ -1,0 +1,43 @@
+/**
+ * © Copyright IBM Corp. 2022, 2023
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+.hdm--custom-layout-container {
+  display: flex;
+  flex-direction: column;
+
+  > div {
+    border: unset !important;
+  }
+
+  .alert-timeline {
+    background: #fff;
+    height: 45vh;
+    margin: 1rem 1rem 0;
+    
+    &__heading {
+      display: flex;
+      flex-direction: column;
+      font-size: 1.25rem;
+      padding: 1rem 1rem 0;
+    }
+
+    &__chart {
+      padding: 1rem 1rem 0;
+    }
+
+    &__reset {
+      float: right;
+      margin-right: 1rem;
+    }   
+    
+    &-options {
+      &-firstrow {
+        align-items: center;
+        column-gap: 12px;
+        display: inline-flex;
+      }
+    }
+  }
+}

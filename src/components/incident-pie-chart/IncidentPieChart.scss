@@ -1,0 +1,83 @@
+/**
+ * © Copyright IBM Corp. 2022, 2023
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+@import '@carbon/charts/styles.css';
+
+.hdm--custom-layout-container {
+  gap: 20px;
+  grid-template-columns: 2fr 5fr !important;
+
+  > div {
+    border: unset !important;
+  }
+
+  .cds--cc--layout-alignitems-center {
+    justify-content: flex-end;
+  }
+
+  .cds--dropdown__wrapper--inline {
+    grid-gap: 0;
+  }
+
+  .incident-pie-chart {
+    background: #fff;
+    margin: 1rem;
+    max-width: 600px;
+    min-width: 600px;
+    padding: 0 1rem;
+    position: relative;
+    width: 100%;
+
+    .cds--list-box__field {
+      padding-left: 5px;
+    }
+
+    .cds--cc--title {
+      display: none;
+    }
+
+    .datapoint-tooltip {
+      font-size: 12px;
+      line-height: 16px;
+    }
+
+    &__heading {
+      display: flex;
+      flex-direction: column;
+      font-size: 1.25rem;
+      padding: 1rem 0 0.125rem;
+    }
+
+    &__selectors {
+      display: flex;
+
+      > div:nth-child(3) {
+        flex-grow: 1;
+      }
+    }
+        
+    &__subheading {
+      color: #525252;
+      font-size: 0.875rem;
+      line-height: 2rem;
+    }
+        
+    &__chart {
+      padding: 1rem;
+    }
+        
+    &__reset {
+      background-color: #fff;
+      bottom: 0;
+      position: absolute;
+      right: 0;
+      z-index: 1;
+    }
+
+    .cds--cc--legend {
+      width: 80%;
+    }
+  }
+}
