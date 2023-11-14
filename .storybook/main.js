@@ -6,16 +6,16 @@
 const path = require('path');
 const sass = require('sass');
 
+const maxAssetSize = 230 * 1024;
+
 const config = {
   stories: [
     '../src/**/*.stories.@(js|jsx|ts|tsx)'
   ],
   addons: [
-    '@storybook/addon-docs',
     '@storybook/addon-a11y',
     '@storybook/addon-links',
     '@storybook/addon-essentials',
-    '@storybook/addon-actions',
     '@storybook/preset-scss',
     'storybook-addon-turbo-build'
   ],
@@ -29,6 +29,30 @@ const config = {
     config.resolve.fallback.fs = false;
     return {
       ...config,
+      optimization: {
+        minimize: true,
+        splitChunks: {
+          chunks: 'all',
+          minSize: 20 * 1024,
+          maxSize: maxAssetSize,
+          cacheGroups: {
+            defaultVendors: {
+              test: /[\\/]node_modules[\\/]/,
+              priority: -10,
+              reuseExistingChunk: true,
+            },
+            default: {
+              minChunks: 2,
+              priority: -20,
+              reuseExistingChunk: true,
+            },
+          },
+        }
+      },
+      performance: {
+        maxAssetSize: maxAssetSize,
+        maxEntrypointSize: maxAssetSize,
+      },
       module: {
         rules: [
           {
