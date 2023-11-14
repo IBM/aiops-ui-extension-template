@@ -48,7 +48,7 @@
   > Also if you ever want to remove the examples, `npm run examples -- --remove -n <AIOps namespace>`
   
 8. Build your own custom pages!
-  - Predefined panels - Use a panel provided by Cloud Pak for AIOps, alertViewer or topologyViewer.
+  - Predefined panels - Use a panel provided by Cloud Pak for AIOps, alertViewer or incidentViewer.
   - Custom panels - Create custom React components to do whatever you like. Several examples are provided to help get you started.
   > All panels must be exported in `src/index.js`.
 
