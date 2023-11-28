@@ -3,10 +3,6 @@ language: node_js
 node_js:
   - 18
 
-branches:
-  only:
-    - main
-
 before_install:
   - echo "{\"bundleName\":\"alerts-examples\"}" > target.json
   - git remote add deployorigin https://${GH_TOKEN}@github.com/ibm/aiops-ui-extension-template.git
@@ -19,4 +15,4 @@ script:
   - npm run test || travis_terminate 1
   - npm run build || travis_terminate 1
   - npm run build:storybook || travis_terminate 1
-  - test "$TRAVIS_EVENT_TYPE" != "pull_request" && npm run deploy:storybook:ci || echo "not deploying storybook"
+  - test "$TRAVIS_EVENT_TYPE" != "pull_request" && "$TRAVIS_BRANCH" == "main" && npm run deploy:storybook:ci || echo "not deploying storybook"
