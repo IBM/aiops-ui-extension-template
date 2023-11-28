@@ -21,10 +21,10 @@ async function loadRoutesFile() {
 
 module.exports = async (env) => {
   // For insecure mode (no certs)
-  if (targetDataJSON.insecure) {
-    process.removeAllListeners('warning');
-    process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
-  }
+  // if (targetDataJSON.insecure) { // currently no support for cert checking, api validation only
+  process.removeAllListeners('warning');
+  process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+  // }
 
   let mconfig;
   if (env.WEBPACK_SERVE) {

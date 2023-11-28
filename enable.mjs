@@ -17,7 +17,6 @@ const defaultTarget = {
   url: 'https://cpd-aiops.apps.yourcluster.cp.yourdomain.com/',
   username: '<your api user>',
   apiKey: '<your api key>',
-  insecure: true,
   tenantId: 'cfd95b7e-3bc7-4006-a4a8-a73a79c71255',
   bundleName: 'alerts-examples'
 };
@@ -218,13 +217,13 @@ const { namespace, disable, insecure } = minimist(process.argv.slice(2),
   {
     alias: { n: 'namespace', d: 'disable', k: 'insecure' },
     boolean: ['disable', 'insecure'],
-    default: { namespace: defaultNamespace, disable: false, insecure: false }
+    default: { namespace: defaultNamespace, disable: false, insecure: true }
   });
 
-if (insecure) {
+  // if (targetDataJSON.insecure) { // currently no support for cert checking, api validation only
   process.removeAllListeners('warning');
   process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
-}
+  // }
   
 try {
   const client = getClient();
