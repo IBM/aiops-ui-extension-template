@@ -26,12 +26,10 @@
     "url": "https://cpd-aiops.apps.yourcluster.cp.yourdomain.com/",
     "username": "<your api user>",
     "apiKey": "<your api key>",
-    "insecure": true,
     "tenantId": "cfd95b7e-3bc7-4006-a4a8-a73a79c71255",
     "bundleName": "alerts-examples"
   }
 ```
-  > The insecure property is set to `true` for local development to bypass client certificate authentication.
 
 5. Run the examples locally.
   - Start your local server, `npm start`
