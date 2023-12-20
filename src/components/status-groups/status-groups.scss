@@ -77,14 +77,14 @@ $side-panel-width: 175px;
       }
     }
 
-    .cds--accordion__heading {
-      justify-content: flex-end;
-    }
-
     .cds--accordion__title {
       padding-left: unset;
       padding-right: 0.5rem;
       width: unset;
+    }
+    
+    .cds--accordion__item--active .cds--accordion__wrapper {
+      max-block-size: initial !important;
     }
   }
 }
