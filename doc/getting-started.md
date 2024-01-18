@@ -14,6 +14,7 @@
     
 3. Enable the dashboard extension feature on your cluster.
   - `oc login --token=<admin user token> --server=<your cluster>`
+  - `oc patch aiopsui aiopsui-instance --type merge -p '{"spec":{"container":{"uiBundleApi":{"image":{"pullSecret":"YOUR PULL SECRET"}}}}}' -n <AIOps namespace>`
   - `npm run enable -- -n <AIOps namespace>`
 
 4. Create an API key.
