@@ -1,7 +1,7 @@
 {
   "menuRoutes": [
     {
-        "categoryTitle": "Sample dashboards",
+        "categoryTitle": "Example dashboards",
         "routes": [
             "/alerts-top-10",
             "/alerts-workflow",
