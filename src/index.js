@@ -30,6 +30,20 @@ export const TopNPanel = {
   }
 };
 
+export const TopNIncidentsPanel = {
+  renderer: ReactRenderer,
+  state: {
+    component: () => import('./panels/top-n-incidents.panel')
+  }
+};
+
+export const ApplicationHeatmapPanel = {
+  renderer: ReactRenderer,
+  state: {
+    component: () => import('./panels/application-heatmap.panel')
+  }
+};
+
 export const AlertsTimelinePanel = {
   renderer: ReactRenderer,
   state: {
@@ -47,5 +61,7 @@ export const IncidentsPieChart = {
 window.registerCustomPanel('hello-world', SimpleSamplePanel);
 window.registerCustomPanel('alerts-workflow', AlertsWorkflowPanel);
 window.registerCustomPanel('top-n', TopNPanel);
+window.registerCustomPanel('top-n-incidents', TopNIncidentsPanel);
+window.registerCustomPanel('application-heatmap', ApplicationHeatmapPanel);
 window.registerCustomPanel('alerts-timeline', AlertsTimelinePanel);
 window.registerCustomPanel('incidents-pie-chart', IncidentsPieChart);

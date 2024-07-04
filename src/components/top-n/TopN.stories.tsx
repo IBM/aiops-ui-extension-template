@@ -5,11 +5,14 @@
 
 import React from 'react';
 import TopN from './TopN';
-import { GROUP_BY as groups } from '../constants';
+import { GROUP_BY as groups, INCIDENT_GROUPBY as incidentGroups, INCIDENT_COUNT_THRESHOLD as thresholds } from '../constants';
 import mockAlerts from '../../mocks/alerts.json';
+import mockIncidents from '../../mocks/incidents.json';
+import getAlertStatusGroupCounts from '../../helpers/getStatusGroupCounts';
+import getIncidentGroupCounts from '../../helpers/getIncidentGroupCounts';
 
 export default {
-  title: 'Alerts top 10',
+  title: 'Top 10',
   component: TopN,
   argTypes: {
     data: {
@@ -30,7 +33,16 @@ export const Default = Template.bind({});
 Default.args = {
   data: mockAlerts.data,
   groups,
-  top: 10
+  top: 10,
+  getStatusGroupCounts: getAlertStatusGroupCounts
+};
+
+export const Incidents = () => {
+  return (
+    <div style={{border: '1px solid #E0E0E0'}}>
+      <TopN data={mockIncidents.data} groups={incidentGroups} refetch={() => {}} things={'stories'} timeProp={'createdTime'} getStatusGroupCounts={getIncidentGroupCounts} thresholds={thresholds} />
+    </div>
+  );
 };
 
 export const Skeleton = () => {

@@ -96,7 +96,7 @@ export default function useQuery(query: string, options: object) {
   };
 
   useEffect(() => {
-    if (query) refetch();
+    if (query) refetch(); // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [query, options]);
 
   return {

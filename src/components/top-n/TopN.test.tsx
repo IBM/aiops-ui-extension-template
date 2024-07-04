@@ -28,7 +28,8 @@ describe('TopN', () => {
     const props = {
       data: mockAlerts.data,
       groups,
-      refetch: () => {}
+      refetch: () => {},
+      getStatusGroupCounts: () => ({ somegroup: { total: 12 } }),
     };
     render(
       wrapWithAkoraProvider(

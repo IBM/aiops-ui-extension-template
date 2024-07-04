@@ -122,6 +122,10 @@
                     {
                         "type": "string",
                         "name": "@insights.type='aiops.ibm.com/insight-type/relationship/causal-union'"
+                    },
+                    {
+                        "type": "string",
+                        "name": "@insights.type='aiops.ibm.com/insight-type/topology/group'"
                     }
                 ],
                 "rows": [
@@ -156,7 +160,8 @@
                             null,
                             "dd2262d8-0000-4000-8000-000000000000",
                             "6d24f4a0aad8be848e97ddd90fc37eeb",
-                            null
+                            null,
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5B\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5B\",\"details\":{\"name\":\"Application B\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -190,7 +195,8 @@
                             null,
                             "3388fce3-9fd6-4d2d-9e97-ccc25a1084c6",
                             "{ipAddress=10.254.25.68, name=aiops-ir-core-ncobackup-0.aiops-ir-core-ncobackup.cp4waiops.svc., type=host}-Gateway-",
-                            "[{\"id\":\"34d0de2e-9bac-4f6c-a544-2793da88d3da\",\"type\":\"aiops.ibm.com/insight-type/relationship/causal-union\",\"details\":{\"policyId\":\"f9aa8860-0c94-11ee-9a35-2b346e886be5\",\"subsumedUnions\":[]}}]"
+                            "[{\"id\":\"34d0de2e-9bac-4f6c-a544-2793da88d3da\",\"type\":\"aiops.ibm.com/insight-type/relationship/causal-union\",\"details\":{\"policyId\":\"f9aa8860-0c94-11ee-9a35-2b346e886be5\",\"subsumedUnions\":[]}}]",
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5F\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5F\",\"details\":{\"name\":\"Application F\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -224,7 +230,8 @@
                             null,
                             "12345678-NOST-2023-0619-162858000000",
                             "12345678-NOST-2023-0619-162858000000",
-                            null
+                            null,
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5G\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5G\",\"details\":{\"name\":\"Application G\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -258,7 +265,8 @@
                             null,
                             "12345678-0004-2023-0619-162858000020",
                             "12345678-0004-2023-0619-162858000020",
-                            null
+                            null,
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5B\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5B\",\"details\":{\"name\":\"Application B\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -292,7 +300,8 @@
                             null,
                             "f76938fc-17df-4d10-84b9-36445e32b55c",
                             "{name=Wanstead, type=undergroundStation}-Minor delays-",
-                            "[{\"id\":\"87d19ee6-6d59-4fec-8210-5428f107e445\",\"type\":\"aiops.ibm.com/insight-type/relationship/causal-union\",\"details\":{\"policyId\":\"f9aa8860-0c94-11ee-9a35-2b346e886be5\",\"subsumedUnions\":[]}}]"
+                            "[{\"id\":\"87d19ee6-6d59-4fec-8210-5428f107e445\",\"type\":\"aiops.ibm.com/insight-type/relationship/causal-union\",\"details\":{\"policyId\":\"f9aa8860-0c94-11ee-9a35-2b346e886be5\",\"subsumedUnions\":[]}}]",
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5I\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5I\",\"details\":{\"name\":\"Application I\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -326,7 +335,8 @@
                             null,
                             "4f51267a-0000-4000-8000-000000000000",
                             "7b3e5a2fbe281df2cdfef8a07397f780",
-                            null
+                            null,
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5F\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5F\",\"details\":{\"name\":\"Application F\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -360,7 +370,8 @@
                             null,
                             "24c49a3a-0000-4000-8000-000000000000",
                             "035e8107d454d16593e15a3f5edb3a4e",
-                            null
+                            null,
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5G\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5G\",\"details\":{\"name\":\"Application G\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -394,7 +405,8 @@
                             null,
                             "ecff866d-0000-4000-8000-000000000000",
                             "2924aebe78420fbd26e0ba86d898ed0a",
-                            null
+                            null,
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5B\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5B\",\"details\":{\"name\":\"Application B\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -428,7 +440,8 @@
                             null,
                             "12345678-0010-2023-0619-162858000021",
                             "12345678-0010-2023-0619-162858000021",
-                            null
+                            null,
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5F\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5F\",\"details\":{\"name\":\"Application F\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -462,7 +475,8 @@
                             null,
                             "1c619ade-0000-4000-8000-000000000000",
                             "19b0458fa4fff87b0c9308e21b08ef54",
-                            null
+                            null,
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5A\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5A\",\"details\":{\"name\":\"Application A\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -496,7 +510,8 @@
                             null,
                             "45464582-0000-4000-8000-000000000000",
                             "f6b9b9b0e125e29a57dc55316b79a51d",
-                            null
+                            null,
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5G\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5G\",\"details\":{\"name\":\"Application G\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -530,7 +545,8 @@
                             null,
                             "c82f514d-0000-4000-8000-000000000000",
                             "a8f18f1a5b11911f91ec794666a15868",
-                            null
+                            null,
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5B\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5B\",\"details\":{\"name\":\"Application B\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -564,7 +580,8 @@
                             null,
                             "2c9b7273-0000-4000-8000-000000000000",
                             "5def1ba55b12913498013c8b4a05b9d4",
-                            null
+                            null,
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5B\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5B\",\"details\":{\"name\":\"Application B\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -598,7 +615,8 @@
                             null,
                             "cdd4998d-0000-4000-8000-000000000000",
                             "b78082ece802f44d3f3fdb241165d806",
-                            null
+                            null,
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5J\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5J\",\"details\":{\"name\":\"Application J\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -632,7 +650,8 @@
                             null,
                             "fc295ecd-0000-4000-8000-000000000000",
                             "ab4dfd7185e7d29c692a0408477ca2aa",
-                            null
+                            null,
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5F\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5F\",\"details\":{\"name\":\"Application F\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -666,7 +685,8 @@
                             null,
                             "305cf5f4-564c-48d1-abf6-e0bf603394a3",
                             "{ipAddress=10.254.32.102, name=aiops-ir-core-ncobackup-0.aiops-ir-core-ncobackup.cp4waiops.svc., type=host}-Gateway-",
-                            "[{\"id\":\"1501b6ad-f58a-43e5-8fe7-9d0e8208bbc9\",\"type\":\"aiops.ibm.com/insight-type/relationship/causal-union\",\"details\":{\"policyId\":\"f9aa8860-0c94-11ee-9a35-2b346e886be5\",\"subsumedUnions\":[]}}]"
+                            "[{\"id\":\"1501b6ad-f58a-43e5-8fe7-9d0e8208bbc9\",\"type\":\"aiops.ibm.com/insight-type/relationship/causal-union\",\"details\":{\"policyId\":\"f9aa8860-0c94-11ee-9a35-2b346e886be5\",\"subsumedUnions\":[]}}]",
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5B\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5B\",\"details\":{\"name\":\"Application B\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -700,7 +720,8 @@
                             null,
                             "02972b5f-0000-4000-8000-000000000000",
                             "2f36af83f6c7fbf79656066f90700400",
-                            null
+                            null,
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5G\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5G\",\"details\":{\"name\":\"Application G\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -734,7 +755,8 @@
                             null,
                             "12345678-0004-2023-0619-162858000021",
                             "12345678-0004-2023-0619-162858000021",
-                            null
+                            null,
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5J\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5J\",\"details\":{\"name\":\"Application J\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -768,7 +790,8 @@
                             null,
                             "9a747ae4-0000-4000-8000-000000000000",
                             "82468be220dcaadf108200db0ff6c790",
-                            null
+                            null,
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5D\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5D\",\"details\":{\"name\":\"Application D\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -802,7 +825,8 @@
                             null,
                             "d3db14bc-0000-4000-8000-000000000000",
                             "7e3d75f60923d879aa7e7a258ac12fc0",
-                            null
+                            null,
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5J\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5J\",\"details\":{\"name\":\"Application J\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -836,7 +860,8 @@
                             null,
                             "bb5926cd-0000-4000-8000-000000000000",
                             "f0e9ccc831b94dbe4d85e17278c04dd5",
-                            null
+                            null,
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5I\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5I\",\"details\":{\"name\":\"Application I\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -870,7 +895,8 @@
                             null,
                             "9559b4e9-0000-4000-8000-000000000000",
                             "de2476eb670a4221a8c92839644a1c12",
-                            null
+                            null,
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5D\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5D\",\"details\":{\"name\":\"Application D\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -904,7 +930,8 @@
                             null,
                             "576c3b56-9434-4ece-94bd-a81abe591ca3",
                             "{ipAddress=10.254.31.91, name=aiops-ir-core-ncobackup-0.aiops-ir-core-ncobackup.cp4waiops.svc., type=host}-Gateway-",
-                            "[{\"id\":\"6b0d800b-c495-4fff-a71c-8105225c851a\",\"type\":\"aiops.ibm.com/insight-type/relationship/causal-union\",\"details\":{\"policyId\":\"f9aa8860-0c94-11ee-9a35-2b346e886be5\",\"subsumedUnions\":[]}}]"
+                            "[{\"id\":\"6b0d800b-c495-4fff-a71c-8105225c851a\",\"type\":\"aiops.ibm.com/insight-type/relationship/causal-union\",\"details\":{\"policyId\":\"f9aa8860-0c94-11ee-9a35-2b346e886be5\",\"subsumedUnions\":[]}}]",
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5D\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5D\",\"details\":{\"name\":\"Application D\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -938,7 +965,8 @@
                             null,
                             "12345678-0002-2023-0619-162858000020",
                             "12345678-0002-2023-0619-162858000020",
-                            null
+                            null,
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5F\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5F\",\"details\":{\"name\":\"Application F\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -972,7 +1000,8 @@
                             null,
                             "12345678-0009-2023-0619-162858000020",
                             "12345678-0009-2023-0619-162858000020",
-                            null
+                            null,
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5J\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5J\",\"details\":{\"name\":\"Application J\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -1006,7 +1035,8 @@
                             null,
                             "d0e2d324-4b83-4b72-bf49-7c93450ba972",
                             "{name=London Bridge, type=undergroundStation}-Severe delays-",
-                            "[{\"id\":\"cf7c84e5-a804-46ee-b4c1-c803fd5f05ce\",\"type\":\"aiops.ibm.com/insight-type/relationship/causal-union\",\"details\":{\"policyId\":\"f9aa8860-0c94-11ee-9a35-2b346e886be5\",\"subsumedUnions\":[]}}]"
+                            "[{\"id\":\"cf7c84e5-a804-46ee-b4c1-c803fd5f05ce\",\"type\":\"aiops.ibm.com/insight-type/relationship/causal-union\",\"details\":{\"policyId\":\"f9aa8860-0c94-11ee-9a35-2b346e886be5\",\"subsumedUnions\":[]}}]",
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5A\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5A\",\"details\":{\"name\":\"Application A\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -1040,7 +1070,8 @@
                             null,
                             "12345678-0009-2023-0619-162858000021",
                             "12345678-0009-2023-0619-162858000021",
-                            null
+                            null,
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5I\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5I\",\"details\":{\"name\":\"Application I\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -1074,7 +1105,8 @@
                             null,
                             "8800891b-b742-41c8-9ea3-e3d7133ce008",
                             "{name=Bank, type=undergroundStation}-Minor delays-",
-                            "[{\"id\":\"cf7c84e5-a804-46ee-b4c1-c803fd5f05ce\",\"type\":\"aiops.ibm.com/insight-type/relationship/causal-union\",\"details\":{\"policyId\":\"f9aa8860-0c94-11ee-9a35-2b346e886be5\",\"subsumedUnions\":[]}}]"
+                            "[{\"id\":\"cf7c84e5-a804-46ee-b4c1-c803fd5f05ce\",\"type\":\"aiops.ibm.com/insight-type/relationship/causal-union\",\"details\":{\"policyId\":\"f9aa8860-0c94-11ee-9a35-2b346e886be5\",\"subsumedUnions\":[]}}]",
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5D\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5D\",\"details\":{\"name\":\"Application D\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -1108,7 +1140,8 @@
                             null,
                             "96711d87-d2fb-4fc2-b121-4d9d6ec26ecf",
                             "{name=St. Paul's, type=undergroundStation}-Minor delays-",
-                            "[{\"id\":\"cf7c84e5-a804-46ee-b4c1-c803fd5f05ce\",\"type\":\"aiops.ibm.com/insight-type/relationship/causal-union\",\"details\":{\"policyId\":\"f9aa8860-0c94-11ee-9a35-2b346e886be5\",\"subsumedUnions\":[]}}]"
+                            "[{\"id\":\"cf7c84e5-a804-46ee-b4c1-c803fd5f05ce\",\"type\":\"aiops.ibm.com/insight-type/relationship/causal-union\",\"details\":{\"policyId\":\"f9aa8860-0c94-11ee-9a35-2b346e886be5\",\"subsumedUnions\":[]}}]",
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5J\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5J\",\"details\":{\"name\":\"Application J\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -1142,7 +1175,8 @@
                             null,
                             "079f922f-3453-4d42-b305-8326a286aa55",
                             "{name=Westminster, type=undergroundStation}-Severe delays-",
-                            "[{\"id\":\"cf7c84e5-a804-46ee-b4c1-c803fd5f05ce\",\"type\":\"aiops.ibm.com/insight-type/relationship/causal-union\",\"details\":{\"policyId\":\"f9aa8860-0c94-11ee-9a35-2b346e886be5\",\"subsumedUnions\":[]}}]"
+                            "[{\"id\":\"cf7c84e5-a804-46ee-b4c1-c803fd5f05ce\",\"type\":\"aiops.ibm.com/insight-type/relationship/causal-union\",\"details\":{\"policyId\":\"f9aa8860-0c94-11ee-9a35-2b346e886be5\",\"subsumedUnions\":[]}}]",
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5E\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5E\",\"details\":{\"name\":\"Application E\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -1176,7 +1210,8 @@
                             null,
                             "0c7c5ab9-12f1-4697-ae9b-e6be1b536180",
                             "{name=Cannon Street, type=undergroundStation}-Minor delays-",
-                            "[{\"id\":\"cf7c84e5-a804-46ee-b4c1-c803fd5f05ce\",\"type\":\"aiops.ibm.com/insight-type/relationship/causal-union\",\"details\":{\"policyId\":\"f9aa8860-0c94-11ee-9a35-2b346e886be5\",\"subsumedUnions\":[]}}]"
+                            "[{\"id\":\"cf7c84e5-a804-46ee-b4c1-c803fd5f05ce\",\"type\":\"aiops.ibm.com/insight-type/relationship/causal-union\",\"details\":{\"policyId\":\"f9aa8860-0c94-11ee-9a35-2b346e886be5\",\"subsumedUnions\":[]}}]",
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5H\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5H\",\"details\":{\"name\":\"Application H\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -1210,7 +1245,8 @@
                             null,
                             "fc9b22ff-7a05-452c-adc0-5378acd4ddad",
                             "{ipAddress=10.254.30.191, name=aiops-ir-core-ncobackup-0.aiops-ir-core-ncobackup.cp4waiops.svc., type=host}-Gateway-",
-                            "[{\"id\":\"7fc62a88-f039-4954-861f-06bc2d594e9b\",\"type\":\"aiops.ibm.com/insight-type/relationship/causal-union\",\"details\":{\"policyId\":\"f9aa8860-0c94-11ee-9a35-2b346e886be5\",\"subsumedUnions\":[]}}]"
+                            "[{\"id\":\"7fc62a88-f039-4954-861f-06bc2d594e9b\",\"type\":\"aiops.ibm.com/insight-type/relationship/causal-union\",\"details\":{\"policyId\":\"f9aa8860-0c94-11ee-9a35-2b346e886be5\",\"subsumedUnions\":[]}}]",
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5D\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5D\",\"details\":{\"name\":\"Application D\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -1244,7 +1280,8 @@
                             null,
                             "a81a8a82-583c-404a-98f9-4fb4a5282351",
                             "{name=Liverpool Street, type=undergroundStation}-Minor delays-",
-                            "[{\"id\":\"cf7c84e5-a804-46ee-b4c1-c803fd5f05ce\",\"type\":\"aiops.ibm.com/insight-type/relationship/causal-union\",\"details\":{\"policyId\":\"f9aa8860-0c94-11ee-9a35-2b346e886be5\",\"subsumedUnions\":[]}}]"
+                            "[{\"id\":\"cf7c84e5-a804-46ee-b4c1-c803fd5f05ce\",\"type\":\"aiops.ibm.com/insight-type/relationship/causal-union\",\"details\":{\"policyId\":\"f9aa8860-0c94-11ee-9a35-2b346e886be5\",\"subsumedUnions\":[]}}]",
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5H\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5H\",\"details\":{\"name\":\"Application H\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -1278,7 +1315,8 @@
                             null,
                             "b0a1eba9-7416-4425-a228-98549a7c8dc0",
                             "{name=Leyton, type=undergroundStation}-Minor delays-",
-                            "[{\"id\":\"5f4b5cde-a322-473b-a339-b2e2b30362f7\",\"type\":\"aiops.ibm.com/insight-type/relationship/causal-union\",\"details\":{\"policyId\":\"f9aa8860-0c94-11ee-9a35-2b346e886be5\",\"subsumedUnions\":[]}}]"
+                            "[{\"id\":\"5f4b5cde-a322-473b-a339-b2e2b30362f7\",\"type\":\"aiops.ibm.com/insight-type/relationship/causal-union\",\"details\":{\"policyId\":\"f9aa8860-0c94-11ee-9a35-2b346e886be5\",\"subsumedUnions\":[]}}]",
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5I\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5I\",\"details\":{\"name\":\"Application I\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -1312,7 +1350,8 @@
                             null,
                             "3d82962c-0000-4000-8000-000000000000",
                             "3b85189adf5ffe912fe0676bd072861f",
-                            null
+                            null,
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5I\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5I\",\"details\":{\"name\":\"Application I\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -1346,7 +1385,8 @@
                             null,
                             "7b4f43ef-e7f1-41d9-b7ca-7d269d6d7b27",
                             "{name=Aldgate, type=undergroundStation}-Minor delays-",
-                            "[{\"id\":\"cf7c84e5-a804-46ee-b4c1-c803fd5f05ce\",\"type\":\"aiops.ibm.com/insight-type/relationship/causal-union\",\"details\":{\"policyId\":\"f9aa8860-0c94-11ee-9a35-2b346e886be5\",\"subsumedUnions\":[]}}]"
+                            "[{\"id\":\"cf7c84e5-a804-46ee-b4c1-c803fd5f05ce\",\"type\":\"aiops.ibm.com/insight-type/relationship/causal-union\",\"details\":{\"policyId\":\"f9aa8860-0c94-11ee-9a35-2b346e886be5\",\"subsumedUnions\":[]}}]",
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5D\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5D\",\"details\":{\"name\":\"Application D\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -1380,7 +1420,8 @@
                             null,
                             "a4658b98-68a1-4d88-98fc-a5bee4d142d0",
                             "{name=Waterloo, type=undergroundStation}-Severe delays-",
-                            "[{\"id\":\"cf7c84e5-a804-46ee-b4c1-c803fd5f05ce\",\"type\":\"aiops.ibm.com/insight-type/relationship/causal-union\",\"details\":{\"policyId\":\"f9aa8860-0c94-11ee-9a35-2b346e886be5\",\"subsumedUnions\":[]}}]"
+                            "[{\"id\":\"cf7c84e5-a804-46ee-b4c1-c803fd5f05ce\",\"type\":\"aiops.ibm.com/insight-type/relationship/causal-union\",\"details\":{\"policyId\":\"f9aa8860-0c94-11ee-9a35-2b346e886be5\",\"subsumedUnions\":[]}}]",
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5G\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5G\",\"details\":{\"name\":\"Application G\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -1414,7 +1455,8 @@
                             null,
                             "48c7554c-0000-4000-8000-000000000000",
                             "b69f5e4c4e145800897c25c0170951c2",
-                            null
+                            null,
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5A\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5A\",\"details\":{\"name\":\"Application A\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -1448,7 +1490,8 @@
                             null,
                             "ce87831a-0000-4000-8000-000000000000",
                             "4a2f486d3c0c2c54fbe5390664c1e3ca",
-                            null
+                            null,
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5H\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5H\",\"details\":{\"name\":\"Application H\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -1482,7 +1525,8 @@
                             null,
                             "d02f7e68-0000-4000-8000-000000000000",
                             "69c7a85e870aaa86f21387d2e5436914",
-                            null
+                            null,
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5C\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5C\",\"details\":{\"name\":\"Application C\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -1516,7 +1560,8 @@
                             null,
                             "648f8531-6808-4b4e-a15f-a273a3198b61",
                             "{name=Southwark, type=undergroundStation}-Severe delays-",
-                            "[{\"id\":\"cf7c84e5-a804-46ee-b4c1-c803fd5f05ce\",\"type\":\"aiops.ibm.com/insight-type/relationship/causal-union\",\"details\":{\"policyId\":\"f9aa8860-0c94-11ee-9a35-2b346e886be5\",\"subsumedUnions\":[]}}]"
+                            "[{\"id\":\"cf7c84e5-a804-46ee-b4c1-c803fd5f05ce\",\"type\":\"aiops.ibm.com/insight-type/relationship/causal-union\",\"details\":{\"policyId\":\"f9aa8860-0c94-11ee-9a35-2b346e886be5\",\"subsumedUnions\":[]}}]",
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5A\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5A\",\"details\":{\"name\":\"Application A\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -1550,7 +1595,8 @@
                             null,
                             "b4d55679-0000-4000-8000-000000000000",
                             "8e72dd554ecad0fcf601706cd53f0c0b",
-                            null
+                            null,
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5E\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5E\",\"details\":{\"name\":\"Application E\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -1584,7 +1630,8 @@
                             null,
                             "15da2637-0000-4000-8000-000000000000",
                             "e2a7d293cf10dd94a175f86568eac4ed",
-                            null
+                            null,
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5H\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5H\",\"details\":{\"name\":\"Application H\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -1618,7 +1665,8 @@
                             null,
                             "34c10040-0000-4000-8000-000000000000",
                             "6bc718033746b0c48abaaf794f3e0ef1",
-                            null
+                            null,
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5D\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5D\",\"details\":{\"name\":\"Application D\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -1652,7 +1700,8 @@
                             null,
                             "dcabce81-0000-4000-8000-000000000000",
                             "3d0d676cca4815ccc2fa8e82806842e1",
-                            null
+                            null,
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5C\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5C\",\"details\":{\"name\":\"Application C\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -1686,7 +1735,8 @@
                             null,
                             "cc05bdfe-0000-4000-8000-000000000000",
                             "769873e07277da3fc66a1f0c186a57a9",
-                            null
+                            null,
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5J\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5J\",\"details\":{\"name\":\"Application J\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -1720,7 +1770,8 @@
                             null,
                             "2ef2c137-4902-4e5b-857d-81e01c3b1509",
                             "{name=Tower Hill, type=undergroundStation}-Minor delays-",
-                            "[{\"id\":\"cf7c84e5-a804-46ee-b4c1-c803fd5f05ce\",\"type\":\"aiops.ibm.com/insight-type/relationship/causal-union\",\"details\":{\"policyId\":\"f9aa8860-0c94-11ee-9a35-2b346e886be5\",\"subsumedUnions\":[]}}]"
+                            "[{\"id\":\"cf7c84e5-a804-46ee-b4c1-c803fd5f05ce\",\"type\":\"aiops.ibm.com/insight-type/relationship/causal-union\",\"details\":{\"policyId\":\"f9aa8860-0c94-11ee-9a35-2b346e886be5\",\"subsumedUnions\":[]}}]",
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5A\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5A\",\"details\":{\"name\":\"Application A\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -1754,7 +1805,8 @@
                             null,
                             "03bb076f-93a0-4bed-b062-d4608ea82d00",
                             "{name=Northfields, type=undergroundStation}-No service-",
-                            "[{\"id\":\"5f4b5cde-a322-473b-a339-b2e2b30362f7\",\"type\":\"aiops.ibm.com/insight-type/relationship/causal-union\",\"details\":{\"policyId\":\"f9aa8860-0c94-11ee-9a35-2b346e886be5\",\"subsumedUnions\":[]}}]"
+                            "[{\"id\":\"5f4b5cde-a322-473b-a339-b2e2b30362f7\",\"type\":\"aiops.ibm.com/insight-type/relationship/causal-union\",\"details\":{\"policyId\":\"f9aa8860-0c94-11ee-9a35-2b346e886be5\",\"subsumedUnions\":[]}}]",
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5D\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5D\",\"details\":{\"name\":\"Application D\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -1788,7 +1840,8 @@
                             null,
                             "c4f958bf-0000-4000-8000-000000000000",
                             "a3447b938d38ec136243815420195872",
-                            null
+                            null,
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5H\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5H\",\"details\":{\"name\":\"Application H\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -1822,7 +1875,8 @@
                             null,
                             "e452e7eb-0000-4000-8000-000000000000",
                             "2a186c0735c921fc294c2fe5edeac587",
-                            null
+                            null,
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5J\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5J\",\"details\":{\"name\":\"Application J\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -1856,7 +1910,8 @@
                             null,
                             "f7e66b40-0000-4000-8000-000000000000",
                             "41d3f0d028e20b89304af0c461cb53d4",
-                            null
+                            null,
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5D\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5D\",\"details\":{\"name\":\"Application D\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -1890,7 +1945,8 @@
                             null,
                             "c21a2ae3-0000-4000-8000-000000000000",
                             "07a264e21f3bb5dc5cd2b374143873e1",
-                            null
+                            null,
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5G\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5G\",\"details\":{\"name\":\"Application G\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -1924,7 +1980,8 @@
                             null,
                             "f0df090b-0000-4000-8000-000000000000",
                             "b5d567d2d997bb258774ba6f1d07296a",
-                            null
+                            null,
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5H\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5H\",\"details\":{\"name\":\"Application H\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -1958,7 +2015,8 @@
                             null,
                             "b85ab726-e88d-44dc-996d-f2704af28bb5",
                             "{name=Monument, type=undergroundStation}-Minor delays-",
-                            "[{\"id\":\"cf7c84e5-a804-46ee-b4c1-c803fd5f05ce\",\"type\":\"aiops.ibm.com/insight-type/relationship/causal-union\",\"details\":{\"policyId\":\"f9aa8860-0c94-11ee-9a35-2b346e886be5\",\"subsumedUnions\":[]}}]"
+                            "[{\"id\":\"cf7c84e5-a804-46ee-b4c1-c803fd5f05ce\",\"type\":\"aiops.ibm.com/insight-type/relationship/causal-union\",\"details\":{\"policyId\":\"f9aa8860-0c94-11ee-9a35-2b346e886be5\",\"subsumedUnions\":[]}}]",
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5I\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5I\",\"details\":{\"name\":\"Application I\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -1992,7 +2050,8 @@
                             null,
                             "0fcd9ecd-0000-4000-8000-000000000000",
                             "9a760d85b82cf8111f2e9323e3877151",
-                            null
+                            null,
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5G\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5G\",\"details\":{\"name\":\"Application G\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -2026,7 +2085,8 @@
                             null,
                             "b9b89548-0000-4000-8000-000000000000",
                             "d99a439b62ddae6de12ec89fab140eab",
-                            null
+                            null,
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5F\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5F\",\"details\":{\"name\":\"Application F\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -2060,7 +2120,8 @@
                             null,
                             "3e8fc17e-0000-4000-8000-000000000000",
                             "f50f34f5be5c353d94364a90576baa89",
-                            null
+                            null,
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5D\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5D\",\"details\":{\"name\":\"Application D\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -2094,7 +2155,8 @@
                             null,
                             "d98e37f6-0000-4000-8000-000000000000",
                             "de00af337bbd7559e4e188f9fe98d99e",
-                            null
+                            null,
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5A\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5A\",\"details\":{\"name\":\"Application A\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -2128,7 +2190,8 @@
                             null,
                             "898faa27-1ea7-41fb-8b8a-2bfe0e39972f",
                             "{name=Barbican, type=undergroundStation}-Minor delays-",
-                            "[{\"id\":\"cf7c84e5-a804-46ee-b4c1-c803fd5f05ce\",\"type\":\"aiops.ibm.com/insight-type/relationship/causal-union\",\"details\":{\"policyId\":\"f9aa8860-0c94-11ee-9a35-2b346e886be5\",\"subsumedUnions\":[]}}]"
+                            "[{\"id\":\"cf7c84e5-a804-46ee-b4c1-c803fd5f05ce\",\"type\":\"aiops.ibm.com/insight-type/relationship/causal-union\",\"details\":{\"policyId\":\"f9aa8860-0c94-11ee-9a35-2b346e886be5\",\"subsumedUnions\":[]}}]",
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5F\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5F\",\"details\":{\"name\":\"Application F\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -2162,7 +2225,8 @@
                             null,
                             "8d558ba3-0000-4000-8000-000000000000",
                             "c0f270b9db376e37da00534ae75bbd55",
-                            null
+                            null,
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5E\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5E\",\"details\":{\"name\":\"Application E\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -2196,7 +2260,8 @@
                             null,
                             "3f3ab51e-85c5-4b3c-8b64-a9dcd4ecd559",
                             "{name=Kentons, type=undergroundStation}-No service-",
-                            "[{\"id\":\"fada1947-82e0-4052-b1bb-60251a434129\",\"type\":\"aiops.ibm.com/insight-type/relationship/causal-union\",\"details\":{\"policyId\":\"f9aa8860-0c94-11ee-9a35-2b346e886be5\",\"subsumedUnions\":[]}}]"
+                            "[{\"id\":\"fada1947-82e0-4052-b1bb-60251a434129\",\"type\":\"aiops.ibm.com/insight-type/relationship/causal-union\",\"details\":{\"policyId\":\"f9aa8860-0c94-11ee-9a35-2b346e886be5\",\"subsumedUnions\":[]}}]",
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5J\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5J\",\"details\":{\"name\":\"Application J\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -2230,7 +2295,8 @@
                             null,
                             "6b737215-0000-4000-8000-000000000000",
                             "2f5dfe174cf1cb1c7fc517f947449777",
-                            null
+                            null,
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5J\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5J\",\"details\":{\"name\":\"Application J\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -2264,7 +2330,8 @@
                             null,
                             "a5fb49e6-0000-4000-8000-000000000000",
                             "035bb4c905405ac878ff241b048060da",
-                            null
+                            null,
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5J\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5J\",\"details\":{\"name\":\"Application J\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -2298,7 +2365,8 @@
                             null,
                             "f34d7f72-87ce-4c9f-b723-965984c1d96c",
                             "{name=Moorgate, type=undergroundStation}-Minor delays-",
-                            "[{\"id\":\"cf7c84e5-a804-46ee-b4c1-c803fd5f05ce\",\"type\":\"aiops.ibm.com/insight-type/relationship/causal-union\",\"details\":{\"policyId\":\"f9aa8860-0c94-11ee-9a35-2b346e886be5\",\"subsumedUnions\":[]}}]"
+                            "[{\"id\":\"cf7c84e5-a804-46ee-b4c1-c803fd5f05ce\",\"type\":\"aiops.ibm.com/insight-type/relationship/causal-union\",\"details\":{\"policyId\":\"f9aa8860-0c94-11ee-9a35-2b346e886be5\",\"subsumedUnions\":[]}}]",
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5A\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5A\",\"details\":{\"name\":\"Application A\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -2332,7 +2400,8 @@
                             null,
                             "682fa8ce-0000-4000-8000-000000000000",
                             "e1446f1f7effeda33ab7504fb4451c48",
-                            null
+                            null,
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5I\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5I\",\"details\":{\"name\":\"Application I\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -2366,7 +2435,8 @@
                             null,
                             "e43773af-0000-4000-8000-000000000000",
                             "ff0606650a4164c9bb051a343a872fef",
-                            null
+                            null,
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5D\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5D\",\"details\":{\"name\":\"Application D\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -2400,7 +2470,8 @@
                             null,
                             "4a85707b-71eb-4eef-b5f9-47bedfd27049",
                             "{name=Gunnersbury, type=undergroundStation}-No service-",
-                            "[{\"id\":\"5f4b5cde-a322-473b-a339-b2e2b30362f7\",\"type\":\"aiops.ibm.com/insight-type/relationship/causal-union\",\"details\":{\"policyId\":\"f9aa8860-0c94-11ee-9a35-2b346e886be5\",\"subsumedUnions\":[]}}]"
+                            "[{\"id\":\"5f4b5cde-a322-473b-a339-b2e2b30362f7\",\"type\":\"aiops.ibm.com/insight-type/relationship/causal-union\",\"details\":{\"policyId\":\"f9aa8860-0c94-11ee-9a35-2b346e886be5\",\"subsumedUnions\":[]}}]",
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5I\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5I\",\"details\":{\"name\":\"Application I\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -2434,7 +2505,8 @@
                             null,
                             "81433378-0000-4000-8000-000000000000",
                             "060b49d1a7aef943b97b96ea79be9b73",
-                            null
+                            null,
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5F\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5F\",\"details\":{\"name\":\"Application F\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -2468,7 +2540,8 @@
                             null,
                             "25edf189-0000-4000-8000-000000000000",
                             "072dce262c58e7daa8834ee29c4710d1",
-                            null
+                            null,
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5H\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5H\",\"details\":{\"name\":\"Application H\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -2502,7 +2575,8 @@
                             null,
                             "28b60d7e-f171-4b84-8264-e81aca8df669",
                             "{name=Snaresbrook, type=undergroundStation}-Minor delays-",
-                            "[{\"id\":\"87d19ee6-6d59-4fec-8210-5428f107e445\",\"type\":\"aiops.ibm.com/insight-type/relationship/causal-union\",\"details\":{\"policyId\":\"f9aa8860-0c94-11ee-9a35-2b346e886be5\",\"subsumedUnions\":[]}}]"
+                            "[{\"id\":\"87d19ee6-6d59-4fec-8210-5428f107e445\",\"type\":\"aiops.ibm.com/insight-type/relationship/causal-union\",\"details\":{\"policyId\":\"f9aa8860-0c94-11ee-9a35-2b346e886be5\",\"subsumedUnions\":[]}}]",
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5G\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5G\",\"details\":{\"name\":\"Application G\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -2536,7 +2610,8 @@
                             null,
                             "e5ff4657-a622-44b5-bb4c-b83fe0cf4c73",
                             "{name=Leytonstone, type=undergroundStation}-Minor delays-",
-                            "[{\"id\":\"37f1cb9e-4067-4b8e-aa7a-65a47bf8dab0\",\"type\":\"aiops.ibm.com/insight-type/relationship/causal-union\",\"details\":{\"policyId\":\"f9aa8860-0c94-11ee-9a35-2b346e886be5\",\"subsumedUnions\":[]}}]"
+                            "[{\"id\":\"37f1cb9e-4067-4b8e-aa7a-65a47bf8dab0\",\"type\":\"aiops.ibm.com/insight-type/relationship/causal-union\",\"details\":{\"policyId\":\"f9aa8860-0c94-11ee-9a35-2b346e886be5\",\"subsumedUnions\":[]}}]",
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5H\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5H\",\"details\":{\"name\":\"Application H\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -2570,7 +2645,8 @@
                             null,
                             "53d42746-0000-4000-8000-000000000000",
                             "b5a65d6a6d17519095c8db45aea07c11",
-                            null
+                            null,
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5D\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5D\",\"details\":{\"name\":\"Application D\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -2604,7 +2680,8 @@
                             null,
                             "b398cc08-0000-4000-8000-000000000000",
                             "951d960c20def2ce452b81790329f8a2",
-                            null
+                            null,
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5G\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5G\",\"details\":{\"name\":\"Application G\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -2638,7 +2715,8 @@
                             null,
                             "2775363c-0000-4000-8000-000000000000",
                             "aa9895e965cbbb9be5306544d8438b67",
-                            null
+                            null,
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5J\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5J\",\"details\":{\"name\":\"Application J\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -2672,7 +2750,8 @@
                             null,
                             "29798fb4-70e5-4380-a5db-22e4337fbe02",
                             "{ipAddress=10.254.31.21, name=aiops-ir-core-ncobackup-0.aiops-ir-core-ncobackup.cp4waiops.svc., type=host}-Gateway-",
-                            "[{\"id\":\"4f214460-77b5-4dc7-8a51-184d0b122647\",\"type\":\"aiops.ibm.com/insight-type/relationship/causal-union\",\"details\":{\"policyId\":\"f9aa8860-0c94-11ee-9a35-2b346e886be5\",\"subsumedUnions\":[]}}]"
+                            "[{\"id\":\"4f214460-77b5-4dc7-8a51-184d0b122647\",\"type\":\"aiops.ibm.com/insight-type/relationship/causal-union\",\"details\":{\"policyId\":\"f9aa8860-0c94-11ee-9a35-2b346e886be5\",\"subsumedUnions\":[]}}]",
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5C\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5C\",\"details\":{\"name\":\"Application C\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -2706,7 +2785,8 @@
                             null,
                             "a45ad53d-0000-4000-8000-000000000000",
                             "642e28448f05c233c4b97bdc911693ee",
-                            null
+                            null,
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5G\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5G\",\"details\":{\"name\":\"Application G\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -2740,7 +2820,8 @@
                             null,
                             "2e8f5fae-0000-4000-8000-000000000000",
                             "f9acd4c7dc0c2c39982da05566adeae7",
-                            null
+                            null,
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5B\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5B\",\"details\":{\"name\":\"Application B\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -2774,7 +2855,8 @@
                             null,
                             "94dad56a-0000-4000-8000-000000000000",
                             "034a842afbd8727519a075b4ee5fe345",
-                            null
+                            null,
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5D\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5D\",\"details\":{\"name\":\"Application D\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -2808,7 +2890,8 @@
                             null,
                             "12345678-0007-2023-0619-162858000020",
                             "12345678-0007-2023-0619-162858000020",
-                            null
+                            null,
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5C\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5C\",\"details\":{\"name\":\"Application C\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -2842,7 +2925,8 @@
                             null,
                             "12345678-0007-2023-0619-162858000021",
                             "12345678-0007-2023-0619-162858000021",
-                            null
+                            null,
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5C\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5C\",\"details\":{\"name\":\"Application C\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -2876,7 +2960,8 @@
                             null,
                             "12345678-0006-2023-0619-162858000021",
                             "12345678-0006-2023-0619-162858000021",
-                            null
+                            null,
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5F\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5F\",\"details\":{\"name\":\"Application F\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     },
                     {
@@ -2910,7 +2995,8 @@
                             null,
                             "12345678-0006-2023-0619-162858000020",
                             "12345678-0006-2023-0619-162858000020",
-                            null
+                            null,
+                            "[{\"id\":\"BrNw4xWmRHimBcADthBj5G\",\"type\":\"aiops.ibm.com/insight-type/topology/group#BrNw4xWmRHimBcADthBj5G\",\"details\":{\"name\":\"Application G\",\"entityTypes\":[\"wasApplication\"]}}]"
                         ]
                     }
                 ],

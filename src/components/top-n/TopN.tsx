@@ -12,7 +12,6 @@ import { SimpleBarChart } from '@carbon/charts-react';
 import getReactRenderer from '@ibm/akora-renderer-react';
 
 import { TOP_N_TIMEFRAME } from '../constants';
-import getStatusGroupCounts from '../../helpers/getStatusGroupCounts';
 
 import './top-n.scss';
 
@@ -25,15 +24,19 @@ const TopN = (props: any) => {
   const {
     data,
     loading,
-    refetch: fetchAlerts,
+    refetch: fetchThings,
     groups,
-    top = 10
+    top = 10,
+    getStatusGroupCounts,
+    things = 'alerts',
+    timeProp = 'firstOccurrenceTime',
+    thresholds
   } = props;
-  const alerts = data?.tenant.alerts.rows;
+  const dataPoints = data?.tenant[things].rows || data?.tenant[things];
 
   const { state, app } = useAkoraState();
   const [selectedGroup, _setSelectedGroup] = useState<{label: string, value: string}>(groups?.[1]);
-  const [selectedTimeframe, _setSelectedTimeframe] = useState<{label: string, value: string}>(TOP_N_TIMEFRAME[0]);
+  const [selectedTimeframe, _setSelectedTimeframe] = useState<{label: string, value: string}>(TOP_N_TIMEFRAME(timeProp)[0]);
   const [selectedBar, setSelectedBar] = useState();
 
   // use a ref since event listeners don't have access to latest state
@@ -55,35 +58,33 @@ const TopN = (props: any) => {
   const groupBy = selectedGroup.value;
   
   const onStatusClick = (filterwhereclause: string) => {
-    const newRoute = setUrlParameters(state?.resolvedFullPath || state?.fullPath, { filtername: 'All alerts', filterwhereclause });
+    const newRoute = setUrlParameters(state?.resolvedFullPath || state?.fullPath, { filtername: `All ${things}`, filterwhereclause });
     app.replaceRoute(newRoute); 
   }
   
   const bars = useMemo(() => {
-    if (alerts) {
-      const groups = getStatusGroupCounts(groupBy, alerts);
+    if (dataPoints) {
+      const groups = getStatusGroupCounts(groupBy, dataPoints);
       const chartData = Object.keys(groups).sort().map(g => (
         {
           group: g === '-' ? 'None' : g, 
-          value: groups[g].new.count + 
-            groups[g].acknowledged.count + 
-            groups[g].ticketed.count
+          value: groups[g].total.count
         }
       ));
       return chartData.sort((a, b) => b.value - a.value).slice(0, top);
     }
     return [];
-  }, [alerts, groupBy]);
+  }, [dataPoints, groupBy]);
   
   useEffect(() => {
     const onRefresh = (e: any) => {
-      if (e.data === 'alertsrefresh' && e.origin === state.clientConfiguration.publicurl) {
-        fetchAlerts({ filter: selectedTimeframeRef.current.value });
+      if (e.data === `${things}refresh` && e.origin === state.clientConfiguration.publicurl) {
+        fetchThings({ filter: selectedTimeframeRef.current.value });
       }
     };
 
     window.addEventListener('message', onRefresh, false);
-    fetchAlerts({ filter: selectedTimeframeRef.current.value });
+    fetchThings({ filter: selectedTimeframeRef.current.value });
     return () => window.removeEventListener('message', onRefresh);
   }, []);
   
@@ -115,19 +116,34 @@ const TopN = (props: any) => {
   useEffect(() => {
     setSelectedBar(null);
     onStatusClick(selectedTimeframe.value);
-    fetchAlerts({ filter: selectedTimeframe.value });
+    fetchThings({ filter: selectedTimeframe.value });
   }, [selectedTimeframe]);
   
   useEffect(() => {
     setSelectedBar(null);
     onStatusClick(selectedTimeframe.value);
   }, [selectedGroup]);
+
+  const getFillColor = (g: string, label?: string, data?: any) => {
+    let barColor = '#4589ff';
+    if (typeof thresholds === 'object') {
+      const values = Object.keys(thresholds).sort().reverse();
+      for (let i = 0; i < values.length; i++) {
+        if (data?.value >= values[i]) {
+          barColor = thresholds[values[i]];
+          break;
+        }
+      }
+    }
+    const adjustedColor =  (selectedBar && selectedBar === g || !selectedBar) ? barColor : `${barColor}53`
+    return adjustedColor;
+  };
   
   const renderChart = () => {
     const options = {
       axes: {
         left: {
-          title: 'Open alerts',
+          title: `Open ${things}`,
           mapsTo: 'value'
         },
         bottom: {
@@ -142,7 +158,7 @@ const TopN = (props: any) => {
       data: {
         loading
       },
-      getFillColor: (g: string) => (selectedBar && selectedBar === g || !selectedBar) ? '#4589ff' : '#4589ff53',
+      getFillColor,
       height: '400px',
       legend: {
         enabled: false
@@ -172,13 +188,15 @@ const TopN = (props: any) => {
           label=''
           onChange={({selectedItem}) => setSelectedGroup(selectedItem)}
           selectedItem={selectedGroup}
+          titleText={''}
           type='inline' />
         <Dropdown
           id='timeframe-selector'
-          items={TOP_N_TIMEFRAME}
+          items={TOP_N_TIMEFRAME(timeProp)}
           label=''
           onChange={({selectedItem}) => setSelectedTimeframe(selectedItem)}
           selectedItem={selectedTimeframe}
+          titleText={''}
           type='inline' />
         <Button
           className={`${className}__reset`}

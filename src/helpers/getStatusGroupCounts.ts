@@ -25,7 +25,8 @@ export default function getStatusGroupCounts(groupBy: string, rows: Array<{field
       statusGroupCounts[groupKey] = {
         ticketed: { count: 0, maxSeverity: 0 },
         acknowledged: { count: 0, maxSeverity: 0 },
-        new: { count: 0, maxSeverity: 0 }
+        new: { count: 0, maxSeverity: 0 },
+        total: { count: 0, maxSeverity: 0 }
       };
       for (let i = 0; i < 6; i++ ) {
         statusGroupCounts[groupKey].ticketed[`sev-${i + 1}`] = 0;
@@ -46,6 +47,9 @@ export default function getStatusGroupCounts(groupBy: string, rows: Array<{field
       statusGroupCounts[groupKey].new.maxSeverity = Math.max(severity, statusGroupCounts[groupKey].new.maxSeverity);
       statusGroupCounts[groupKey].new[`sev-${severity}`]++;
     }
+    statusGroupCounts[groupKey].total.count++;
+    statusGroupCounts[groupKey].total.maxSeverity = Math.max(severity, statusGroupCounts[groupKey].total.maxSeverity);
+    statusGroupCounts[groupKey].total[`sev-${severity}`]++;
   });
 
   return statusGroupCounts;
