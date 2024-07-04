@@ -6,17 +6,16 @@
 @import '@carbon/charts/styles.css';
  
 .hdm--custom-layout-container {
-  grid-template-columns: 3fr 5fr !important;
+  display: flex;
+  flex-direction: column;
 
   > div {
     border: unset !important;
   }
   
-  .top-n {
+  .heatmap {
     background: #fff;
-    display: flex;
-    flex-direction: column;
-    margin: 1rem;
+    margin: 1rem 1rem 0;
     
     &__heading {
       display: flex;
@@ -38,6 +37,14 @@
     &__reset {
       float: right;
       margin-right: 1rem;
+    }
+
+    &-options {
+      &-firstrow {
+        align-items: center;
+        column-gap: 12px;
+        display: inline-flex;
+      }
     }
   }
 }

@@ -94,7 +94,8 @@ export const ALERT_QUERY_PARAMS = {
     'aiops.ibm.com/insight-source/relationship/causal/custom',
     'id',
     'signature',
-    '@insights.type=\'aiops.ibm.com/insight-type/relationship/causal-union\''
+    '@insights.type=\'aiops.ibm.com/insight-type/relationship/causal-union\'',
+    '@insights.type=\'aiops.ibm.com/insight-type/topology/group\''
   ],
   filter: 'state != \'clear\'',
   format: 'AIOPS'
@@ -160,20 +161,26 @@ export const GROUP_BY = [
   }
 ];
 
-export const TOP_N_TIMEFRAME = [
+export const TOP_N_TIMEFRAME = (timeProp: string) => [
   {
     label: 'All open',
     value: null
   },
   {
     label: 'Last 24 hours',
-    value: `firstOccurrenceTime > '${new Date(new Date().setHours(-24)).toISOString()}'`
+    value: `${timeProp} > '${new Date(new Date().setHours(-24)).toISOString()}'`
   },
   {
     label: 'Older than 48 hours',
-    value: `firstOccurrenceTime < '${new Date(new Date().setHours(-48)).toISOString()}'`
+    value: `${timeProp} < '${new Date(new Date().setHours(-48)).toISOString()}'`
   }
 ];
+
+export const INCIDENT_COUNT_THRESHOLD = {
+  4: '#FF0000',
+  2: '#FFBF00',
+  1: '#00FF00'
+};
 
 export const PIECHART_TIMEFRAME = [
   {
@@ -244,3 +251,6 @@ export const DROPDOWN_ITEMS : {[key: string]: string} = {
 
 export const ALL_SEVS_FIRST_OCC = 'AllSeverities_first';
 export const ALL_SEVS_LAST_OCC = 'AllSeverities_last';
+
+export const ALL_APPS_FIRST_OCC = 'AllApplications_first';
+export const ALL_APPS_LAST_OCC = 'AllApplications_last';

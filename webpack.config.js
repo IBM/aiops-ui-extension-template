@@ -61,7 +61,7 @@ module.exports = async (env) => {
 
           console.log('#################################');
           console.log('Access your stuff at these links (note port may differ if existing dev server running. Please see webpack-dev-server logs.):');
-          console.log(routesFile.routes.map(route => `  ${route.title}: https://127.0.0.1:8080/aiops/${targetDataJSON.tenantId}/page${route.path}`).join('\n'));
+          console.log(routesFile.routes.map(route => `  ${route.title}: https://127.0.0.1:9443/aiops/${targetDataJSON.tenantId}/page${route.path}`).join('\n'));
           console.log('#################################');
           console.log('');
         })();
@@ -74,7 +74,7 @@ module.exports = async (env) => {
         publicPath: `/api/p/hdm_custom_panel/${targetDataJSON.tenantId}/bundles/${targetDataJSON.bundleName}/files`
       },
       server: 'https',
-      port: 'auto',
+      port: '9443',
       proxy: env.WEBPACK_SERVE && {
         '/': {
           target: mconfig.zenUrl,
