@@ -19,6 +19,8 @@ async function loadRoutesFile() {
   return routesFile.replace(/\{\{BUNDLE_PATH\}\}/g, `bundles/${targetDataJSON.bundleName}/files/${targetDataJSON.bundleName}-bundle.js`);
 }
 
+const PORT = process.env.PORT || 9443;
+
 module.exports = async (env) => {
   // For insecure mode (no certs)
   // if (targetDataJSON.insecure) { // currently no support for cert checking, api validation only
@@ -50,7 +52,7 @@ module.exports = async (env) => {
           name: 'ui-routes',
           path: '/aiops/static/uiextensions/configuration',
           middleware: async (req, res) => {
-            const routesFile = await loadRoutesFile();
+            const routesFile = JSON.stringify(JSON.parse(await loadRoutesFile()).spec);
             res.contentType('application/json');
             res.send(routesFile);
           },
@@ -61,7 +63,7 @@ module.exports = async (env) => {
 
           console.log('#################################');
           console.log('Access your stuff at these links (note port may differ if existing dev server running. Please see webpack-dev-server logs.):');
-          console.log(routesFile.routes.map(route => `  ${route.title}: https://127.0.0.1:9443/aiops/${targetDataJSON.tenantId}/page${route.path}`).join('\n'));
+          console.log(routesFile.spec.routes.map(route => `  ${route.title}: https://127.0.0.1:${PORT}/aiops/${targetDataJSON.tenantId}/page${route.path}`).join('\n'));
           console.log('#################################');
           console.log('');
         })();
@@ -74,7 +76,7 @@ module.exports = async (env) => {
         publicPath: `/api/p/hdm_custom_panel/${targetDataJSON.tenantId}/bundles/${targetDataJSON.bundleName}/files`
       },
       server: 'https',
-      port: '9443',
+      port: PORT,
       proxy: env.WEBPACK_SERVE && {
         '/': {
           target: mconfig.zenUrl,

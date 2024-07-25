@@ -1,99 +1,101 @@
 {
-  "menuRoutes": [
-    {
-        "categoryTitle": "Example dashboards",
-        "routes": [
-            "/alerts-top-10",
-            "/alerts-workflow",
-            "/alerts-timeline",
-            "/incidents-distribution",
-            "/incidents-top-10",
-            "/application-heatmap"
+    "spec": {
+        "menuRoutes": [
+            {
+                "categoryTitle": "Example dashboards",
+                "routes": [
+                    "/alerts-top-10",
+                    "/alerts-workflow",
+                    "/alerts-timeline",
+                    "/incidents-distribution",
+                    "/incidents-top-10",
+                    "/application-heatmap"
+                ],
+                "type": "category"
+            }
         ],
-        "type": "category"
+        "routes": [
+            {
+                "path": "/alerts-workflow",
+                "regions": {
+                    "left": {
+                        "bundlePath": "bundles/alerts-examples/files/alerts-examples-bundle.js",
+                        "panelId": "alerts-workflow"
+                    },
+                    "right": {
+                        "aiopsPanel": "alertViewer"
+                    }
+                },
+                "title": "Alerts workflow"
+            },
+            {
+                "path": "/alerts-timeline",
+                "regions": {
+                    "bottom": {
+                        "aiopsPanel": "alertViewer"
+                    },
+                    "top": {
+                        "bundlePath": "bundles/alerts-examples/files/alerts-examples-bundle.js",
+                        "panelId": "alerts-timeline"
+                    }
+                },
+                "style": {
+                    "height": "45vw"
+                },
+                "title": "Alerts timeline"
+            },
+            {
+                "path": "/alerts-top-10",
+                "regions": {
+                    "right": {
+                        "aiopsPanel": "alertViewer"
+                    },
+                    "left": {
+                        "bundlePath": "bundles/alerts-examples/files/alerts-examples-bundle.js",
+                        "panelId": "top-n"
+                    }
+                },
+                "title": "Alerts top 10"
+            },
+            {
+                "path": "/incidents-distribution",
+                "regions": {
+                    "right": {
+                        "aiopsPanel": "incidentViewer"
+                    },
+                    "left": {
+                        "bundlePath": "bundles/alerts-examples/files/alerts-examples-bundle.js",
+                        "panelId": "incidents-pie-chart"
+                    }
+                },
+                "title": "Incidents distribution"
+            },
+            {
+                "path": "/incidents-top-10",
+                "regions": {
+                    "right": {
+                        "aiopsPanel": "incidentViewer"
+                    },
+                    "left": {
+                        "bundlePath": "bundles/alerts-examples/files/alerts-examples-bundle.js",
+                        "panelId": "top-n-incidents"
+                    }
+                },
+                "title": "Incidents top 10"
+            },
+            {
+                "path": "/application-heatmap",
+                "regions": {
+                    "top": {
+                        "bundlePath": "bundles/alerts-examples/files/alerts-examples-bundle.js",
+                        "panelId": "application-heatmap"
+                    },
+                    "bottom": {
+                        "aiopsPanel": "alertViewer"
+                    }
+                },
+                "title": "Application heatmap"
+            }
+        ]
     }
-  ],
-  "routes": [
-    {
-        "path": "/alerts-workflow",
-        "regions": {
-            "left": {
-                "bundlePath": "bundles/alerts-examples/files/alerts-examples-bundle.js",
-                "panelId": "alerts-workflow"
-            },
-            "right": {
-                "aiopsPanel": "alertViewer"
-            }
-        },
-        "title": "Alerts workflow"
-    },
-    {
-        "path": "/alerts-timeline",
-        "regions": {
-            "bottom": {
-                "aiopsPanel": "alertViewer"
-            },
-            "top": {
-                "bundlePath": "bundles/alerts-examples/files/alerts-examples-bundle.js",
-                "panelId": "alerts-timeline"
-            }
-        },
-        "style": {
-            "height": "45vw"
-        },
-        "title": "Alerts timeline"
-    },
-    {
-        "path": "/alerts-top-10",
-        "regions": {
-            "right": {
-                "aiopsPanel": "alertViewer"
-            },
-            "left": {
-                "bundlePath": "bundles/alerts-examples/files/alerts-examples-bundle.js",
-                "panelId": "top-n"
-            }
-        },
-        "title": "Alerts top 10"
-    },
-    {
-        "path": "/incidents-distribution",
-        "regions": {
-            "right": {
-                "aiopsPanel": "incidentViewer"
-            },
-            "left": {
-                "bundlePath": "bundles/alerts-examples/files/alerts-examples-bundle.js",
-                "panelId": "incidents-pie-chart"
-            }
-        },
-        "title": "Incidents distribution"
-    },
-    {
-        "path": "/incidents-top-10",
-        "regions": {
-            "right": {
-                "aiopsPanel": "incidentViewer"
-            },
-            "left": {
-                "bundlePath": "bundles/alerts-examples/files/alerts-examples-bundle.js",
-                "panelId": "top-n-incidents"
-            }
-        },
-        "title": "Incidents top 10"
-    },
-    {
-        "path": "/application-heatmap",
-        "regions": {
-            "top": {
-                "bundlePath": "bundles/alerts-examples/files/alerts-examples-bundle.js",
-                "panelId": "application-heatmap"
-            },
-            "bottom": {
-                "aiopsPanel": "alertViewer"
-            }
-        },
-        "title": "Application heatmap"
-    }
-]
 }

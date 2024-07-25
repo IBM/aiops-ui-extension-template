@@ -107,7 +107,7 @@ const Heatmap = (props: any) => {
     const occType = datum.group.slice(-5) === 'first' ? 'firstOccurrenceTime' : 'lastOccurrenceTime';
     const filterTemplate = `state != 'clear' and ${occType} >= '${windowLeftEdge.toISOString()}' and ${occType} < '${windowRightEdge.toISOString()}'`
     const [name, id] = datum.group.split('_');
-    const filterWithApplication = ['AllApplications', 'None'].includes(name) ? filterTemplate : (filterTemplate + ` and insights.id contains '${id}'`);
+    const filterWithApplication = ['AllApplications', 'None'].includes(name) ? filterTemplate : (filterTemplate + ` and insights.id = '${id}'`);
     return filterWithApplication;
   }
 
