@@ -2,7 +2,7 @@
 
 ## Prerequisites
 - Cloud Pak for AIOps cluster
-- UI extension [prerequisites](https://github.com/IBM/aiops-ui-extension-template/blob/main/doc/getting-started.md#step-by-step) completed:
+- UI extension [prerequisites](getting-started.md#step-by-step) completed:
   - 1. Fork...
   - 2. Install...
   - 3. Enable...
@@ -17,24 +17,30 @@
   ```
 
 #### 2. Edit the `aiopsuiextension-sample` custom resource and add the following `spec`:
+Update the config in `config/routes.json` to include the following new routes and run `npm run examples -- -n <AIOps namespace> ` to update the AIOpsUIExtension on the cluster. If you are not intending to use the other toolkit samples, you can simply remove them from the `config/routes.json` file at this stage.
 ```
-$ oc patch AIOpsUIExtension aiopsuiextension-sample --type merge -p '
-spec:
-  menuRoutes:
-    - categoryTitle: Example dashboards
-      routes:
-        - /embedded-grafana
-      type: category
-  routes:
-    - path: /embedded-grafana
-      title: Grafana
-      url: 'https://your-grafana-url.com:3000'
-' -n aiops
+{
+  "menuRoutes": [
+    {
+      "categoryTitle": "Grafana dashboards",
+      "routes": [
+          "/embedded-grafana
+      ],
+      "type": "category"
+    }
+  ],
+  "routes": [
+    {
+      "path": "/embedded-grafana",
+      "title": "Grafana",
+      "url": "https://your-grafana-url.com:3000"
+    }
+  ]
+}
 ```
 _Notes:_
   - _Adjust the url/port to be applicable to your instance._
-  - _This specification of menu routes creates a new folder in the nav named 'Example dashboards', that will then have the 'Grafana' page in it._
-  - _If you alredy have an existing `AIOpsUIExtension` then you can use that and add a new route to the same effect._
+  - _This specification of menu routes creates a new folder in the nav named 'Grafana dashboards', that will then have the 'Grafana' page in it._
 
 #### 3. Edit your grafana configuration to allow embedding: https://grafana.com/docs/grafana/latest/setup-grafana/configure-grafana/#allow_embedding.
 
