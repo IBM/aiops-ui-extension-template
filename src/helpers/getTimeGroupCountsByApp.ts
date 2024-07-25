@@ -45,13 +45,12 @@ export default function getAlertCountGroups(alerts: Array<{fields: {[key: string
 
   alerts?.forEach(alertRow => {
     const applicationString = alertRow.fields[ALERT_QUERY_PARAMS.columns.indexOf('@insights.type=\'aiops.ibm.com/insight-type/topology/group\'')];
-    let application: Insight;
+    let application: Insight = { id: null, details: { name: null } };
     if (applicationString) {
       try { // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         application = JSON.parse(applicationString)[0];
       } catch {
         // ignore
-        application = {};
       }
     }
 

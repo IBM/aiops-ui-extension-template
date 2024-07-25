@@ -11,7 +11,7 @@ const defaultCr = 'aiopsuiextension-sample';
 const defaultNamespace = 'cp4waiops';
 
 const addExamples = (finalSpec, namespace, cr) => {
-  let newSpec = JSON.stringify({ spec: finalSpec });
+  let newSpec = JSON.stringify(finalSpec);
   const getSpecChildProcess = spawn('oc', ['get', 'AIOpsUIExtension', cr, '-o', 'jsonpath={.spec}', '-n', namespace]);
   getSpecChildProcess.on('exit', (ret) => {
     const writeSpecChildProcess = !ret ?
@@ -23,7 +23,7 @@ const addExamples = (finalSpec, namespace, cr) => {
         kind: 'AIOpsUIExtension',
         metadata: { name: cr },
         apiVersion: 'consoleui.aiops.ibm.com/v1',
-        spec: finalSpec
+        ...finalSpec
       });
       writeSpecChildProcess.stdin.setEncoding('utf8');
       writeSpecChildProcess.stdin.write(newSpec + '\n');
