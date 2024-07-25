@@ -1,0 +1,3 @@
+try{
+var p=__STORYBOOKADDONS__,{addons:a,types:O,mockChannel:i}=__STORYBOOKADDONS__;var u=__STORYBOOKTHEMING__,{CacheProvider:x,ClassNames:S,Global:g,ThemeProvider:C,background:k,color:y,convert:N,create:t,createCache:R,createGlobal:B,createReset:D,css:G,darken:K,ensure:P,ignoreSsrWarning:Y,isPropValid:v,jsx:A,keyframes:I,lighten:E,styled:H,themes:M,typography:j,useTheme:w,withTheme:U}=__STORYBOOKTHEMING__;var s=t({brandTitle:"Cloud Pak for AIOps dashboard examples",brandUrl:"#"});a.setConfig({theme:s});
+}catch(e){ console.error("[Storybook] One of your manager-entries failed: " + import.meta.url, e); }
