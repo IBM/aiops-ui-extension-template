@@ -1,5 +1,5 @@
 /**
- * © Copyright IBM Corp. 2022, 2023
+ * © Copyright IBM Corp. 2022, 2025
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -45,7 +45,7 @@ const configMapExists = async (client, namespace, name) => {
     undefined,
     `metadata.name=${name}`
   );
-  return configMap?.items.length && configMap.items[0];  
+  return configMap?.items.length && configMap.items[0];
 };
 
 const patchConfigMap = async (client, namespace, name, patch) => {
@@ -85,7 +85,7 @@ const customResourceExists = async (client, namespace) => {
   } catch (e) {
     if (e.statusCode === 404) return false;
     throw e;
-  } 
+  }
 };
 
 const createCustomResource = async (client, namespace, name) => {
@@ -208,7 +208,7 @@ const waitForPods = async (client, namespace, selectorList = [], maxTries = 30, 
 
 /**
  * Enable or disable dashboard extensions
- * 
+ *
  * @namespace {*} Namespace
  * @disable {*} Disable dashboard extensions
  * @insecure {*} Disable cert check
@@ -224,25 +224,23 @@ const { namespace, disable, insecure } = minimist(process.argv.slice(2),
   process.removeAllListeners('warning');
   process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
   // }
-  
+
 try {
   const client = getClient();
   const custom = getClient(k8s.CustomObjectsApi);
-  
+
   await createTargetFile(client, namespace);
 
   await setFeatureFlag(client, namespace, disable);
-  
-  await enableCustomResource(custom, namespace, disable);
 
   await recyclePods(client, namespace, [labelSelectorOperator, labelSelectorWatcher]);
 
   const waitFor = [labelSelectorOperator, labelSelectorWatcher, labelSelectorBundle];
   const ready = await waitForPods(client, namespace, waitFor);
   if (!ready) process.exit(1);
-  
+
   await bedrock3hack(client, namespace); // until v4
-  
+
   process.exit(0);
 } catch (e) {
   console.error('Failed to enable dashboard extensions:', e.body?.message || e);

@@ -58,6 +58,13 @@ export const IncidentsPieChart = {
   }
 };
 
+export const MonitorBoxes = {
+  renderer: ReactRenderer,
+  state: {
+    component: () => import('./panels/monitor-boxes.panel')
+  }
+};
+
 window.registerCustomPanel('hello-world', SimpleSamplePanel);
 window.registerCustomPanel('alerts-workflow', AlertsWorkflowPanel);
 window.registerCustomPanel('top-n', TopNPanel);
@@ -65,3 +72,4 @@ window.registerCustomPanel('top-n-incidents', TopNIncidentsPanel);
 window.registerCustomPanel('application-heatmap', ApplicationHeatmapPanel);
 window.registerCustomPanel('alerts-timeline', AlertsTimelinePanel);
 window.registerCustomPanel('incidents-pie-chart', IncidentsPieChart);
+window.registerCustomPanel('monitor-boxes', MonitorBoxes);
