@@ -6,7 +6,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import ReactDOM from 'react-dom';
 
-import { MultiSelect} from '@carbon/react';
+import { ActionableNotification, Loading, MultiSelect} from '@carbon/react';
 import getReactRenderer from '@ibm/akora-renderer-react';
 import '@carbon/charts-react/styles.css'
 
@@ -68,33 +68,61 @@ function MonitorBoxCollection() {
     window.open(newRoute);
   }
 
-  return (
-    <div className={className} role='contentinfo'>
-      <div className={className + '__dropdown'}>
-        <MultiSelect
-          label="Select your filters"
-          titleText="Filter selection"
-          items={parsedFilters}
-          itemToElement={(item) =>
-            <span>
-              {item.filterName}
-            </span>
-          }
-          onChange={data => setSelectedFilters(data.selectedItems)}
-          selectedItems={selectedFilters}
-        />
-      </div>
-      <div className={className + '__collection'}>
-        {selectedFilters?.map((filter, index) =>
-          <MonitorBox
+  const getBody = () => {
+    if (alertFiltersLoading) {
+      return (
+        <div className={className + '__loading'}>
+          <Loading />
+        </div>
+      );
+    } else if (alertFiltersError) {
+      return (
+        <div className={className + '__error'}>
+          <ActionableNotification
+            inline
+            kind="error"
+            title="Error loading filters"
+            actionButtonLabel="Retry"
+            onActionButtonClick={() => alertFiltersRefetch()}
+          />
+        </div>
+      );
+    }
+
+    return (
+      <>
+        <div className={className + '__dropdown'}>
+          <MultiSelect
+            label="Select your filters"
+            titleText="Filter selection"
+            items={parsedFilters}
+            itemToElement={(item) =>
+              <span>
+                {item.filterName}
+              </span>
+            }
+            onChange={data => setSelectedFilters(data.selectedItems)}
+            selectedItems={selectedFilters}
+            />
+        </div>
+        <div className={className + '__collection'}>
+          {selectedFilters?.map((filter, index) =>
+            <MonitorBox
             key={`monitor-box_${index}`}
             title={filter.filterName}
             filterClause={filter.filterClause}
             onBoxClick={() => onBoxClick(filter.filterName)}
             shouldRefetch={shouldRefetch}
-          />
-        )}
-      </div>
+            />
+          )}
+        </div>
+      </>
+    );
+  };
+
+  return (
+    <div className={className} role='contentinfo'>
+      {getBody()}
     </div>
   );
 }

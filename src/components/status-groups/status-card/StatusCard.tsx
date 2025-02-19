@@ -24,7 +24,7 @@ const StatusCard = (props: {label?: string, statusList: Array<Status>}) => {
               className={`${className}__status`}
               hasIconOnly={true}
               iconDescription={s.title}
-              onClick={(e) => { e.stopPropagation(); s.onClick(); }}
+              onClick={(e: any) => { e.stopPropagation(); s.onClick(); }}
               size='sm'
               style={{backgroundColor: s.color}}>
               {s.value}
