@@ -57,3 +57,27 @@
   - Define how your panels are organized in the page. Regions include top, bottom, left and right.
   - Whenever you want to see the changes in your cluster you will have to re-run the ```npm run deploy -- -n <AIOps namespace>``` command.
   - That's all!
+
+
+## Troubleshooting
+- For error "Failed to get valid local kubeconfig file"
+The enable function will load your local kubeconfig file whilst getting your local kube client. If ther are invalid definitions in this file, the script will fail. To resolve, validate your kubeconfig file has correctly populated context entries. The file can typically be found at `/Users/myuser/.kube/config` and an example of an invalid entry would be:
+```
+contexts:
+- context:
+    cluster: ""
+    user: ""
+  name: test-cluster:6443
+```
+
+An example of a valid entry would be:
+```
+contexts:
+- context:
+    cluster: test-cluster:6443
+    namespace: test-namespace
+    user: kube:admin/api-test-cluster-com:6443
+  name: test-namespace/test-cluster:6443/kube:admin
+```
+
+You can either correct or remove invalid entries.

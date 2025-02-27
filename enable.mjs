@@ -182,10 +182,17 @@ const { namespace, disable, insecure } = minimist(process.argv.slice(2),
   process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
   // }
 
+let client;
 try {
-  const client = getClient();
-  const custom = getClient(k8s.CustomObjectsApi);
+  client = getClient();
+} catch (e) {
+  if (e.toString().includes('cluster is missing')) {
+    console.error('Failed to get valid local kubeconfig file. Please ensure your kubeconfig file has valid context entires and retry. See troubleshooting section of doc/getting-started.md for more info.');
+  }
+  process.exit(1);
+}
 
+try {
   await createTargetFile(client, namespace);
 
   await setFeatureFlag(client, namespace, disable);
