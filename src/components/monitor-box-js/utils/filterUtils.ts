@@ -1,13 +1,7 @@
-/* ******************************************************** {COPYRIGHT-TOP} ****
- * IBM Confidential
- * Licensed Materials - Property of IBM
- *
- * (C) Copyright IBM Corp. 2025 All Rights Reserved
- * 5725-Q09, 5737-M96
- *
- * US Government Users Restricted Rights - Use, duplication, or
- * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
- ********************************************************* {COPYRIGHT-END} ****/
+/**
+ * © Copyright IBM Corp. 2025
+ * SPDX-License-Identifier: Apache-2.0
+ */
 export const INSIGHT_TYPE = {
   causal: 'aiops.ibm.com/insight-type/relationship/causal',
   seasonal: 'aiops.ibm.com/insight-type/seasonal-occurrence',
