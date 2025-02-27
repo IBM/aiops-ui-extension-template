@@ -77,49 +77,6 @@ const createConfigMap = async (client, namespace, name, body) => {
   return configMap;
 };
 
-const customResourceExists = async (client, namespace) => {
-  const { group, version, plural } = defaultCustomResourceType;
-  try {
-    const { body: resource } = await client.listNamespacedCustomObject(group, version, namespace, plural);
-    return resource?.items.length > 0;
-  } catch (e) {
-    if (e.statusCode === 404) return false;
-    throw e;
-  }
-};
-
-const createCustomResource = async (client, namespace, name) => {
-  const { group, version, kind, plural } = defaultCustomResourceType;
-  const { body: customResource } = await client.createNamespacedCustomObject(
-    group, version, namespace, plural,
-    {
-      kind,
-      metadata: { name },
-      apiVersion: `${group}/${version}`,
-      spec: {}
-    }
-  );
-  return customResource;
-};
-
-const deleteCustomResource = async (client, namespace, name) => {
-  const { group, version, plural } = defaultCustomResourceType;
-  const { body: customResource } = await client.deleteNamespacedCustomObject(
-    group, version, namespace, plural, name);
-  return customResource;
-};
-
-const enableCustomResource = async (client, namespace, disable) => {
-  const exists = await customResourceExists(client, namespace);
-  if (exists && disable) {
-    console.log('Deleting custom resource ...');
-    await deleteCustomResource(client, namespace, defaultCustomResource);
-  } else if (!(exists || disable)) {
-    console.log('Creating custom resource ...');
-    await createCustomResource(client, namespace, defaultCustomResource);
-  }
-};
-
 const setFeatureFlag = async (client, namespace, disable) => {
   const data = { [defaultFeatureFlag]: disable ? 'disabled' : 'enabled' };
   const exists = await configMapExists(client, namespace, featureConfigMap);
