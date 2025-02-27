@@ -17,7 +17,12 @@
   - Otherwise, create an API key here - https://cpd-\<project-name\>.apps.\<cluster-name\>.\<domain\>/zen/#/settings/profile/list, e.g.
     > https://cpd-aiops.apps.yourcluster.cp.yourdomain.com/zen/#/settings/profile/list
 
-4. Inside the repository, create a file named `target.json` and use the following format, including the apiKey generated in the previous step. This is used to test with your cluster.
+4. Enable the dashboard extension feature on your cluster.
+  - `oc login --token=<admin user token> --server=<your cluster>`
+  - `oc patch aiopsui aiopsui-instance --type merge -p '{"spec":{"container":{"uiBundleApi":{"image":{"pullSecret":"YOUR PULL SECRET"}}}}}' -n <AIOps namespace>`
+  - `npm run enable -- -n <AIOps namespace>`
+
+5. Update the user name and API key in `target.json` with the key from the previous step. This is used to test with your cluster. Your resulting file should read like:
 ```json
   {
     "url": "https://cpd-aiops.apps.yourcluster.cp.yourdomain.com/",
@@ -27,11 +32,6 @@
     "bundleName": "alerts-examples"
   }
 ```
-
-5. Enable the dashboard extension feature on your cluster.
-  - `oc login --token=<admin user token> --server=<your cluster>`
-  - `oc patch aiopsui aiopsui-instance --type merge -p '{"spec":{"container":{"uiBundleApi":{"image":{"pullSecret":"YOUR PULL SECRET"}}}}}' -n <AIOps namespace>`
-  - `npm run enable -- -n <AIOps namespace>`
 
 6. Run the examples within your Cloud Pak for AIOps cluster.
   - Deploy the examples to the cluster, `npm run deploy -- -n <AIOps namespace>`
