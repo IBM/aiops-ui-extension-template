@@ -6,6 +6,7 @@
 import React, { useEffect, useMemo, useState, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import { Button, Checkbox, Dropdown} from '@carbon/react';
+// @ts-ignore
 import { HeatmapChart, ScaleTypes } from '@carbon/charts-react';
 import {
   ALERT_QUERY_PARAMS,

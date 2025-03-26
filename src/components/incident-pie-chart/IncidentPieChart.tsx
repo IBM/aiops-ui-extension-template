@@ -6,6 +6,7 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import ReactDOM from 'react-dom';
 import { Button, Dropdown } from '@carbon/react';
+// @ts-ignore
 import { PieChart } from '@carbon/charts-react';
 
 // @ts-ignore
@@ -77,16 +78,16 @@ const IncidentPieChart = (props: any) => {
     selectedTimeframeRef.current = timeframe;
     _setSelectedTimeframe(timeframe);
   };
-  
+
   const pieChartRef = useRef(null);
-  
+
   const targetUrl = app.resolvePathExpression(state.path);
   const { title } = app.getStateForPath(targetUrl);
   const groupBy = selectedColumn.value;
-  
+
   const onStatusClick = (filterwhereclause: string) => {
     const newRoute = setUrlParameters(state?.resolvedFullPath || state?.fullPath, { filterwhereclause });
-    app.replaceRoute(newRoute); 
+    app.replaceRoute(newRoute);
   }
 
   function countValues(keyvalue: any, countMap: Map<string, number>, value: number = 1) {
@@ -115,7 +116,7 @@ const IncidentPieChart = (props: any) => {
 
     const countMap = new Map<any, number>();
 
-    const keyParts = key.split('.'); 
+    const keyParts = key.split('.');
 
     for (const obj of objects) {
       let keyValues
@@ -124,7 +125,7 @@ const IncidentPieChart = (props: any) => {
       else keyValues =  obj[key as keyof Incidents];
 
       if (Array.isArray(keyValues)) {
-        const insightsMap = new Map<any, number>(); 
+        const insightsMap = new Map<any, number>();
         for (const value of keyValues) { // @ts-ignore
           if (isDouble) countValues(value[keyParts[1] as keyof Insights], insightsMap, 0);
           else countValues(value, countMap)
@@ -141,7 +142,7 @@ const IncidentPieChart = (props: any) => {
     return groupedCounts;
   }
 
-  
+
   const slices = useMemo(() => {
     if (incidents) {
       const chartData = countObjectsByKey(incidents, selectedColumn.value);
@@ -162,7 +163,7 @@ const IncidentPieChart = (props: any) => {
 
     setGraphColors(mappedColors);
   },[slices])
-  
+
   useEffect(() => {
     const onRefresh = (e: any) => {
       if (e.data === 'incidentsrefresh' && e.origin === state.clientConfiguration.publicurl) {
@@ -189,12 +190,12 @@ const IncidentPieChart = (props: any) => {
       onStatusClick(filter.join(' and '));
       setSelectedSlice(whichGroup);
     }
-    
+
     pieChartRef.current.chart.services.events.addEventListener(
       'pie-slice-click',
       chartOnClick
     );
-    
+
     return () => {
       if (pieChartRef.current) {
         pieChartRef.current.chart.services.events.removeEventListener(
@@ -204,18 +205,18 @@ const IncidentPieChart = (props: any) => {
       }
     };
   }, [pieChartRef, selectedSlice])
-  
+
   useEffect(() => {
     setSelectedSlice(null);
     onStatusClick(selectedTimeframe.value);
     fetchIncidents({ filter: selectedTimeframe.value });
   }, [selectedTimeframe]);
-  
+
   useEffect(() => {
     setSelectedSlice(null);
     onStatusClick(selectedTimeframe.value);
   }, [selectedColumn]);
-  
+
   const renderChart = () => {
     const options = {
       data: {
@@ -253,20 +254,20 @@ const IncidentPieChart = (props: any) => {
         return isClicked ? defaultFillColor : defaultFillColor + "80";
       },
     };
-    
+
     return (
       <div className={`${className}__chart`}>
        {/* @ts-ignore: TS2769 */}
-        <PieChart 
-          data={slices} 
-          options={options} 
+        <PieChart
+          data={slices}
+          options={options}
           ref={pieChartRef}
           >
         </PieChart>
       </div>
     );
   };
-  
+
   const renderHeader = () => (
     <>
       <div className={`${className}__heading`}>
@@ -277,6 +278,7 @@ const IncidentPieChart = (props: any) => {
           id='group-selector'
           items={columns}
           label=''
+          titleText=''
           onChange={({selectedItem}) => setSelectedColumn(selectedItem)}
           selectedItem={selectedColumn}
           type='inline' />
@@ -284,6 +286,7 @@ const IncidentPieChart = (props: any) => {
           id='timeframe-selector'
           items={timeframe}
           label=''
+          titleText=''
           onChange={({selectedItem}) => setSelectedTimeframe(selectedItem)}
           selectedItem={selectedTimeframe}
           type='inline' />
@@ -291,6 +294,7 @@ const IncidentPieChart = (props: any) => {
           id='alertsCount-selector'
           items={alertsCountFilter}
           label=''
+          titleText=''
           onChange={({selectedItem}) => setSelectedAlertsCount(selectedItem)}
           selectedItem={selectedAlertsCount}
           type='inline' />
@@ -310,8 +314,8 @@ const IncidentPieChart = (props: any) => {
       Reset filter
     </Button>
   )
-  
- 
+
+
   return (
     <div className={className} role='contentinfo'>
       {renderHeader()}

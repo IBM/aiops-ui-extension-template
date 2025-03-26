@@ -4,7 +4,7 @@
  */
 
 import React from 'react';
-import useQuery from '../helpers/useQuery';
+import { useQuery } from '../helpers/useQuery';
 import { INCIDENT_QUERY_PARAMS, INCIDENT_COUNT_THRESHOLD as thresholds, INCIDENT_GROUPBY as groups } from '../components/constants';
 import getStatusGroupCounts from '../helpers/getIncidentGroupCounts';
 import createPanel from '../app/createPanel';

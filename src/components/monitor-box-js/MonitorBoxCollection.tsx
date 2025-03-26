@@ -7,15 +7,16 @@ import React, { useEffect, useMemo, useState } from 'react';
 import ReactDOM from 'react-dom';
 
 import { ActionableNotification, Loading, MultiSelect} from '@carbon/react';
+// @ts-ignore
 import getReactRenderer from '@ibm/akora-renderer-react';
 import '@carbon/charts-react/styles.css'
 
-import MonitorBox from './MonitorBox.jsx';
-import useQuery from '../../helpers/useQuery.ts';
-import { conditionSetToAPIQuery } from './utils/filterUtils.ts';
+import MonitorBox from './MonitorBox';
+import { useQuery } from '#src/helpers/useQuery';
+import { conditionSetToAPIQuery } from './utils/filterUtils';
+import type { AlertFilter, AlertFilterParsed, QueryResponse } from './MonitorBoxTypes.d.ts';
 
 import './monitor-boxes.scss';
-
 
 const ReactRenderer = getReactRenderer(React, ReactDOM);
 const { useAkoraState, setUrlParameters } = ReactRenderer.components;
@@ -23,12 +24,12 @@ const { useAkoraState, setUrlParameters } = ReactRenderer.components;
 const className = 'monitor-boxes';
 const alertsPath = '/aiops/:tenantid/resolution-hub/alerts';
 
-function MonitorBoxCollection() {
+export default function MonitorBoxCollection() {
   const { app } = useAkoraState();
   const targetUrl = app.resolvePathExpression(alertsPath);
 
-  const [selectedFilters, setSelectedFilters] = useState([]);
-  const [parsedFilters, setParsedFilters] = useState([]);
+  const [selectedFilters, setSelectedFilters] = useState<AlertFilterParsed[]>([]);
+  const [parsedFilters, setParsedFilters] = useState<AlertFilterParsed[]>([]);
   const [shouldRefetch, setShouldRefetch] = useState(false);
 
   const queryName = useMemo(() => 'getFilters', []);
@@ -41,15 +42,18 @@ function MonitorBoxCollection() {
     loading: alertFiltersLoading,
     error: alertFiltersError,
     refetch: alertFiltersRefetch
-  } = useQuery(queryName, queryOptions);
+  }: QueryResponse = useQuery(queryName, queryOptions);
+  console.log('JSJS ~ MonitorBoxCollection ~ loading:', alertFiltersLoading);
 
   useEffect(() => {
     if(alertFiltersData) {
-      const filters = alertFiltersData?.tenant?.filters?.map((filter) => ({
-        filterName: filter.name,
-        filterClause: conditionSetToAPIQuery(filter.conditionSet)
-      }));
-      setParsedFilters(filters);
+      if ('filters' in alertFiltersData?.tenant) {
+        const filters = alertFiltersData.tenant.filters.map((filter: AlertFilter) => ({
+          filterName: filter.name,
+          filterClause: conditionSetToAPIQuery(filter.conditionSet)
+        }));
+        setParsedFilters(filters);
+      }
     }
   }, [alertFiltersData]);
 
@@ -63,9 +67,13 @@ function MonitorBoxCollection() {
     };
   }, []);
 
-  const onBoxClick = (filterName) => {
+  const onBoxClick = (filterName: string) => {
     const newRoute = setUrlParameters(targetUrl, { filtername: filterName });
     window.open(newRoute);
+  }
+
+  const onFilterSelect = (data: AlertFilterParsed[]) => {
+    setSelectedFilters(data);
   }
 
   const getBody = () => {
@@ -93,6 +101,7 @@ function MonitorBoxCollection() {
       <>
         <div className={className + '__dropdown'}>
           <MultiSelect
+            id="Filters_multiselect"
             label="Select your filters"
             titleText="Filter selection"
             items={parsedFilters}
@@ -101,13 +110,13 @@ function MonitorBoxCollection() {
                 {item.filterName}
               </span>
             }
-            onChange={data => setSelectedFilters(data.selectedItems)}
+            onChange={data => onFilterSelect(data.selectedItems)}
             selectedItems={selectedFilters}
             />
         </div>
         <div className={className + '__collection'}>
           {selectedFilters?.map((filter, index) =>
-            <MonitorBox
+          <MonitorBox
             key={`monitor-box_${index}`}
             title={filter.filterName}
             filterClause={filter.filterClause}
@@ -126,5 +135,3 @@ function MonitorBoxCollection() {
     </div>
   );
 }
-
-export default MonitorBoxCollection;

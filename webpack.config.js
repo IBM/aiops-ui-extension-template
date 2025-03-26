@@ -42,6 +42,7 @@ module.exports = async (env) => {
       filename: `${targetDataJSON.bundleName}-bundle.js`,
       path: path.resolve(__dirname, 'dist'),
     },
+    devtool: 'eval-source-map',
     devServer: {
       setupMiddlewares: (middlewares, devServer) => {
         if (!devServer) {

@@ -3,15 +3,22 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useEffect, useMemo, useState } from 'react';
-import PropTypes from 'prop-types';
-import { SimpleBarChart, ScaleTypes } from '@carbon/charts-react';
-import useQuery from '../../helpers/useQuery';
+import React, { ReactNode, useEffect, useMemo, useState } from 'react';
+import { SimpleBarChart, ScaleTypes, type BarChartOptions, type ChartTabularData } from '@carbon/charts-react';
+import { useQuery } from '#src/helpers/useQuery';
+import type { AlertSummary, QueryResponse, MonitorBoxInterface } from './MonitorBoxTypes.d.ts';
+
 import '@carbon/charts-react/styles.css'
 
 const className = 'monitor-box';
 
-const defaultOptions = {
+declare global {
+  interface Window {
+    akoraConfig: any;
+  }
+}
+
+const defaultOptions: BarChartOptions = {
   axes: {
     left: {
       mapsTo: 'value'
@@ -24,7 +31,7 @@ const defaultOptions = {
       }
     }
   },
-  getFillColor: (group) => sevColors[group],
+  getFillColor: (group: number) => sevColors[group],
   grid: {
     x: {
       enabled: false
@@ -69,7 +76,11 @@ const initialData = [
   }
 ];
 
-const sevColors = {
+interface SeverityColour {
+  [key: number]: string
+}
+
+const sevColors: SeverityColour = {
   1: '#B23AEE',
   2: '#3f71b2',
   3: '#408BFC',
@@ -78,11 +89,11 @@ const sevColors = {
   6: '#DA1E28',
 };
 
-function getHighest(summaryData) {
+function getHighest(summaryData: AlertSummary[]) {
   if (summaryData.length === 0) {
     return null;
   }
-  let highestSeverity;
+  let highestSeverity: number;
   summaryData.forEach(summary => {
     if (summary.count > 0 && (!highestSeverity || summary.severity > highestSeverity)) {
       highestSeverity = summary.severity;
@@ -91,11 +102,11 @@ function getHighest(summaryData) {
   return highestSeverity;
 }
 
-function getLowest(summaryData) {
+function getLowest(summaryData: AlertSummary[]) {
   if (summaryData.length === 0) {
     return null;
   }
-  let lowestSeverity;
+  let lowestSeverity: number;
   summaryData.forEach(summary => {
     if (summary.count > 0 && (!lowestSeverity || summary.severity < lowestSeverity)) {
       lowestSeverity = summary.severity;
@@ -104,7 +115,7 @@ function getLowest(summaryData) {
   return lowestSeverity;
 }
 
-export default function MonitorBox (props) {
+export default function MonitorBox (props: MonitorBoxInterface) {
   const {
     title,
     filterClause,
@@ -126,7 +137,8 @@ export default function MonitorBox (props) {
     loading,
     error,
     refetch
-  } = useQuery(queryName, queryOptions);
+  }: QueryResponse = useQuery(queryName, queryOptions);
+  console.log('JSJS ~ MonitorBox ~ data:', data);
 
   // Process data for summaries here
   const summaries = useMemo(() => {
@@ -136,15 +148,15 @@ export default function MonitorBox (props) {
     return {
       total: {
         title: 'Total',
-        value: data ? data.tenant.alertSummary.summary.reduce((acc, cur) => acc + cur.count, 0) : null
+        value: data && 'alertSummary' in data.tenant ? data.tenant.alertSummary.summary.reduce((acc: number, cur: AlertSummary) => acc + cur.count, 0) : null
       },
       highest: {
         title: 'Highest',
-        value: data ? getHighest(data.tenant.alertSummary.summary) : null
+        value: data && 'alertSummary' in data.tenant ? getHighest(data.tenant.alertSummary.summary) : null
       },
       lowest: {
         title: 'Lowest',
-        value: data ? getLowest(data.tenant.alertSummary.summary) : null
+        value: data && 'alertSummary' in data.tenant ? getLowest(data.tenant.alertSummary.summary) : null
       }
     };
   }, [data]);
@@ -165,11 +177,11 @@ export default function MonitorBox (props) {
   }, [loading]);
 
   useEffect(() => {
-    let newData = [];
+    let newData: ChartTabularData = [];
     initialData.forEach(initialDataPoint => {
-      const summary = data?.tenant.alertSummary.summary.find(
-        summaryDataPoint => summaryDataPoint.severity.toString() === initialDataPoint.group
-      );
+      const summary = data && 'alertSummary' in data.tenant ? data?.tenant.alertSummary.summary.find(
+        (summaryDataPoint: AlertSummary) => summaryDataPoint.severity.toString() === initialDataPoint.group
+      ) : null;
       if (summary) {
         newData.push({
           group: summary.severity.toString(),
@@ -182,7 +194,7 @@ export default function MonitorBox (props) {
     setMonitorBoxData(newData);
   }, [data]);
 
-  const getSummaryRow = (title, value) => {
+  const getSummaryRow = (title: string, value: ReactNode) => {
     return (
       <div className={`${className}__summary-row`}>
         <div className={`${className}__summary-row_left`}>{title}</div>
@@ -247,12 +259,3 @@ export default function MonitorBox (props) {
     </div>
   );
 }
-
-MonitorBox.propTypes = {
-  title: PropTypes.string,
-  filterName: PropTypes.string,
-  monitorBoxData: PropTypes.object,
-  monitorBoxOptions: PropTypes.object,
-  onBoxClick: PropTypes.func,
-  shouldRefetch: PropTypes.bool
-};

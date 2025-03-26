@@ -99,8 +99,15 @@
             },
             {
                 "path": "/monitor-boxes",
-                "bundlePath": "bundles/alerts-examples/files/alerts-examples-bundle.js",
-                "panelId": "monitor-boxes",
+                "regions": {
+                    "right": {
+                        "aiopsPanel": "alertViewer"
+                    },
+                    "left": {
+                        "bundlePath": "bundles/alerts-examples/files/alerts-examples-bundle.js",
+                        "panelId": "monitor-boxes"
+                    }
+                },
                 "title": "Monitor boxes"
             }
         ]

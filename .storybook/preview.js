@@ -1,5 +1,5 @@
 /**
- * © Copyright IBM Corp. 2022, 2023
+ * © Copyright IBM Corp. 2022, 2025
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -16,6 +16,7 @@ const { AkoraStateProvider } = getReactRenderer(React, ReactDOM).components;
 
 const withAkora = (StoryComponent, context) => {
   const { title } = context;
+  console.log('JSJS with akora');
   return (
     <AkoraStateProvider value={{
       app: {
@@ -40,7 +41,7 @@ const withAkora = (StoryComponent, context) => {
 
 const decorators = [
   withAkora,
-  (StoryComponent, context) => withConsole({ consoleInclude: ['filter'], panelInclude: ['filter'] })(StoryComponent)(context)
+  (StoryComponent, context) => withConsole()(StoryComponent)(context)
 ];
 
 const preview = {

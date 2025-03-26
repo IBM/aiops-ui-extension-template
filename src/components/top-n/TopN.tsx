@@ -6,6 +6,7 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import ReactDOM from 'react-dom';
 import { Button, Dropdown } from '@carbon/react';
+// @ts-ignore
 import { SimpleBarChart } from '@carbon/charts-react';
 
 // @ts-ignore
@@ -50,24 +51,24 @@ const TopN = (props: any) => {
     selectedTimeframeRef.current = timeframe;
     _setSelectedTimeframe(timeframe);
   };
-  
+
   const barChartRef = useRef(null);
-  
+
   const targetUrl = app.resolvePathExpression(state.path);
   const { title } = app.getStateForPath(targetUrl);
   const groupBy = selectedGroup.value;
-  
+
   const onStatusClick = (filterwhereclause: string) => {
     const newRoute = setUrlParameters(state?.resolvedFullPath || state?.fullPath, { filtername: `All ${things}`, filterwhereclause });
-    app.replaceRoute(newRoute); 
+    app.replaceRoute(newRoute);
   }
-  
+
   const bars = useMemo(() => {
     if (dataPoints) {
       const groups = getStatusGroupCounts(groupBy, dataPoints);
       const chartData = Object.keys(groups).sort().map(g => (
         {
-          group: g === '-' ? 'None' : g, 
+          group: g === '-' ? 'None' : g,
           value: groups[g].total.count
         }
       ));
@@ -75,7 +76,7 @@ const TopN = (props: any) => {
     }
     return [];
   }, [dataPoints, groupBy]);
-  
+
   useEffect(() => {
     const onRefresh = (e: any) => {
       if (e.data === `${things}refresh` && e.origin === state.clientConfiguration.publicurl) {
@@ -87,7 +88,7 @@ const TopN = (props: any) => {
     fetchThings({ filter: selectedTimeframeRef.current.value });
     return () => window.removeEventListener('message', onRefresh);
   }, []);
-  
+
   useEffect(() => {
     const onBarClick = (e: any) => {
       const whichGroup = e.detail.datum.group;
@@ -97,12 +98,12 @@ const TopN = (props: any) => {
       onStatusClick(filter.join(' and '));
       setSelectedBar(whichGroup);
     }
-    
+
     barChartRef.current.chart.services.events.addEventListener(
       'bar-click',
       onBarClick
     );
-    
+
     return () => {
       if (barChartRef.current) {
         barChartRef.current.chart.services.events.removeEventListener(
@@ -112,13 +113,13 @@ const TopN = (props: any) => {
       }
     };
   }, [barChartRef])
-  
+
   useEffect(() => {
     setSelectedBar(null);
     onStatusClick(selectedTimeframe.value);
     fetchThings({ filter: selectedTimeframe.value });
   }, [selectedTimeframe]);
-  
+
   useEffect(() => {
     setSelectedBar(null);
     onStatusClick(selectedTimeframe.value);
@@ -138,7 +139,7 @@ const TopN = (props: any) => {
     const adjustedColor =  (selectedBar && selectedBar === g || !selectedBar) ? barColor : `${barColor}53`
     return adjustedColor;
   };
-  
+
   const renderChart = () => {
     const options = {
       axes: {
@@ -164,7 +165,7 @@ const TopN = (props: any) => {
         enabled: false
       }
     };
-    
+
     return (
       <div className={`${className}__chart`}>
         <SimpleBarChart
@@ -175,7 +176,7 @@ const TopN = (props: any) => {
       </div>
     );
   };
-  
+
   const renderHeader = () => (
     <>
       <div className={`${className}__heading`}>
@@ -211,7 +212,7 @@ const TopN = (props: any) => {
       </div>
     </>
   );
- 
+
   return (
     <div className={className} role='contentinfo'>
       {renderHeader()}

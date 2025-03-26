@@ -99,8 +99,13 @@ export const extractFieldsFromFilterConditions = (conditions: CONDITION[] = []) 
   return Array.from(extractedFields);
 };
 
-export function conditionSetToAPIQuery(conditionSets: CONDITION): string {
-  return processConditionSet(conditionSets.conditions, conditionSets.operator, '', true);
+export function conditionSetToAPIQuery(conditionSet: ConditionSet): string {
+  return processConditionSet(conditionSet.conditions, conditionSet.operator, '', true);
+}
+
+export interface ConditionSet {
+  operator: string,
+  conditions: CONDITION[]
 }
 
 export interface CONDITION {
@@ -167,7 +172,6 @@ function isBujiExpression(value: string): boolean {
 
 function getValue(value: string, condition: CONDITION) {
   if (isBujiExpression(value)) {
-    // @ts-expect-error akoraConfig missing from window ts
     let val: string = window.akoraConfig.baseState.utils.bujiCompile(value)() as string;
     if (val.startsWith('"') && val.endsWith('"')) {
       val = `'${val.substring(1, val.length - 1)}'`;

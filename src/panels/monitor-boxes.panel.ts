@@ -5,7 +5,7 @@
 
 import React from 'react';
 import createPanel from '../app/createPanel';
-import MonitorBoxCollection from '../components/monitor-box-js/MonitorBoxCollection.jsx';
+import MonitorBoxCollection from '../components/monitor-box-js/MonitorBoxCollection';
 
 
 const MonitorBoxesPanel = () => {

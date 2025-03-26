@@ -8,10 +8,11 @@ import { Button } from '@carbon/react';
 
 const className = 'status-card';
 
-const StatusCard = (props: {label?: string, statusList: Array<Status>}) => {
+const StatusCard = (props: {label?: string, statusList: Array<Status>, group: string}) => {
   const {
     label,
-    statusList
+    statusList,
+    group
   } = props;
 
   return (
@@ -21,6 +22,7 @@ const StatusCard = (props: {label?: string, statusList: Array<Status>}) => {
         {
           statusList.map(s => (
             <Button
+              key={`scb_${group}_${s.title}_${label}`}
               className={`${className}__status`}
               hasIconOnly={true}
               iconDescription={s.title}
