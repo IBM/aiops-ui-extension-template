@@ -43,7 +43,6 @@ export default function MonitorBoxCollection() {
     error: alertFiltersError,
     refetch: alertFiltersRefetch
   }: QueryResponse = useQuery(queryName, queryOptions);
-  console.log('JSJS ~ MonitorBoxCollection ~ loading:', alertFiltersLoading);
 
   useEffect(() => {
     if(alertFiltersData) {

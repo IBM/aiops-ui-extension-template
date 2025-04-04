@@ -4,11 +4,18 @@
  */
 
 import React, { ReactNode, useEffect, useMemo, useState } from 'react';
+import ReactDOM from 'react-dom';
 import { SimpleBarChart, ScaleTypes, type BarChartOptions, type ChartTabularData } from '@carbon/charts-react';
 import { useQuery } from '#src/helpers/useQuery';
 import type { AlertSummary, QueryResponse, MonitorBoxInterface } from './MonitorBoxTypes.d.ts';
 
 import '@carbon/charts-react/styles.css'
+
+// @ts-ignore
+import getReactRenderer from '@ibm/akora-renderer-react';
+
+const ReactRenderer = getReactRenderer(React, ReactDOM);
+const { useAkoraState } = ReactRenderer.components;
 
 const className = 'monitor-box';
 
@@ -132,13 +139,14 @@ export default function MonitorBox (props: MonitorBoxInterface) {
     groupBy: ['severity']
   }), [filterClause]);
 
+  const { state: akoraState } = useAkoraState();
+
   const {
     data,
     loading,
     error,
     refetch
   }: QueryResponse = useQuery(queryName, queryOptions);
-  console.log('JSJS ~ MonitorBox ~ data:', data);
 
   // Process data for summaries here
   const summaries = useMemo(() => {
@@ -204,8 +212,8 @@ export default function MonitorBox (props: MonitorBoxInterface) {
   }
 
   const getSummaryRows = () => {
-    const HighestSevIcon = window.akoraConfig.baseState.utils.getSeverityIcon(summaries.highest.value);
-    const LowestSevIcon = window.akoraConfig.baseState.utils.getSeverityIcon(summaries.lowest.value);
+    const HighestSevIcon = akoraState.utils.getSeverityIcon(summaries.highest.value);
+    const LowestSevIcon = akoraState.utils.getSeverityIcon(summaries.lowest.value);
 
     return (
       <>

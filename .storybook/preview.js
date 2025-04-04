@@ -6,6 +6,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { withConsole } from '@storybook/addon-console';
+import { WarningAltFilled } from '@carbon/icons-react';
 import './_carbon-styles.scss';
 
 // @ts-ignore
@@ -16,7 +17,6 @@ const { AkoraStateProvider } = getReactRenderer(React, ReactDOM).components;
 
 const withAkora = (StoryComponent, context) => {
   const { title } = context;
-  console.log('JSJS with akora');
   return (
     <AkoraStateProvider value={{
       app: {
@@ -29,7 +29,11 @@ const withAkora = (StoryComponent, context) => {
           publicurl: 'https://someurl.com'
         },
         fullPath: '/',
-        path: '/'
+        path: '/',
+        utils: {
+          // The storybook uses a basic carbon icon rather than icons from AIOps UI
+          getSeverityIcon: () => WarningAltFilled
+        }
       }
     }}>
       <div className='hdm--custom-layout-container'>
