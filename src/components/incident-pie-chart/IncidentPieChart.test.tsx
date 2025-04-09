@@ -4,7 +4,7 @@
  */
 
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import { render, screen } from '@testing-library/react';
 import IncidentPieChart from './IncidentPieChart';
 import { INCIDENT_GROUPBY as columns, PIECHART_TIMEFRAME as timeframe, PIECHART_ALERTSCOUNT as alertsCountFilter }  from '../constants';

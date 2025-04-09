@@ -4,7 +4,7 @@
  */
 
 import React from 'react';
-import useQuery from '../helpers/useQuery';
+import { useQuery } from '../helpers/useQuery';
 import { INCIDENT_QUERY_PARAMS, INCIDENT_GROUPBY as columns, PIECHART_TIMEFRAME as timeframe, PIECHART_ALERTSCOUNT as alertsCountFilter } from '../components/constants';
 import createPanel from '../app/createPanel';
 import IncidentPieChart from '../components/incident-pie-chart/IncidentPieChart';

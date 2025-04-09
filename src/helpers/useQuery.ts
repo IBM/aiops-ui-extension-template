@@ -81,14 +81,13 @@ import { useEffect, useState } from 'react';
  * @returns Object of query properties
  */
 
-export default function useQuery(query: string, options: object) {
-  const [data, setData] = useState();
+export function useQuery<T>(query: string, options: object) {
+  const [data, setData] = useState<T>();
   const [loading, setLoading] = useState<boolean>();
-  const [error, setError] = useState();
+  const [error, setError] = useState<object>();
 
   const refetch = (refetchOptions?: object) => {
     setLoading(true);
-    // @ts-expect-error akoraConfig missing from window ts
     window.akoraConfig.baseState.API.contentAnalyticsAPI[query]({ ...options, ...refetchOptions })
       .then(setData)
       .catch(setError)

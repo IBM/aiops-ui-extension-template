@@ -1,5 +1,5 @@
 /**
- * © Copyright IBM Corp. 2022, 2023
+ * © Copyright IBM Corp. 2022, 2025
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -45,7 +45,7 @@ const configMapExists = async (client, namespace, name) => {
     undefined,
     `metadata.name=${name}`
   );
-  return configMap?.items.length && configMap.items[0];  
+  return configMap?.items.length && configMap.items[0];
 };
 
 const patchConfigMap = async (client, namespace, name, patch) => {
@@ -75,49 +75,6 @@ const createConfigMap = async (client, namespace, name, body) => {
     }
   );
   return configMap;
-};
-
-const customResourceExists = async (client, namespace) => {
-  const { group, version, plural } = defaultCustomResourceType;
-  try {
-    const { body: resource } = await client.listNamespacedCustomObject(group, version, namespace, plural);
-    return resource?.items.length > 0;
-  } catch (e) {
-    if (e.statusCode === 404) return false;
-    throw e;
-  } 
-};
-
-const createCustomResource = async (client, namespace, name) => {
-  const { group, version, kind, plural } = defaultCustomResourceType;
-  const { body: customResource } = await client.createNamespacedCustomObject(
-    group, version, namespace, plural,
-    {
-      kind,
-      metadata: { name },
-      apiVersion: `${group}/${version}`,
-      spec: {}
-    }
-  );
-  return customResource;
-};
-
-const deleteCustomResource = async (client, namespace, name) => {
-  const { group, version, plural } = defaultCustomResourceType;
-  const { body: customResource } = await client.deleteNamespacedCustomObject(
-    group, version, namespace, plural, name);
-  return customResource;
-};
-
-const enableCustomResource = async (client, namespace, disable) => {
-  const exists = await customResourceExists(client, namespace);
-  if (exists && disable) {
-    console.log('Deleting custom resource ...');
-    await deleteCustomResource(client, namespace, defaultCustomResource);
-  } else if (!(exists || disable)) {
-    console.log('Creating custom resource ...');
-    await createCustomResource(client, namespace, defaultCustomResource);
-  }
 };
 
 const setFeatureFlag = async (client, namespace, disable) => {
@@ -208,7 +165,7 @@ const waitForPods = async (client, namespace, selectorList = [], maxTries = 30, 
 
 /**
  * Enable or disable dashboard extensions
- * 
+ *
  * @namespace {*} Namespace
  * @disable {*} Disable dashboard extensions
  * @insecure {*} Disable cert check
@@ -224,25 +181,30 @@ const { namespace, disable, insecure } = minimist(process.argv.slice(2),
   process.removeAllListeners('warning');
   process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
   // }
-  
+
+let client;
 try {
-  const client = getClient();
-  const custom = getClient(k8s.CustomObjectsApi);
-  
+  client = getClient();
+} catch (e) {
+  if (e.toString().includes('cluster is missing')) {
+    console.error('Failed to get valid local kubeconfig file. Please ensure your kubeconfig file has valid context entires and retry. See troubleshooting section of doc/getting-started.md for more info.');
+  }
+  process.exit(1);
+}
+
+try {
   await createTargetFile(client, namespace);
 
   await setFeatureFlag(client, namespace, disable);
-  
-  await enableCustomResource(custom, namespace, disable);
 
   await recyclePods(client, namespace, [labelSelectorOperator, labelSelectorWatcher]);
 
   const waitFor = [labelSelectorOperator, labelSelectorWatcher, labelSelectorBundle];
   const ready = await waitForPods(client, namespace, waitFor);
   if (!ready) process.exit(1);
-  
+
   await bedrock3hack(client, namespace); // until v4
-  
+
   process.exit(0);
 } catch (e) {
   console.error('Failed to enable dashboard extensions:', e.body?.message || e);

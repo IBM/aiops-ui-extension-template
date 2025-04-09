@@ -4,7 +4,7 @@
  */
 
 import React from 'react';
-import useQuery from '../helpers/useQuery';
+import { useQuery } from '../helpers/useQuery';
 import { ALERT_QUERY_PARAMS } from '../components/constants';
 import createPanel from '../app/createPanel';
 import AlertTimeline from '../components/alert-timeline/AlertTimeline';

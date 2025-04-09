@@ -35,7 +35,11 @@ const addExamples = (finalSpec, namespace, cr) => {
     }
     writeSpecChildProcess.stderr
       .on('data', (err) => {
-        console.log(Buffer.from(err).toString());
+        const errString = Buffer.from(err).toString();
+        console.log(errString);
+        if (errString.includes('Unauthorized')) {
+          console.log('Could not write example spec due to Unauthorized error. Please ensure you are logged into the Openshift CLI.');
+        }
       });
     writeSpecChildProcess.stdout
       .on('data', (err) => {
@@ -67,7 +71,7 @@ const removeExamples = (namespace, cr) => {
 
 /**
  * Create, patch or remove example custom resource
- * 
+ *
  * @cr {*} Custom resource name
  * @namespace {*} Namespace
  * @remove {*} Remove examples

@@ -4,7 +4,7 @@
  */
 
 import React from 'react';
-import useQuery from '../helpers/useQuery';
+import { useQuery } from '../helpers/useQuery';
 import { ALERT_QUERY_PARAMS, GROUP_BY as groups } from '../components/constants';
 import getStatusGroupCounts from '../helpers/getStatusGroupCounts';
 import createPanel from '../app/createPanel';

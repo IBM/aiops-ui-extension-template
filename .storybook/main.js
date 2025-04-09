@@ -1,5 +1,5 @@
 /**
- * © Copyright IBM Corp. 2022, 2023
+ * © Copyright IBM Corp. 2022, 2025
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -29,6 +29,7 @@ const config = {
     config.resolve.fallback.fs = false;
     return {
       ...config,
+      devtool: 'eval-source-map',
       optimization: {
         minimize: true,
         splitChunks: {
@@ -57,7 +58,7 @@ const config = {
         rules: [
           {
             test: /\.(js|ts|jsx|tsx)$/,
-            exclude: /node_modules/,
+            // exclude: /node_modules/,
             include: path.resolve(__dirname, '../'),
             loader: 'babel-loader',
             options: {
@@ -66,8 +67,8 @@ const config = {
             }
           },
           {
-            test: /\.scss$/,
-            exclude: /node_modules/,
+            test: /\.(sa|sc|c)ss$/,
+            // exclude: /node_modules/,
             use: [
               'style-loader',
               'css-loader',
@@ -108,8 +109,8 @@ const config = {
                 outputPath: 'fonts',
               },
             },
-          }   
-        ]      
+          }
+        ]
       }
     };
   }

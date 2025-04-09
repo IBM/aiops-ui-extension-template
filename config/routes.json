@@ -9,7 +9,8 @@
                     "/alerts-timeline",
                     "/incidents-distribution",
                     "/incidents-top-10",
-                    "/application-heatmap"
+                    "/application-heatmap",
+                    "/monitor-boxes"
                 ],
                 "type": "category"
             }
@@ -95,6 +96,19 @@
                     }
                 },
                 "title": "Application heatmap"
+            },
+            {
+                "path": "/monitor-boxes",
+                "regions": {
+                    "right": {
+                        "aiopsPanel": "alertViewer"
+                    },
+                    "left": {
+                        "bundlePath": "bundles/alerts-examples/files/alerts-examples-bundle.js",
+                        "panelId": "monitor-boxes"
+                    }
+                },
+                "title": "Monitor boxes"
             }
         ]
     }

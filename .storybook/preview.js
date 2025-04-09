@@ -1,11 +1,12 @@
 /**
- * © Copyright IBM Corp. 2022, 2023
+ * © Copyright IBM Corp. 2022, 2025
  * SPDX-License-Identifier: Apache-2.0
  */
 
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import { withConsole } from '@storybook/addon-console';
+import { WarningAltFilled } from '@carbon/icons-react';
 import './_carbon-styles.scss';
 
 // @ts-ignore
@@ -28,7 +29,11 @@ const withAkora = (StoryComponent, context) => {
           publicurl: 'https://someurl.com'
         },
         fullPath: '/',
-        path: '/'
+        path: '/',
+        utils: {
+          // The storybook uses a basic carbon icon rather than icons from AIOps UI
+          getSeverityIcon: () => WarningAltFilled
+        }
       }
     }}>
       <div className='hdm--custom-layout-container'>
@@ -40,7 +45,7 @@ const withAkora = (StoryComponent, context) => {
 
 const decorators = [
   withAkora,
-  (StoryComponent, context) => withConsole({ consoleInclude: ['filter'], panelInclude: ['filter'] })(StoryComponent)(context)
+  (StoryComponent, context) => withConsole()(StoryComponent)(context)
 ];
 
 const preview = {

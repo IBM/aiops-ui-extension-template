@@ -4,7 +4,7 @@
  */
 
 import React, { useEffect, useMemo, useState } from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import { Accordion, AccordionItem, AccordionSkeleton, Button, Dropdown } from '@carbon/react';
 
 // @ts-ignore
@@ -15,6 +15,8 @@ import { COLORS, SEVERITIES } from '../constants';
 import getStatusGroupCounts from '../../helpers/getStatusGroupCounts';
 
 import './status-groups.scss';
+import '@carbon/charts-react/styles.css'
+
 
 const ReactRenderer = getReactRenderer(React, ReactDOM);
 const { useAkoraState, setUrlParameters } = ReactRenderer.components;
@@ -29,10 +31,10 @@ const StatusGroups = (props: any) => {
     groups
   } = props;
   const alerts = data?.tenant.alerts.rows;
-  
+
   const { state, app } = useAkoraState();
   const [selectedGroup, setSelectedGroup] = useState<{label: string, value: string}>(groups?.[0]);
-  
+
   const targetUrl = app.resolvePathExpression(state.path);
   const { title } = app.getStateForPath(targetUrl);
   const groupBy = selectedGroup?.value;
@@ -41,12 +43,12 @@ const StatusGroups = (props: any) => {
     if (alerts) return getStatusGroupCounts(groupBy, alerts);
     return {};
   }, [alerts, groupBy]);
-  
+
   const onStatusClick = (filterwhereclause: string) => {
     const newRoute = setUrlParameters(state?.resolvedFullPath || state?.fullPath, { filtername: 'All alerts', filterwhereclause });
-    app.replaceRoute(newRoute); 
+    app.replaceRoute(newRoute);
   }
-  
+
   const formatValue = (value: number) => {
     if (value >= 1000000) {
       return parseFloat((value / 1000000).toFixed(1)) + `M`
@@ -55,8 +57,8 @@ const StatusGroups = (props: any) => {
     }
     return value;
   }
-  
-  const getStatusList = (groupKey: string, severity?: number) => { 
+
+  const getStatusList = (groupKey: string, severity?: number) => {
     const statusGroup = statusGroups[groupKey];
     const statusList: Array<Status> = [];
     const getCount = (status: string) => severity ? statusGroup[status][`sev-${severity}`] : statusGroup[status].count;
@@ -85,10 +87,10 @@ const StatusGroups = (props: any) => {
       onClick: () => onStatusClick(`(relatedStoryIds != '[]' or relatedContextualStoryIds != '[]')`
         + (severity ? ` and severity = ${severity}` : '')
         + (groupBy ? ` and ${groupBy} = '${groupKey}'` : ''))
-    });   
+    });
     return statusList;
   }
-  
+
   const renderHeader = () => (
     <>
       <div className={`${className}__heading`}>
@@ -100,24 +102,30 @@ const StatusGroups = (props: any) => {
         id='status-group-selector'
         items={groups}
         label=''
+        titleText=''
         onChange={({selectedItem}) => setSelectedGroup(selectedItem)}
         selectedItem={selectedGroup}
         type='inline' />
     </>
   );
-  
-  const renderStatusList = () => Object.keys(statusGroups).sort().map((g) => (
-    <AccordionItem title={<StatusCard label={g === '-' ? 'None' : g} statusList={getStatusList(g)} />} >
+
+  console.log(statusGroups);
+
+  const renderStatusList = () => Object.keys(statusGroups).sort().map((g) => {
+    const groupId = g === '-' ? 'None' : g;
+    return (
+    <AccordionItem key={`sc_${groupId}`} title={<StatusCard label={groupId} group={groupId} statusList={getStatusList(g)} />} >
       {[6, 5, 4, 3, 2, 1].reduce((acc: Array<React.JSX.Element>, sev: number) => {
         const nextSeverity = getStatusList(g, sev);
         if (nextSeverity.find((s) => s.value !== 0)) {
-          acc.push(<StatusCard label={SEVERITIES[sev]} statusList={getStatusList(g, sev)} />);
+          const innertGroupid = `${groupId}_${sev}`;
+          acc.push(<StatusCard key={`sc_${innertGroupid}`} group={innertGroupid} label={SEVERITIES[sev]} statusList={getStatusList(g, sev)} />);
         }
         return acc;
       }, [])}
     </AccordionItem>
-  ));
-    
+  )});
+
   const renderResetButton = () => (
     <Button
       className={`${className}__reset`}
@@ -127,7 +135,7 @@ const StatusGroups = (props: any) => {
       Reset filter
     </Button>
   );
-  
+
   useEffect(() => {
     const onRefresh = (e: any) => {
       if (e.data === 'alertsrefresh' && e.origin === state.clientConfiguration.publicurl) {
@@ -138,7 +146,7 @@ const StatusGroups = (props: any) => {
     fetchAlerts();
     return () => window.removeEventListener('message', onRefresh);
   }, []);
-  
+
   useEffect(() => {
     onStatusClick('');
     fetchAlerts();

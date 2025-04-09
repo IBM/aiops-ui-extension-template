@@ -4,8 +4,9 @@
  */
 
 import React, { useEffect, useMemo, useState, useRef } from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import { Button, Checkbox, Dropdown} from '@carbon/react';
+// @ts-ignore
 import { LineChart } from '@carbon/charts-react';
 import {
   ALERT_QUERY_PARAMS,
@@ -15,6 +16,7 @@ import {
 } from '../constants';
 import getTimeGroupCounts from '../../helpers/getTimeGroupCounts';
 
+import '@carbon/charts-react/styles.css'
 import './alert-timeline.scss';
 
 // @ts-ignore
@@ -121,6 +123,7 @@ const AlertTimeline = (props: any) => {
         <div className={`${className}-options-firstrow`}>
           <Dropdown
             id='timewindow-dropdown'
+            titleText=''
             label='Time window'
             items={Object.keys(DROPDOWN_ITEMS)} itemToString={(item) => DROPDOWN_ITEMS[item]}
             selectedItem={timeWindow}
