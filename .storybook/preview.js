@@ -4,7 +4,7 @@
  */
 
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import { withConsole } from '@storybook/addon-console';
 import { WarningAltFilled } from '@carbon/icons-react';
 import './_carbon-styles.scss';

@@ -4,7 +4,7 @@
  */
 
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import { render, screen } from '@testing-library/react';
 import AlertTimeline from './AlertTimeline';
 import mockAlerts from '../../mocks/alerts.json';

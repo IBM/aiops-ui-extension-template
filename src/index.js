@@ -5,7 +5,7 @@
 
 import getReactRenderer from '@ibm/akora-renderer-react';
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 
 const ReactRenderer = getReactRenderer(React, ReactDOM);
 

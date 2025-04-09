@@ -4,7 +4,7 @@
  */
 
 import React, { useEffect, useMemo, useState } from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import { Accordion, AccordionItem, AccordionSkeleton, Button, Dropdown } from '@carbon/react';
 
 // @ts-ignore

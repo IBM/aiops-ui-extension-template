@@ -4,7 +4,7 @@
  */
 
 import React, { ReactNode, useEffect, useMemo, useState } from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import { SimpleBarChart, ScaleTypes, type BarChartOptions, type ChartTabularData } from '@carbon/charts-react';
 import { useQuery } from '#src/helpers/useQuery';
 import type { AlertSummary, QueryResponse, MonitorBoxInterface } from './MonitorBoxTypes.js';

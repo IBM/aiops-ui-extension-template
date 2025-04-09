@@ -4,7 +4,7 @@
  */
 
 import React, { useEffect, useMemo, useState, useRef } from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import { Button, Checkbox, Dropdown} from '@carbon/react';
 // @ts-ignore
 import { LineChart } from '@carbon/charts-react';

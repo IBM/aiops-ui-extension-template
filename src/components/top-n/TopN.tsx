@@ -4,7 +4,7 @@
  */
 
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import { Button, Dropdown } from '@carbon/react';
 // @ts-ignore
 import { SimpleBarChart } from '@carbon/charts-react';
