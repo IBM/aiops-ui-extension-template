@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_ibm_aiops_ui_extension_template=self.webpackChunk_ibm_aiops_ui_extension_template||[]).push([[813],{2813:function(e,i,n){n.d(i,{createCopyToClipboardFunction:function(){return t.zH}});var t=n(6218)}}]);
