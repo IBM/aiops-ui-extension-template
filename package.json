@@ -15,7 +15,7 @@
     "remove": "node ./examples.mjs --remove",
     "examples": "node ./examples.mjs",
     "upload": "node ./deploy.mjs",
-    "start": "webpack serve --watch --config webpack.config.js",
+    "start": "webpack serve --config webpack.config.js",
     "test": "cross-env TZ=utc jest --colors",
     "lint": "npm-run-all lint:ts lint:css",
     "lint:ts": "eslint src/**/*.{ts,tsx}",

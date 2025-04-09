@@ -14,7 +14,7 @@ import '@carbon/charts-react/styles.css'
 import MonitorBox from './MonitorBox';
 import { useQuery } from '#src/helpers/useQuery';
 import { conditionSetToAPIQuery } from './utils/filterUtils';
-import type { AlertFilter, AlertFilterParsed, QueryResponse } from './MonitorBoxTypes.d.ts';
+import type { AlertFilter, AlertFilterParsed, QueryResponse } from './MonitorBoxTypes';
 
 import './monitor-boxes.scss';
 

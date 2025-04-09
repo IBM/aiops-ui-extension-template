@@ -60,7 +60,7 @@
 
 
 ## Troubleshooting
-- For error "Failed to get valid local kubeconfig file"
+### - For error "Failed to get valid local kubeconfig file"
 The enable function will load your local kubeconfig file whilst getting your local kube client. If ther are invalid definitions in this file, the script will fail. To resolve, validate your kubeconfig file has correctly populated context entries. The file can typically be found at `/Users/myuser/.kube/config` and an example of an invalid entry would be:
 ```
 contexts:
@@ -81,3 +81,26 @@ contexts:
 ```
 
 You can either correct or remove invalid entries.
+
+### - Nothing loading and seeing "ChunkLoadError"/"ERR_TOO_MANY_RETRIES" in the browser console
+When running the development server locally (i.e when using `npm run start`) you may find that the content does not load and on inspection of the browser developer tools you may see this error:
+![Chunk loading error](images/chunk_loading_error.png)
+
+This is caused by having an untrusted certificate and seemingly linked to https://issues.chromium.org/issues/40418163. In order to solve, you simply need to trust the localhost certificate.
+
+#### For Mac and Chrome combination:
+
+In Chrome you will see the following:
+![Not secure](images/not_secure.png)
+
+Click the "Not Secure" button, followed by "Certificate details". This will bring up the localhost certificate. Click on the details tab, and then "Export..."![Certifcate deails](images/certificate_details.png). Find the downloaded certificate, double click and it will open up in Keychain Access:
+![Keychain access](images/keychain_access.png)
+
+Double click the localhost entry, then expand the "Trust" section and set the "When using this certificate" dropdown to "Always Trust":
+![Always trust](images/always_trust.png)
+
+Close the dialog, confirm the changes, and then you will see the certificate marked as trusted:
+![Trusted](images/trusted.png)
+
+Now, when opening the pages in Chrome you will not see the "Not secure" warning and the pages will load with no issues:
+![No not secure](images/no_not_secure.png)
