@@ -3,6 +3,8 @@
 ## Overview
 Dashboard extension examples and tools for Cloud Pak for AIOps
 
+### NOTE - The UI extension template is currently pending a fix that will be delivered in IBM Cloud Pak for AIOps 4.9.1 (GA on 30th April 2025) and until that time will not function correctly when used against a cluster. The storybook functionality is not impacted.
+
 ## Components
 [Components](src/components) are the widgets that comprise your dashboard. Components must be exported as [panels](src/panels) to be used in a dashboard region. These are written in React.js, and we recommend [Carbon Design System](https://carbondesignsystem.com/) as the UI framework, although you may use any React.js compatible library.
 
