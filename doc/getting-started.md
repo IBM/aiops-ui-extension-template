@@ -82,6 +82,30 @@ contexts:
 
 You can either correct or remove invalid entries.
 
+### - For error "Error returned from API"
+If you are quickly running through the getting start steps, there is a small chance that the bundle API pod is not actually ready by the time you deploy the samples or any other dashboard content. In this case you will see an error like:
+```
+Error: Error returned from API
+    at getError (/Path-to/aiops-ui-extension-template/node_modules/cp4waiops-ui-bundle-tools/dist/clients/BundleApiClient.js:16:17)
+    at Object.uploadBundle (/Path-to/aiops-ui-extension-template/node_modules/cp4waiops-ui-bundle-tools/dist/clients/AiopsBundleApiClient.js:60:58)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async Object.uploadBundleFromDirectory (/Path-to/aiops-ui-extension-template/node_modules/cp4waiops-ui-bundle-tools/dist/tasks/UploadBundleTask.js:9:28)
+    at async file:////Path-to/aiops-ui-extension-template/deploy.mjs:29:3 {
+  cause: { message: 'Response: Error 404 - Not Found ' },
+  code: 'INTERNAL_ERROR'
+}
+```
+When this occurs, you can check the status of the bundle api by running:
+```
+oc get po | grep bundle
+```
+And should expect the following output:
+```
+aiops-ir-ui-bundle-api-7d486749bb-d865d                           1/1     Running     0          2m18s
+```
+
+If the bundle api is not "1/1 Running" then there may have been an issue with the pull secret provided. Please inspect the pod for any errors.
+
 ### - Nothing loading and seeing "ChunkLoadError"/"ERR_TOO_MANY_RETRIES" in the browser console
 When running the development server locally (i.e when using `npm run start`) you may find that the content does not load and on inspection of the browser developer tools you may see this error:
 ![Chunk loading error](images/chunk_loading_error.png)
