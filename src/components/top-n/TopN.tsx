@@ -30,15 +30,14 @@ const TopN = (props: any) => {
     top = 10,
     getStatusGroupCounts,
     things = 'alerts',
-    timeProp = 'firstOccurrenceTime',
-    thresholds
+    timeProp = 'firstOccurrenceTime'
   } = props;
   const dataPoints = data?.tenant[things].rows || data?.tenant[things];
 
   const { state, app } = useAkoraState();
   const [selectedGroup, _setSelectedGroup] = useState<{label: string, value: string}>(groups?.[1]);
   const [selectedTimeframe, _setSelectedTimeframe] = useState<{label: string, value: string}>(TOP_N_TIMEFRAME(timeProp)[0]);
-  const [selectedBar, setSelectedBar] = useState();
+  const [selectedBar, _setSelectedBar] = useState();
 
   // use a ref since event listeners don't have access to latest state
   const selectedGroupRef = useRef(selectedGroup);
@@ -50,6 +49,11 @@ const TopN = (props: any) => {
   const setSelectedTimeframe = (timeframe: any) => {
     selectedTimeframeRef.current = timeframe;
     _setSelectedTimeframe(timeframe);
+  };
+  const selectedBarRef = useRef(selectedBar);
+  const setSelectedBar = (bar: any) => {
+    selectedBarRef.current = bar;
+    _setSelectedBar(bar);
   };
 
   const barChartRef = useRef(null);
@@ -90,13 +94,20 @@ const TopN = (props: any) => {
   }, []);
 
   useEffect(() => {
+    const filter = [];
+    if (selectedGroupRef.current.value && selectedBar !== null) filter.push(`${selectedGroupRef.current.value} = '${selectedBar === 'None' ? '-' : selectedBar}'`);
+    if (selectedTimeframeRef.current.value) filter.push(selectedTimeframeRef.current.value);
+    onStatusClick(filter.join(' and '));
+  }, [selectedBar])
+
+  useEffect(() => {
     const onBarClick = (e: any) => {
       const whichGroup = e.detail.datum.group;
-      const filter = [];
-      if (selectedGroupRef.current.value) filter.push(`${selectedGroupRef.current.value} = '${whichGroup === 'None' ? '-' : whichGroup}'`);
-      if (selectedTimeframeRef.current.value) filter.push(selectedTimeframeRef.current.value);
-      onStatusClick(filter.join(' and '));
-      setSelectedBar(whichGroup);
+      if (whichGroup !== selectedBarRef.current) {
+        setSelectedBar(whichGroup);
+      } else {
+        setSelectedBar(null);
+      }
     }
 
     barChartRef.current.chart.services.events.addEventListener(
@@ -127,15 +138,6 @@ const TopN = (props: any) => {
 
   const getFillColor = (g: string, label?: string, data?: any) => {
     let barColor = '#4589ff';
-    if (typeof thresholds === 'object') {
-      const values = Object.keys(thresholds).sort().reverse();
-      for (let i = 0; i < values.length; i++) {
-        if (data?.value >= values[i]) {
-          barColor = thresholds[values[i]];
-          break;
-        }
-      }
-    }
     const adjustedColor =  (selectedBar && selectedBar === g || !selectedBar) ? barColor : `${barColor}53`
     return adjustedColor;
   };
