@@ -9,6 +9,7 @@ module.exports = {
               "ignore": ["class"]
             }
         ],
-        'selector-class-pattern': null
+        'selector-class-pattern': null,
+        'color-named': null
     }
 };

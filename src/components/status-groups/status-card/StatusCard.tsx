@@ -1,5 +1,5 @@
 /**
- * © Copyright IBM Corp. 2022, 2023
+ * © Copyright IBM Corp. 2022, 2025
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -31,8 +31,7 @@ const StatusCard = (props: {label?: string, statusList: Array<Status>, group: st
               style={{backgroundColor: s.color}}>
               {s.value}
             </Button>
-            )
-          )
+          ))
         }
       </div>
     </div>

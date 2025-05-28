@@ -1,5 +1,5 @@
 /**
- * © Copyright IBM Corp. 2022, 2023
+ * © Copyright IBM Corp. 2022, 2025
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -58,7 +58,7 @@ const Heatmap = (props: any) => {
 
   const getTimeWindowLeftEdge = () => {
     // replace with line below for accurate chart (this date is for example purposes)
-    const threshold = new Date("2023-08-22T16:49:00.000Z")
+    const threshold = new Date('2023-08-22T16:49:00.000Z')
     // const threshold = new Date(); // todo change to date now
     let dateThresh;
     // window is either last 15 min or last 24 hours

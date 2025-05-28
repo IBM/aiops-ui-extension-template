@@ -1,5 +1,5 @@
 /**
- * © Copyright IBM Corp. 2022, 2023
+ * © Copyright IBM Corp. 2022, 2025
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -95,7 +95,7 @@ export function useQuery<T>(query: string, options: object) {
   };
 
   useEffect(() => {
-    if (query) refetch(); // eslint-disable-next-line react-hooks/exhaustive-deps
+    if (query) refetch();
   }, [query, options]);
 
   return {

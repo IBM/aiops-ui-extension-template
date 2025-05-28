@@ -1,7 +1,7 @@
 dist: jammy
 language: node_js
 node_js:
-  - 18
+  - 20
 
 before_install:
   - echo "{\"bundleName\":\"alerts-examples\"}" > target.json

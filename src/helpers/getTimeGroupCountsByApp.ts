@@ -1,5 +1,5 @@
 /**
- * © Copyright IBM Corp. 2022, 2023
+ * © Copyright IBM Corp. 2022, 2025
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -47,7 +47,7 @@ export default function getAlertCountGroups(alerts: Array<{fields: {[key: string
     const applicationString = alertRow.fields[ALERT_QUERY_PARAMS.columns.indexOf('@insights.type=\'aiops.ibm.com/insight-type/topology/group\'')];
     let application: Insight = { id: null, details: { name: null } };
     if (applicationString) {
-      try { // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+      try {
         application = JSON.parse(applicationString)[0];
       } catch {
         // ignore
