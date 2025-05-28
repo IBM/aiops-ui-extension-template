@@ -245,25 +245,24 @@ export default function MonitorBox (props: MonitorBoxInterface) {
       </div>
       {
         error ?
-        <div className={`${className}__error`}>
-          Error loading data for this monitor box.
-        </div> :
-        <>
-          <div className={`${className}__summary`}>
-            {summaries && getSummaryRows()}
-          </div>
-          <div className={`${className}__chart`}>
-            {
-              monitorBoxData &&
-              <SimpleBarChart
-                data={monitorBoxData}
-                options={monitorBoxOptions}
-              />
-            }
-          </div>
-        </>
+          <div className={`${className}__error`}>
+            Error loading data for this monitor box.
+          </div> :
+          <>
+            <div className={`${className}__summary`}>
+              {summaries && getSummaryRows()}
+            </div>
+            <div className={`${className}__chart`}>
+              {
+                monitorBoxData &&
+                <SimpleBarChart
+                  data={monitorBoxData}
+                  options={monitorBoxOptions}
+                />
+              }
+            </div>
+          </>
       }
-
     </div>
   );
 }

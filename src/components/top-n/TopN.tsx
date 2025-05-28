@@ -220,7 +220,7 @@ const TopN = (props: any) => {
       {renderHeader()}
       {renderChart()}
     </div>
-	);
+  );
 };
 
 export default TopN;

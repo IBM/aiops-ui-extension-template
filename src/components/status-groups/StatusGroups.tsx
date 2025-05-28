@@ -51,9 +51,9 @@ const StatusGroups = (props: any) => {
 
   const formatValue = (value: number) => {
     if (value >= 1000000) {
-      return parseFloat((value / 1000000).toFixed(1)) + `M`
+      return parseFloat((value / 1000000).toFixed(1)) + 'M'
     } else if (value >= 1000) {
-      return parseFloat((value / 1000).toFixed(1)) + `k`
+      return parseFloat((value / 1000).toFixed(1)) + 'k'
     }
     return value;
   }
@@ -68,7 +68,7 @@ const StatusGroups = (props: any) => {
       title: `${getCount('new')} new`,
       value: formatValue(getCount('new')),
       color: getColor('new'),
-      onClick: () => onStatusClick(`acknowledged = false and relatedStoryIds = '[]' and relatedContextualStoryIds = '[]'`
+      onClick: () => onStatusClick('acknowledged = false and relatedStoryIds = \'[]\' and relatedContextualStoryIds = \'[]\''
         + (severity ? ` and severity = ${severity}` : '')
         + (groupBy ? ` and ${groupBy} = '${groupKey}'` : ''))
     });
@@ -76,7 +76,7 @@ const StatusGroups = (props: any) => {
       title: `${getCount('acknowledged')} acknowledged`,
       value: formatValue(getCount('acknowledged')),
       color: getColor('acknowledged'),
-      onClick: () => onStatusClick(`acknowledged = true and relatedStoryIds = '[]' and relatedContextualStoryIds = '[]'`
+      onClick: () => onStatusClick('acknowledged = true and relatedStoryIds = \'[]\' and relatedContextualStoryIds = \'[]\''
         + (severity ? ` and severity = ${severity}` : '')
         + (groupBy ? ` and ${groupBy} = '${groupKey}'` : ''))
     });
@@ -84,7 +84,7 @@ const StatusGroups = (props: any) => {
       title: `${getCount('ticketed')} ticketed`,
       value: formatValue(getCount('ticketed')),
       color: getColor('ticketed'),
-      onClick: () => onStatusClick(`(relatedStoryIds != '[]' or relatedContextualStoryIds != '[]')`
+      onClick: () => onStatusClick('(relatedStoryIds != \'[]\' or relatedContextualStoryIds != \'[]\')'
         + (severity ? ` and severity = ${severity}` : '')
         + (groupBy ? ` and ${groupBy} = '${groupKey}'` : ''))
     });
@@ -114,17 +114,17 @@ const StatusGroups = (props: any) => {
   const renderStatusList = () => Object.keys(statusGroups).sort().map((g) => {
     const groupId = g === '-' ? 'None' : g;
     return (
-    <AccordionItem key={`sc_${groupId}`} title={<StatusCard label={groupId} group={groupId} statusList={getStatusList(g)} />} >
-      {[6, 5, 4, 3, 2, 1].reduce((acc: Array<React.JSX.Element>, sev: number) => {
-        const nextSeverity = getStatusList(g, sev);
-        if (nextSeverity.find((s) => s.value !== 0)) {
-          const innertGroupid = `${groupId}_${sev}`;
-          acc.push(<StatusCard key={`sc_${innertGroupid}`} group={innertGroupid} label={SEVERITIES[sev]} statusList={getStatusList(g, sev)} />);
-        }
-        return acc;
-      }, [])}
-    </AccordionItem>
-  )});
+      <AccordionItem key={`sc_${groupId}`} title={<StatusCard label={groupId} group={groupId} statusList={getStatusList(g)} />} >
+        {[6, 5, 4, 3, 2, 1].reduce((acc: Array<React.JSX.Element>, sev: number) => {
+          const nextSeverity = getStatusList(g, sev);
+          if (nextSeverity.find((s) => s.value !== 0)) {
+            const innertGroupid = `${groupId}_${sev}`;
+            acc.push(<StatusCard key={`sc_${innertGroupid}`} group={innertGroupid} label={SEVERITIES[sev]} statusList={getStatusList(g, sev)} />);
+          }
+          return acc;
+        }, [])}
+      </AccordionItem>
+    )});
 
   const renderResetButton = () => (
     <Button

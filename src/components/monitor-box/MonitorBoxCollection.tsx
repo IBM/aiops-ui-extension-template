@@ -111,16 +111,16 @@ export default function MonitorBoxCollection() {
             }
             onChange={data => onFilterSelect(data.selectedItems)}
             selectedItems={selectedFilters}
-            />
+          />
         </div>
         <div className={className + '__collection'}>
           {selectedFilters?.map((filter, index) =>
-          <MonitorBox
-            key={`monitor-box_${index}`}
-            title={filter.filterName}
-            filterClause={filter.filterClause}
-            onBoxClick={() => onBoxClick(filter.filterName)}
-            shouldRefetch={shouldRefetch}
+            <MonitorBox
+              key={`monitor-box_${index}`}
+              title={filter.filterName}
+              filterClause={filter.filterClause}
+              onBoxClick={() => onBoxClick(filter.filterName)}
+              shouldRefetch={shouldRefetch}
             />
           )}
         </div>

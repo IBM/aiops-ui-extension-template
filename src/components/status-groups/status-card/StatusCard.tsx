@@ -31,8 +31,7 @@ const StatusCard = (props: {label?: string, statusList: Array<Status>, group: st
               style={{backgroundColor: s.color}}>
               {s.value}
             </Button>
-            )
-          )
+          ))
         }
       </div>
     </div>

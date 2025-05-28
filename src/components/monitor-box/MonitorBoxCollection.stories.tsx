@@ -17,27 +17,27 @@ type Story = StoryObj<typeof MonitorBoxCollection>;
 const mockAlertFilterResponse: QueryResponse = {
   data: {
     tenant: {
-      filters: [ // Some filter fields ommitted
+      filters: [ // Some filter fields omitted
         {
-          "id": "17168f01-9fc4-477c-a2c3-bedf59f58317",
-          "name": "All alerts",
-          "description": "Example filter showing all alerts",
-          "type": "alert",
-          "subType": null,
-          "mode": "basic",
-          "tags": [],
-          "conditionSet": {
-              "operator": "and",
-              "conditions": [],
+          id: '17168f01-9fc4-477c-a2c3-bedf59f58317',
+          name: 'All alerts',
+          description: 'Example filter showing all alerts',
+          type: 'alert',
+          subType: null,
+          mode: 'basic',
+          tags: [],
+          conditionSet: {
+            operator: 'and',
+            conditions: []
           },
-          "whereClause": ""
+          whereClause: ''
         }
       ]
     }
   },
   loading: false,
   error: null,
-  refetch: ()=>{}
+  refetch: () => {}
 }
 
 const mockAlertSummaryResponse: QueryResponse = {
@@ -46,32 +46,32 @@ const mockAlertSummaryResponse: QueryResponse = {
       alertSummary: {
         tenantId: 'cfd95b7e-3bc7-4006-a4a8-a73a79c71255',
         groupby: [
-            'severity'
+          'severity'
         ],
         summary: [
           {
-              severity: 2,
-              count: 1
+            severity: 2,
+            count: 1
           },
           {
-              severity: 1,
-              count: 1
+            severity: 1,
+            count: 1
           },
           {
-              severity: 4,
-              count: 4
+            severity: 4,
+            count: 4
           },
           {
-              severity: 6,
-              count: 1
+            severity: 6,
+            count: 1
           },
           {
-              severity: 5,
-              count: 1
+            severity: 5,
+            count: 1
           },
           {
-              severity: 3,
-              count: 3
+            severity: 3,
+            count: 3
           }
         ]
       }
@@ -79,7 +79,7 @@ const mockAlertSummaryResponse: QueryResponse = {
   },
   loading: false,
   error: null,
-  refetch: ()=>{}
+  refetch: () => {}
 }
 
 export const Default: Story = {

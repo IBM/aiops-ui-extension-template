@@ -199,7 +199,7 @@ const IncidentPieChart = (props: any) => {
     return () => {
       if (pieChartRef.current) {
         pieChartRef.current.chart.services.events.removeEventListener(
-          "pie-slice-click",
+          'pie-slice-click',
           chartOnClick
         );
       }
@@ -245,24 +245,24 @@ const IncidentPieChart = (props: any) => {
         },
       },
       height: '400px',
-      title: "Incident distribution",
+      title: 'Incident distribution',
       getFillColor: (g:any, label:any, data:any, defaultFillColor:any) => {
         const isClicked = selectedSlice && selectedSlice === g || !selectedSlice;
         if (selectedColumn.value === 'priority') {
           return isClicked ? PRIORITY_COLORS[5 - g] : PRIORITY_COLORS_STROKE[5 - g];
         }
-        return isClicked ? defaultFillColor : defaultFillColor + "80";
+        return isClicked ? defaultFillColor : defaultFillColor + '80';
       },
     };
 
     return (
       <div className={`${className}__chart`}>
-       {/* @ts-ignore: TS2769 */}
+        {/* @ts-ignore: TS2769 */}
         <PieChart
           data={slices}
           options={options}
           ref={pieChartRef}
-          >
+        >
         </PieChart>
       </div>
     );
@@ -322,7 +322,7 @@ const IncidentPieChart = (props: any) => {
       {renderResetButton()}
       {renderChart()}
     </div>
-	);
+  );
 };
 
 export default IncidentPieChart;
