@@ -1,5 +1,5 @@
 /**
- * © Copyright IBM Corp. 2022, 2023
+ * © Copyright IBM Corp. 2022, 2025
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -47,7 +47,7 @@ const addExamples = (finalSpec, namespace, cr) => {
       });
     writeSpecChildProcess
       .on('exit', (ret) => {
-        console.log(!ret ? 'All done! You might need to wait a minute until the examples are ready.' : `Exited with errors.`);
+        console.log(!ret ? 'All done! You might need to wait a minute until the examples are ready.' : 'Exited with errors.');
       });
   });
 }
@@ -65,7 +65,7 @@ const removeExamples = (namespace, cr) => {
     });
   deleteSpecChildProcess
     .on('exit', (ret) => {
-      console.log(!ret ? 'All done!' : `Exited with errors.`);
+      console.log(!ret ? 'All done!' : 'Exited with errors.');
     });
 }
 

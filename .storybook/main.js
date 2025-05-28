@@ -16,8 +16,7 @@ const config = {
     '@storybook/addon-a11y',
     '@storybook/addon-links',
     '@storybook/addon-essentials',
-    '@storybook/preset-scss',
-    'storybook-addon-turbo-build'
+    '@storybook/preset-scss'
   ],
   framework: {
     name: '@storybook/react-webpack5'

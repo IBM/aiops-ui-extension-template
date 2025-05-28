@@ -4,15 +4,9 @@
  */
 
 import { existsSync, writeFileSync } from 'fs';
-import k8s from '@kubernetes/client-node';
+import { CoreV1Api, KubeConfig, setHeaderOptions, PatchStrategy } from '@kubernetes/client-node';
 import minimist from 'minimist';
 
-const defaultCustomResourceType = {
-  group: 'consoleui.aiops.ibm.com',
-  version: 'v1',
-  kind: 'AIOpsUIExtension',
-  plural: 'aiopsuiextensions'
-};
 const defaultTarget = {
   url: 'https://cpd-aiops.apps.yourcluster.cp.yourdomain.com/',
   username: '<your api user>',
@@ -20,7 +14,6 @@ const defaultTarget = {
   tenantId: 'cfd95b7e-3bc7-4006-a4a8-a73a79c71255',
   bundleName: 'alerts-examples'
 };
-const defaultCustomResource = 'aiopsuiextension-sample';
 const defaultFeatureFlag = 'USE_CUSTOM_DASHBOARD';
 const defaultNamespace = 'cp4waiops';
 const extensionsConfigMap = 'aiops-ir-ui-extensions';
@@ -31,46 +24,43 @@ const labelSelectorWatcher = 'app.kubernetes.io/component=zen-watcher';
 const productConfigMap = 'product-configmap';
 const targetFile = 'target.json'
 
-const getClient = (api = k8s.CoreV1Api) => {
-  const kc = new k8s.KubeConfig();
+const getClient = (api = CoreV1Api) => {
+  const kc = new KubeConfig();
   kc.loadFromDefault();
   return kc.makeApiClient(api);
 };
 
 const configMapExists = async (client, namespace, name) => {
-  const { body: configMap } = await client.listNamespacedConfigMap(
-    namespace,
-    undefined,
-    undefined,
-    undefined,
-    `metadata.name=${name}`
+  const configMap = await client.listNamespacedConfigMap(
+    {
+      namespace,
+      fieldSelector: `metadata.name=${name}`
+    }
   );
   return configMap?.items.length && configMap.items[0];
 };
 
-const patchConfigMap = async (client, namespace, name, patch) => {
-  const headers = { 'content-type': k8s.PatchUtils.PATCH_FORMAT_STRATEGIC_MERGE_PATCH };
-  const { body: configMap } = await client.patchNamespacedConfigMap(
-    name,
-    namespace,
-    patch,
-    undefined,
-    undefined,
-    undefined,
-    undefined,
-    undefined,
-    { headers },
+const patchConfigMap = async (client, namespace, name, body) => {
+  const configMap = await client.patchNamespacedConfigMap(
+    {
+      name,
+      namespace,
+      body
+    },
+    setHeaderOptions('Content-Type', PatchStrategy.StrategicMergePatch),
   );
   return configMap;
 };
 
 const createConfigMap = async (client, namespace, name, body) => {
-  const { body: configMap } = await client.createNamespacedConfigMap(
-    namespace,
+  const configMap = await client.createNamespacedConfigMap(
     {
-      ...body,
-      metadata: {
-        name
+      namespace,
+      body: {
+        ...body,
+        metadata: {
+          name
+        }
       }
     }
   );
@@ -92,13 +82,10 @@ const setFeatureFlag = async (client, namespace, disable) => {
 const recyclePods = async (client, namespace, selectorList = []) => {
   console.log('Recycling pods ...');
   await Promise.all(selectorList.map(labelSelector => client.deleteCollectionNamespacedPod(
-    namespace,
-    undefined,
-    undefined,
-    undefined,
-    undefined,
-    undefined,
-    labelSelector
+    {
+      namespace,
+      labelSelector
+    }
   )));
 };
 
@@ -134,15 +121,12 @@ const waitForPods = async (client, namespace, selectorList = [], maxTries = 30, 
 
   while (i > 0 && remaining.length > 0) {
     const status = await Promise.all(remaining.map(labelSelector => client.listNamespacedPod(
-      namespace,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      labelSelector
+      {
+        namespace,
+        labelSelector
+      }
     )));
-    status.forEach((s, idx) => {
-      const { body: pods } = s;
+    status.forEach((pods, idx) => {
       if (pods?.items.length &&
         pods.items[0].status.phase === 'Running' &&
         pods.items[0].status.containerStatuses.every(c => c.ready === true)) {
@@ -177,10 +161,8 @@ const { namespace, disable, insecure } = minimist(process.argv.slice(2),
     default: { namespace: defaultNamespace, disable: false, insecure: true }
   });
 
-  // if (targetDataJSON.insecure) { // currently no support for cert checking, api validation only
-  process.removeAllListeners('warning');
-  process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
-  // }
+process.removeAllListeners('warning');
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
 let client;
 try {

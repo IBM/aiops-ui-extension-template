@@ -11,5 +11,6 @@
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true
   },
+  "rootDir": ".",
   "types": ["node", "jest", "@testing-library/jest-dom"]
 }

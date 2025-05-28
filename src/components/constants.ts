@@ -1,5 +1,5 @@
 /**
- * © Copyright IBM Corp. 2022, 2023
+ * © Copyright IBM Corp. 2022, 2025
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -110,17 +110,17 @@ export const INCIDENT_QUERY_PARAMS = {
 };
 
 export const INCIDENT_COLUMNS = [
-  "id",
-  "title",
-  "description",
-  "priority",
-  "state",
-  "owner",
-  "team",
-  "alertIds",
-  "contextualAlertIds",
-  "insights",
-  "createdTime",
+  'id',
+  'title',
+  'description',
+  'priority',
+  'state',
+  'owner',
+  'team',
+  'alertIds',
+  'contextualAlertIds',
+  'insights',
+  'createdTime',
 ];
 
 export const INCIDENT_GROUPBY = [
