@@ -15,7 +15,7 @@ const defaultTarget = {
   bundleName: 'alerts-examples'
 };
 const defaultFeatureFlag = 'USE_CUSTOM_DASHBOARD';
-const defaultNamespace = 'cp4waiops';
+const defaultNamespace = 'cp4aiops';
 const extensionsConfigMap = 'aiops-ir-ui-extensions';
 const featureConfigMap = 'feature-flag-configmap';
 const labelSelectorBundle = 'component=aiops-ir-ui-bundle-api';
