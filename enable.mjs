@@ -29,6 +29,13 @@ const defaultTarget = {
   bundleName: 'alerts-examples'
 };
 const defaultFeatureFlag = 'USE_CUSTOM_DASHBOARD';
+const defaultNamespace = 'cp4aiops';
+const extensionsConfigMap = 'aiops-ir-ui-extensions';
+const featureConfigMap = 'feature-flag-configmap';
+const labelSelectorBundle = 'component=aiops-ir-ui-bundle-api';
+const labelSelectorOperator = 'app.kubernetes.io/name=ibm-watson-aiops-ui-operator';
+const labelSelectorWatcher = 'app.kubernetes.io/component=zen-watcher';
+const productConfigMap = 'product-configmap';
 const targetFile = 'target.json'
 
 const setFeatureFlag = async (client, namespace, disable) => {

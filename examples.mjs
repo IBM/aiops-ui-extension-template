@@ -8,7 +8,7 @@ import { readFileSync } from 'fs';
 import minimist from 'minimist';
 
 const defaultCr = 'aiopsuiextension-sample';
-const defaultNamespace = 'cp4waiops';
+const defaultNamespace = 'cp4aiops';
 
 const addExamples = (finalSpec, namespace, cr) => {
   let newSpec = JSON.stringify(finalSpec);
