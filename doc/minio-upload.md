@@ -1,5 +1,5 @@
 # Uploading to Minio
-For larger bundles composed of multiple files, you can directly upload to Minio. The following involves creating an  route to expose Minio
+For larger bundles composed of multiple files, you can directly upload the files to Minio. The following involves generating a route in Openshift to expose Minio.
 
 ## Step-by-step
 #### 1. Generate a route that exposes minio so you can directly upload to it
