@@ -28,8 +28,8 @@ spec:
 ```
 
 Ensure you replace or validate the following:
-a) `spec.rules.host` - Replace with your cluster hostname
-b) `metadata.namespace` - Use your own namespace if different
+- `spec.rules.host` - Replace with your cluster hostname
+- `metadata.namespace` - Use your own namespace if different
 
 You can either:
 - Save this into a yaml file, e.g `my-minio-route.yaml` and then using the Openshift cli run `oc create -f my-minio-route.yaml`
@@ -45,10 +45,10 @@ mc alias set my-aiops-minio https://aiops-minio-ingress.apps.{hostname} {minio-a
 ```
 
 Notes:
-a) `my-aiops-minio` - A name for the alias. Can be anything.
-b) `{hostname}` - Replace with your deployment's hostname.
-c) `{minio-accesskey}` - Can be obtained from the `aimanager-ibm-minio-access-secret` secret.
-d) `{minio-secretkey}` - Can be obtained from the `aimanager-ibm-minio-access-secret` secret.
+- `my-aiops-minio` - A name for the alias. Can be anything.
+- `{hostname}` - Replace with your deployment's hostname.
+- `{minio-accesskey}` - Can be obtained from the `aimanager-ibm-minio-access-secret` secret.
+- `{minio-secretkey}` - Can be obtained from the `aimanager-ibm-minio-access-secret` secret.
 
 #### 3. Copy the directory to Minio
 1) Use the minio client to copy the directory using the alias created
@@ -57,8 +57,8 @@ mc cp --recursive ~/{path-to-bundle-dir}/  my-aiops-minio/aiops-ui-bundles/{tena
 ```
 
 Notes:
-a) `{path-to-bundle-dir}` - The directory of files you want to copy over. The actual bundle directory will become your 'bundle-id'.
-b) `{tenant-id`} - The tenant id. `cfd95b7e-3bc7-4006-a4a8-a73a79c71255`.
+- `{path-to-bundle-dir}` - The directory of files you want to copy over. The actual bundle directory will become your 'bundle-id'.
+- `{tenant-id`} - The tenant id. `cfd95b7e-3bc7-4006-a4a8-a73a79c71255`.
 
 
 #### 4. Using the bundle from minio
@@ -70,6 +70,6 @@ b) `{tenant-id`} - The tenant id. `cfd95b7e-3bc7-4006-a4a8-a73a79c71255`.
 ```
 
 Notes:
-a) Path and title can represent whatever you chose. Remember that the path can then match up to an associated `menuRoute`.
-b) `hello-bundle` in the `url` should represent the 'bundle-id' mentioned earlier. For instance, if your path was `~/Laptop/Development/my-custom-bundle` then my url would read `/api/p/hdm_custom_panel/cfd95b7e-3bc7-4006-a4a8-a73a79c71255/bundles/my-custom-bundle/files/hello.html`
+- Path and title can represent whatever you chose. Remember that the path can then match up to an associated `menuRoute`.
+- `hello-bundle` in the `url` should represent the 'bundle-id' mentioned earlier. For instance, if your path was `~/Laptop/Development/my-custom-bundle` then my url would read `/api/p/hdm_custom_panel/cfd95b7e-3bc7-4006-a4a8-a73a79c71255/bundles/my-custom-bundle/files/hello.html`
 
