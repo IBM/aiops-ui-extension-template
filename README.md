@@ -10,7 +10,7 @@ Dashboard extension examples and tools for Cloud Pak for AIOps
 For convenience, a [query hook](src/helpers/useQuery.ts) is provided that allows secure access to most of the issue resolution data. Of course, you're free to pull in data from other sources.
 
 ## Routes
-Routes define a browser path to your dashboard within Cloud Pak for AIOps. This includes how components are organized and whether they're exposed in the Cloud Pak for AIOps main menu. An [example](config/routes.json) for local development is provided.
+Routes define a browser path to your dashboard within Cloud Pak for AIOps. This includes how components are organized and whether they're exposed in the Cloud Pak for AIOps main menu. An [schema](config/schemas/routes.json) is provided, as well as an [example](config/routes.json) to get started.
 
 ## Examples
 Visit our [storybook](https://ibm.github.io/aiops-ui-extension-template) for examples based on real Netcool customers.

@@ -52,7 +52,7 @@
   - Custom panels - Create custom React components to do whatever you like. Several examples are provided to help get you started.
   > All panels must be exported in `src/index.js`.
 
-9. Use the example config `config/routes.json` as a starting point and add your own routes and panels.
+9. Use the example config `config/routes.json` as a starting point and add your own routes and panels, following the [schema](config/schemas/routes.json).
   - Set the path by which the custom dashboard page will be accessible from the console URL, e.g. `/your-path`.
   - Define how your panels are organized in the page. Regions include top, bottom, left and right.
   - Whenever you want to see the changes in your cluster you will have to re-run the ```npm run deploy -- -n <AIOps namespace>``` command.
