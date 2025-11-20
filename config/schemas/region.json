@@ -1,0 +1,55 @@
+{
+  "$id": "/schemas/region",
+  "description": "A region to be used in AIOps custom page routes",
+  "type": "object",
+  "properties": {
+    "aiopsPanel": {
+      "description": "The built-in AIOps panel to display (e.g., 'alertViewer', 'incidentViewer')",
+      "type": "string",
+      "enum": ["alertViewer", "incidentViewer"]
+    },
+    "bundlePath": {
+      "description": "Path to the custom bundle file",
+      "type": "string"
+    },
+    "panelId": {
+      "description": "ID of the custom panel to display from the bundle",
+      "type": "string"
+    },
+    "url": {
+      "description": "External URL to display in an iframe",
+      "type": "string"
+    }
+  },
+  "oneOf": [
+    {
+      "required": ["aiopsPanel"],
+      "not": {
+        "anyOf": [
+          { "required": ["bundlePath"] },
+          { "required": ["panelId"] },
+          { "required": ["url"] }
+        ]
+      }
+    },
+    {
+      "required": ["bundlePath", "panelId"],
+      "not": {
+        "anyOf": [
+          { "required": ["aiopsPanel"] },
+          { "required": ["url"] }
+        ]
+      }
+    },
+    {
+      "required": ["url"],
+      "not": {
+        "anyOf": [
+          { "required": ["aiopsPanel"] },
+          { "required": ["bundlePath"] },
+          { "required": ["panelId"] }
+        ]
+      }
+    }
+  ]
+}
