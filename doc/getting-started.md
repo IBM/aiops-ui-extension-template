@@ -34,10 +34,11 @@
 ```
 
 6. Run the examples within your Cloud Pak for AIOps cluster.
-  - Deploy the examples to the cluster, `npm run deploy -- -n <AIOps namespace>`
+  - Deploy the examples to the cluster, `npm run deploy`
+  - This will upload both the bundle files AND automatically update the routes configuration on the cluster
   - Confirm the examples show up in the main menu at your browser console (e.g. https://cpd-aiops.apps.yourcluster.cp.yourdomain.com).
   > You may need to wait a minute then reload the browser console to pick up the changes.
-  > Also if you ever want to remove the examples, `npm run examples -- --remove -n <AIOps namespace>`
+  > The deploy script requires a valid kubeconfig to update routes. If kubeconfig is not available, the bundle will still upload but routes must be updated manually.
 
 7. Run the examples locally.
   - Start your local server, `npm start`
@@ -55,9 +56,23 @@
 9. Use the example config `config/routes.json` as a starting point and add your own routes and panels, following the [schema](config/schemas/routes.json).
   - Set the path by which the custom dashboard page will be accessible from the console URL, e.g. `/your-path`.
   - Define how your panels are organized in the page. Regions include top, bottom, left and right.
-  - Whenever you want to see the changes in your cluster you will have to re-run the ```npm run deploy -- -n <AIOps namespace>``` command.
+  - Whenever you want to see the changes in your cluster you will have to re-run the `npm run deploy` command.
+  - The deploy script will automatically update both your bundle files and routes configuration on the cluster.
   - That's all!
 
+
+## Architecture
+
+### Shared Utilities
+The project includes a shared utilities module [`lib/aiops-k8s-utils.mjs`](../lib/aiops-k8s-utils.mjs) that provides common functionality for both deployment and enablement scripts:
+
+- **Kubernetes client management** - Creates and configures Kubernetes API clients
+- **ConfigMap operations** - Functions to check, create, and patch ConfigMaps
+- **Routes handling** - Loads and processes routes.json with bundle path replacement
+- **Pod management** - Utilities to recycle and wait for pods to be ready
+- **Constants** - Shared configuration values (namespaces, ConfigMap names, label selectors)
+
+This modular approach ensures consistency across scripts and makes maintenance easier.
 
 ## Troubleshooting
 ### - For error "Failed to get valid local kubeconfig file"

@@ -6,7 +6,7 @@
     "aiopsPanel": {
       "description": "The built-in AIOps panel to display (e.g., 'alertViewer', 'incidentViewer')",
       "type": "string",
-      "enum": ["alertViewer", "incidentViewer"]
+      "enum": ["alertViewer", "incidentViewer", "topologyViewer"]
     },
     "bundlePath": {
       "description": "Path to the custom bundle file",
