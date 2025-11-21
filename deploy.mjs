@@ -5,6 +5,7 @@
 
 import { AiopsBundleApiClient, UploadBundleTask, loginWithApiKey } from 'cp4waiops-ui-bundle-tools';
 import fs from 'fs/promises';
+import { getClient, updateRoutesConfigMap, defaultNamespace } from './lib/aiops-k8s-utils.mjs';
 
 const targetData = await fs.readFile('./target.json');
 const targetDataJSON = JSON.parse(targetData);
@@ -14,6 +15,7 @@ process.removeAllListeners('warning');
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 // }
 
+// Main deployment flow
 const { authToken } = await loginWithApiKey(targetDataJSON.url, targetDataJSON.username, targetDataJSON.apiKey);
 console.log('Logged into cluster and ready to upload 📡');
 
@@ -29,5 +31,30 @@ try {
   await uploadBundleTask.uploadBundleFromDirectory(targetDataJSON.tenantId, targetDataJSON.bundleName, 'dist' );
   console.log('Bundle uploaded successfully! 🎉')
 } catch(e) {
-  console.error(e)
+  console.error('Bundle upload failed:', e)
+  process.exit(1);
 }
+
+// Update routes ConfigMap if kubeconfig is available
+console.log('\nUpdating routes configuration...');
+try {
+  const client = getClient();
+  const namespace = targetDataJSON.namespace || defaultNamespace;
+  const success = await updateRoutesConfigMap(client, namespace, targetDataJSON.bundleName);
+
+  if (success) {
+    console.log('\n✅ Deployment complete! Bundle and routes updated successfully.');
+  } else {
+    console.log('\n⚠️  Bundle uploaded but routes update failed. You may need to run enable.mjs or manually update the ConfigMap.');
+  }
+} catch (e) {
+  if (e.toString().includes('cluster is missing')) {
+    console.log('\n⚠️  No kubeconfig found. Bundle uploaded but routes not updated on cluster.');
+    console.log('   Run enable.mjs with proper kubeconfig to update routes, or manually update the ConfigMap.');
+  } else {
+    console.error('\n⚠️  Routes update failed:', e.message || e);
+    console.log('   Bundle uploaded successfully, but routes may need manual update.');
+  }
+}
+
+// Made with Bob
