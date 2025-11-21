@@ -1,0 +1,103 @@
+{
+  "$id": "/schemas/routes",
+  "description": "A routes spec for custom AIOps pages",
+  "type": "object",
+  "properties": {
+    "spec": {
+      "description": "The spec for the routes",
+      "type": "object",
+      "properties": {
+        "menuRoutes": {
+          "description": "This is a category in the menu, that will contain child menu items",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "categoryTitle": {
+                "description": "The title for the category",
+                "type": "string"
+              },
+              "routes": {
+                "description": "The routes for the menu items to be included in this category. These must match routes defined in spec.routes",
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "type": {
+                "const": "category"
+              }
+            },
+            "required": [ "categoryTitle", "routes", "type" ]
+          }
+        },
+        "routes": {
+          "description": "The routes to be added",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "description": "The path for the route",
+                "type": "string"
+              },
+              "title": {
+                "description": "The title for the route. This would be used in the corresponding menu item",
+                "type": "string"
+              },
+              "regions": {
+                "description": "The regions for the route, defining layout areas (left, right, top, bottom)",
+                "type": "object",
+                "properties": {
+                  "left": {
+                    "$ref": "/schemas/region"
+                  },
+                  "right": {
+                    "$ref": "/schemas/region"
+                  },
+                  "top": {
+                    "$ref": "/schemas/region"
+                  },
+                  "bottom": {
+                    "$ref": "/schemas/region"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "style": {
+                "description": "Style properties for the route",
+                "type": "object",
+                "properties": {
+                  "height": {
+                    "description": "Height of the route container",
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "url": {
+                "description": "External URL to display in the route",
+                "type": "string"
+              },
+              "bundlePath": {
+                "description": "Path to the bundle file for the route",
+                "type": "string"
+              },
+              "panelId": {
+                "description": "ID of the panel to display for the route",
+                "type": "string"
+              }
+            },
+            "required": ["path", "title"]
+          }
+        },
+        "frameSrcUrls": {
+          "description": "Allowed frame source URLs for external content",
+          "type": "string"
+        }
+      },
+      "required": ["routes"]
+    }
+  },
+  "required": [ "spec" ]
+}
