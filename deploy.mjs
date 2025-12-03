@@ -5,10 +5,18 @@
 
 import { AiopsBundleApiClient, UploadBundleTask, loginWithApiKey } from 'cp4waiops-ui-bundle-tools';
 import fs from 'fs/promises';
+import minimist from 'minimist';
 import { getClient, updateRoutesConfigMap, defaultNamespace } from './lib/aiops-k8s-utils.mjs';
 
 const targetData = await fs.readFile('./target.json');
 const targetDataJSON = JSON.parse(targetData);
+
+// Parse command-line arguments
+const args = minimist(process.argv.slice(2), {
+  alias: { n: 'namespace' },
+  string: ['namespace'],
+  default: {}
+});
 
 // if (targetDataJSON.insecure) { // currently no support for cert checking, api validation only
 process.removeAllListeners('warning');
@@ -39,7 +47,7 @@ try {
 console.log('\nUpdating routes configuration...');
 try {
   const client = getClient();
-  const namespace = targetDataJSON.namespace || defaultNamespace;
+  const namespace = args.namespace || targetDataJSON.namespace || defaultNamespace;
   const success = await updateRoutesConfigMap(client, namespace, targetDataJSON.bundleName);
 
   if (success) {

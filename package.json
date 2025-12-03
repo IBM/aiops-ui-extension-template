@@ -9,7 +9,7 @@
     "webpack-build": "webpack build --config webpack.config.js --mode production",
     "clean": "rimraf dist",
     "build": "npm-run-all clean webpack-build",
-    "deploy": "npm-run-all build upload \"examples -- {@}\" --",
+    "deploy": "npm-run-all build \"upload -- {@}\" \"examples -- {@}\" --",
     "enable": "node ./enable.mjs",
     "disable": "node ./enable.mjs --disable",
     "remove": "node ./examples.mjs --remove",
