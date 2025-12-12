@@ -10,7 +10,8 @@
                     "/incidents-distribution",
                     "/incidents-top-10",
                     "/application-heatmap",
-                    "/monitor-boxes"
+                    "/monitor-boxes",
+                    "/alert-viewer-filter"
                 ],
                 "type": "category"
             }
@@ -109,6 +110,14 @@
                     }
                 },
                 "title": "Monitor boxes"
+            },
+            {
+                "path": "/alert-viewer-filter",
+                "aiopsPanel": "alertViewer",
+                "state": {
+                    "filtername": "Critical"
+                },
+                "title": "Alert viewer with Filter"
             }
         ]
     }
