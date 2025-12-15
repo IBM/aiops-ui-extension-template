@@ -36,7 +36,7 @@
 ```
 
 6. Run the examples within your Cloud Pak for AIOps cluster.
-  - Deploy the examples to the cluster, `npm run deploy`
+  - Deploy the examples to the cluster, `npm run deploy -- -n <AIOps namespace>`
   - This will upload both the bundle files AND automatically update the routes configuration on the cluster
   - Confirm the examples show up in the main menu at your browser console (e.g. https://cpd-aiops.apps.yourcluster.cp.yourdomain.com).
   > You may need to wait a minute then reload the browser console to pick up the changes.
