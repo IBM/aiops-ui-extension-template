@@ -22,6 +22,8 @@
   - `oc patch aiopsui aiopsui-instance --type merge -p '{"spec":{"container":{"uiBundleApi":{"image":{"pullSecret":"YOUR PULL SECRET"}}}}}' -n <AIOps namespace>`
   - `npm run enable -- -n <AIOps namespace>`
 
+  NOTE: If you are using a custom certificate on your cluster, you can provide it before running enable and other scripts using `export NODE_EXTRA_CA_CERTS=my_custom_cert.pem`.
+
 5. Update the user name and API key in `target.json` with the key from the previous step. This is used to test with your cluster. Your resulting file should read like:
 ```json
   {
@@ -34,7 +36,7 @@
 ```
 
 6. Run the examples within your Cloud Pak for AIOps cluster.
-  - Deploy the examples to the cluster, `npm run deploy`
+  - Deploy the examples to the cluster, `npm run deploy -- -n <AIOps namespace>`
   - This will upload both the bundle files AND automatically update the routes configuration on the cluster
   - Confirm the examples show up in the main menu at your browser console (e.g. https://cpd-aiops.apps.yourcluster.cp.yourdomain.com).
   > You may need to wait a minute then reload the browser console to pick up the changes.
