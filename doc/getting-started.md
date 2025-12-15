@@ -22,6 +22,8 @@
   - `oc patch aiopsui aiopsui-instance --type merge -p '{"spec":{"container":{"uiBundleApi":{"image":{"pullSecret":"YOUR PULL SECRET"}}}}}' -n <AIOps namespace>`
   - `npm run enable -- -n <AIOps namespace>`
 
+  NOTE: If you are using a custom certificate on your cluster, you can provide it before running enable and other scripts using `export NODE_EXTRA_CA_CERTS=my_custom_cert.pem`.
+
 5. Update the user name and API key in `target.json` with the key from the previous step. This is used to test with your cluster. Your resulting file should read like:
 ```json
   {
