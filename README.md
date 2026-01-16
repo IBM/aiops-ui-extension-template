@@ -1,7 +1,7 @@
-# aiops-ui-extension-template
+# aiops-ui-extension-toolkit
 
 ## Overview
-Dashboard extension examples and tools for Cloud Pak for AIOps
+Dashboard extension toolkit and examples for Cloud Pak for AIOps
 
 ## Components
 [Components](src/components) are the widgets that comprise your dashboard. Components must be exported as [panels](src/panels) to be used in a dashboard region. These are written in React.js, and we recommend [Carbon Design System](https://carbondesignsystem.com/) as the UI framework, although you may use any React.js compatible library.
