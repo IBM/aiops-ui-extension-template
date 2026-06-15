@@ -77,6 +77,46 @@ The project includes a shared utilities module [`lib/aiops-k8s-utils.mjs`](../li
 This modular approach ensures consistency across scripts and makes maintenance easier.
 
 ## Troubleshooting
+### - For AIOps 4.13 - Bundle API not ready
+If after enabling the cluster for the toolkit (step 4) you notice this:
+```
+Waiting for 1 of 3 pods ...
+Waiting for 1 of 3 pods ...
+Waiting for 1 of 3 pods ...
+Waiting for 1 of 3 pods ...
+Waiting for 1 of 3 pods ...
+Waiting for 1 of 3 pods ...
+Waiting for 1 of 3 pods ...
+Waiting for 1 of 3 pods ...
+Waiting for 1 of 3 pods ...
+Waiting for 1 of 3 pods ...
+Waiting for 1 of 3 pods ...
+1 of 3 pods not ready after 30 tries.
+```
+It is likely due to a missing secret in the bundle API. You can check this by running:
+
+`kubectl describe pods -n aiops -l component=aiops-ir-ui-bundle-api` 
+
+In the events you should see:
+
+`Warning  FailedMount  87s (x10 over 5m37s)  kubelet            MountVolume.SetUp failed for volume "trustedcas" : secret "aimanager-aio-tls" not found`.
+
+If so, run the following to create a secret to workaround this issue:
+```
+oc get configmap ibm-cp-watson-aiops-tls-ca -n aiops -o jsonpath='{.data.ca\.crt}' > /tmp/ca.crt
+
+# Create a Secret with the key name that the volume mount expects
+oc create secret generic aimanager-aio-tls \         
+  --from-file=tls.cacrt=/tmp/ca.crt \
+  -n aiops \
+  --dry-run=client -o yaml | kubectl apply -f -
+
+# Clean up
+rm /tmp/ca.crt
+secret/aimanager-aio-tls created
+```
+
+At this point you can delete the existing bundle-api pod to force it to recreate.
 ### - For error "Failed to get valid local kubeconfig file"
 The enable function will load your local kubeconfig file whilst getting your local kube client. If ther are invalid definitions in this file, the script will fail. To resolve, validate your kubeconfig file has correctly populated context entries. The file can typically be found at `/Users/myuser/.kube/config` and an example of an invalid entry would be:
 ```
