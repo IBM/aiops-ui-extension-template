@@ -51,7 +51,7 @@ This content type provides a simple way to iframe in a page from elsewhere. It c
 
 In many cases the iframed content will be hosted on an external source, such as Netcool Impact, and without additional configuration the browser will not allow the content to be rendered. On the AIOps side, you will need to add the following to the routes file:
 
-`frameSrcUrls` - (NOTE - this is added to the top level `spec` in the routes file) This defines any that will be translated into a `frame-src` [directive](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/frame-src). This should be a list of comma separate urls.
+`frameSrcUrls` - (NOTE - this is added to the top level `spec` in the routes file) This defines any that will be translated into a `frame-src` [directive](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/frame-src). **This should be a list of space separated urls.**
 
 Additionally, many tools will also require specific configuration to allow their content to be iframed in elsewhere. Here are two such examples:
 
