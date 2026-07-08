@@ -62,41 +62,33 @@ export const PLEASANT_COLORS = [
   '#FF8080', // Pink 60
 ]
 
+export const ALERT_QUERY_COLUMNS = [
+  'severity',
+  'state',
+  'summary',
+  'type.classification',
+  'type.eventType',
+  'sender.name',
+  'sender.type',
+  'resource.name',
+  'resource.type',
+  'resource.location',
+  'firstOccurrenceTime',
+  'lastOccurrenceTime',
+  'closedTime',
+  'relatedContextualStoryIds',
+  'relatedStoryIds',
+  'suppressed',
+  'owner',
+  'team',
+  'acknowledged',
+  'id',
+  'signature'
+];
+
 export const ALERT_QUERY_PARAMS = {
   tenantId: 'cfd95b7e-3bc7-4006-a4a8-a73a79c71255',
-  columns: [
-    'severity',
-    '@insights.type=\'aiops.ibm.com/insight-type/business/criticality\'',
-    'state',
-    'summary',
-    'type.classification',
-    'sender.name',
-    'resource.name',
-    'firstOccurrenceTime',
-    'lastOccurrenceTime',
-    'closedTime',
-    '@insights.type=\'aiops.ibm.com/insight-type/runbook\'',
-    '@insights.type=\'aiops.ibm.com/insight-type/topology/resource\'',
-    '@insights.type=\'aiops.ibm.com/insight-type/seasonal-occurrence\'',
-    'relatedContextualStoryIds',
-    'relatedStoryIds',
-    '@insights.type=\'aiops.ibm.com/insight-type/lad/resolutions\'',
-    '@insights.type=\'aiops.ibm.com/insight-type/lad/templates\'',
-    'suppressed',
-    '@insights.type=\'aiops.ibm.com/insight-type/anomaly\'',
-    '@insights.type=\'aiops.ibm.com/insight-type/relationship/causal\' and insights.source=\'aiops.ibm.com/insight-source/relationship/causal/topological-group\'',
-    '@insights.type=\'aiops.ibm.com/insight-type/relationship/causal\' and insights.source=\'aiops.ibm.com/insight-source/relationship/causal/custom\'',
-    '@insights.type=\'aiops.ibm.com/insight-type/relationship/causal\' and insights.source=\'aiops.ibm.com/insight-source/relationship/causal/temporal\'',
-    'owner',
-    'team',
-    'acknowledged',
-    '@insights.type=\'aiops.ibm.com/insight-type/golden-signal\'',
-    'aiops.ibm.com/insight-source/relationship/causal/custom',
-    'id',
-    'signature',
-    '@insights.type=\'aiops.ibm.com/insight-type/relationship/causal-union\'',
-    '@insights.type=\'aiops.ibm.com/insight-type/topology/group\''
-  ],
+  columns: ALERT_QUERY_COLUMNS,
   filter: 'state != \'clear\'',
   format: 'AIOPS'
 };

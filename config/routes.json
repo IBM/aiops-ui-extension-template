@@ -11,7 +11,8 @@
           "/incidents-top-10",
           "/application-heatmap",
           "/monitor-boxes",
-          "/alert-viewer-filter"
+          "/alert-viewer-filter",
+          "/alert-summary-charts-weather"
         ],
         "type": "category"
       }
@@ -122,6 +123,12 @@
           "filtername": "Critical"
         },
         "title": "Alert viewer with Filter"
+      },
+      {
+        "path": "/alert-summary-charts-weather",
+        "bundlePath": "bundles/alerts-examples/files/alerts-examples-bundle.js",
+        "panelId": "alert-summary-charts-weather",
+        "title": "Alert Summary Charts with Weather"
       }
     ],
     "frameSrcUrls": ""
