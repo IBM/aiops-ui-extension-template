@@ -1,134 +1,280 @@
-# Getting started
+# Deploying on an Airgapped RHEL Host
 
-## Prerequisites
-- Cloud Pak for AIOps cluster
-- Node.js v18
-- OpenShift CLI (oc)
+This guide covers deploying the AIOps UI Extension Toolkit on a RHEL machine that has **no internet access**.
+It assumes all packaging was done on a separate internet-connected machine and the resulting archive has been transferred.
 
-## Step-by-step
-1. Fork this repository.
+---
 
-2. Install dependencies.
+## Prerequisites (on the airgapped RHEL host)
 
-    `npm i`
+| Requirement                                  | Notes                                                                  |
+| -------------------------------------------- | ---------------------------------------------------------------------- |
+| **Node.js v18**                        | Must be installed before running any`npm` commands                   |
+| **OpenShift CLI (`oc`)**             | Must be installed and on`$PATH`                                      |
+| **CP4AIOps cluster**                   | Already installed and accessible from this RHEL host                   |
+| **`aiops-toolkit-with-deps.tar.gz`** | The transferred archive containing source +`node_modules`            |
+| **Cluster CA certificate** (optional)  | Required only if the cluster uses a custom/self-signed TLS certificate |
+| **Alert Filters and Incident Filters** | Required Alerts and incident filters to be created on Cp4AIOps         |
 
-3. Create an API key.
-  - If you're using a shared account, check with the account owner for an existing key.
-  - Otherwise, create an API key here - https://cpd-\<project-name\>.apps.\<cluster-name\>.\<domain\>/zen/#/settings/profile/list, e.g.
-    > https://cpd-aiops.apps.yourcluster.cp.yourdomain.com/zen/#/settings/profile/list
+> Verify prerequisites before starting:
+>
+> ```bash
+> node --version   # must show v18.x.x
+> npm --version
+> oc version
+> ```
 
-4. Enable the dashboard extension feature on your cluster.
-  - `oc login --token=<admin user token> --server=<your cluster>`
-  - `oc patch aiopsui aiopsui-instance --type merge -p '{"spec":{"container":{"uiBundleApi":{"image":{"pullSecret":"YOUR PULL SECRET"}}}}}' -n <AIOps namespace>`
-  - `npm run enable -- -n <AIOps namespace>`
+---
 
-  NOTE: If you are using a custom certificate on your cluster, you can provide it before running enable and other scripts using `export NODE_EXTRA_CA_CERTS=my_custom_cert.pem`.
+## Step 1 — Extract the Archive
 
-5. Update the user name and API key in `target.json` with the key from the previous step. This is used to test with your cluster. Your resulting file should read like:
-```json
-  {
-    "url": "https://cpd-aiops.apps.yourcluster.cp.yourdomain.com/",
-    "username": "<your api user>",
-    "apiKey": "<your api key>",
-    "tenantId": "cfd95b7e-3bc7-4006-a4a8-a73a79c71255",
-    "bundleName": "alerts-examples"
-  }
+```bash
+mkdir -p aiops-ui-extension-toolkit
+tar -xzvf aiops-toolkit-with-deps.tar.gz -C aiops-ui-extension-toolkit
+cd aiops-ui-extension-toolkit
 ```
 
-6. Run the examples within your Cloud Pak for AIOps cluster.
-  - Deploy the examples to the cluster, `npm run deploy -- -n <AIOps namespace>`
-  - This will upload both the bundle files AND automatically update the routes configuration on the cluster
-  - Confirm the examples show up in the main menu at your browser console (e.g. https://cpd-aiops.apps.yourcluster.cp.yourdomain.com).
-  > You may need to wait a minute then reload the browser console to pick up the changes.
-  > The deploy script requires a valid kubeconfig to update routes. If kubeconfig is not available, the bundle will still upload but routes must be updated manually.
+> `node_modules` is included in the archive — **do not run `npm install`**.
 
-7. Run the examples locally.
-  - Start your local server, `npm start`
-  > Make sure there are no other processes running on port 8080.
-  - Open a browser to your dashboard page. The format is
+---
 
-    `https://127.0.0.1:8080/aiops/cfd95b7e-3bc7-4006-a4a8-a73a79c71255/page/alerts-workflow`
-  > alerts-workflow is one of the example pages provided. Other examples include alerts-timeline and alerts-top-10.
+## Step 2 — Create an API Key
 
-8. Build your own custom pages!
-  - Predefined panels - Use a panel provided by Cloud Pak for AIOps, alertViewer or incidentViewer.
-  - Custom panels - Create custom React components to do whatever you like. Several examples are provided to help get you started.
-  > All panels must be exported in `src/index.js`.
+In a browser, navigate to the CP4AIOps console and create an API key:
 
-9. Use the example config `config/routes.json` as a starting point and add your own routes and panels, following the [schema](config/schemas/routes.json).
-  - Set the path by which the custom dashboard page will be accessible from the console URL, e.g. `/your-path`.
-  - Define how your panels are organized in the page. Regions include top, bottom, left and right.
-  - Whenever you want to see the changes in your cluster you will have to re-run the `npm run deploy` command.
-  - The deploy script will automatically update both your bundle files and routes configuration on the cluster.
-  - That's all!
+```
+https://cpd-<project-name>.apps.<cluster-name>.<domain>/zen/#/settings/profile/list
+```
+
+> If using a shared account, check with the account owner for an existing key.
+
+Keep this key handy — you will need it in Step 4.
+
+---
+
+## Step 3 — Log in to the OpenShift Cluster
+
+```bash
+oc login --token=<admin-user-token> --server=https://api.<cluster-name>.<domain>:6443
+```
+
+> To get your login token: open the CP4AIOps console → top-right user menu → **Copy login command**.
+
+---
+
+## Step 4 — Enable the Dashboard Extension Feature
+
+### 4a. (If using a custom cluster certificate) Export it first
+
+```bash
+export NODE_EXTRA_CA_CERTS=/path/to/cluster-ca.pem
+```
+
+### 4b. Patch the aiopsui instance with your pull secret
+
+```bash
+oc patch aiopsui aiopsui-instance --type merge \
+  -p '{"spec":{"container":{"uiBundleApi":{"image":{"pullSecret":"<YOUR-PULL-SECRET>"}}}}}' \
+  -n <AIOps-namespace>
+```
+
+Replace `<YOUR-PULL-SECRET>` with the name of the Kubernetes secret in the AIOps namespace that holds credentials for the internal container registry.
+
+### 4c. Run the enable script
+
+```bash
+npm run enable -- -n <AIOps-namespace>
+```
+
+This script will:
+
+- Set the `USE_CUSTOM_DASHBOARD` feature flag in the cluster
+- Recycle the operator and watcher pods
+- Wait until all required pods are running and ready
+
+> **Namespace:** Typically `cp4waiops` or `cp4aiops`. Confirm with:
+>
+> ```bash
+> oc get aiopsui -A
+> ```
+
+---
+
+## Step 5 — Configure `target.json`
+
+Edit `target.json` in the project root with your cluster details and the API key from Step 2:
+
+```json
+{
+  "url": "https://cpd-aiops.apps.<cluster-name>.<domain>/",
+  "username": "<your-api-user>",
+  "apiKey": "<your-api-key>",
+  "tenantId": "cfd95b7e-3bc7-4006-a4a8-a73a79c71255",
+  "bundleName": "alerts-examples"
+}
+```
+
+> Use your preferred editor, e.g.:
+>
+> ```bash
+> vi target.json
+> ```
+
+## Step 6 — Update `config/routes.json`
+
+Edit `routes.json` in the project root with your filter details as created as part of prerequisites
+
+```json
+{
+ "spec": {
+    "menuRoutes": [
+      {
+        "categoryTitle": "Filtered Alerts",
+        "routes": [
+          "/<AlertfilterRouteName1>",
+          "/<AlertfilterRouteName2>",
+          "/<AlertfilterRouteName3>"
+        ],
+        "type": "category"
+      },
+      {
+        "categoryTitle": "Filtered Incidents",
+        "routes": [
+          "/<incidentFilterRouteName1>",
+          "/<incidentFilterRouteName2>"
+        ],
+        "type": "category"
+      }
+    ],
+    "routes": [
+      {
+        "path": "/<AlertfilterRouteName1>",
+        "aiopsPanel": "alertViewer",
+        "state": {
+          "filtername": "<alertFilterName1>",
+          "viewname": "<alertViewName1>"
+        },
+        "title": "<Alert Filter Title 1>"
+      },
+      {
+        "path": "/<AlertfilterRouteName1>",
+        "aiopsPanel": "alertViewer",
+        "state": {
+          "filtername": "<alertFilterName2>",
+          "viewname": "<alertViewName1>"
+        },
+        "title": "<Alert Filter Title 2>"
+      },
+      {
+        "path": "/<AlertfilterRouteName1>",
+        "aiopsPanel": "alertViewer",
+        "state": {
+          "filtername": "<alertFilterName3>",
+          "viewname": "<alertViewName2>"
+        },
+        "title": "<Alert Filter Title 3>"
+      },
+      {
+        "path": "/<incidentFilterRouteName1>",
+        "aiopsPanel": "incidentViewer",
+        "state": {
+          "filtername": "<incidentFilterName1>"
+        },
+        "title": "<incident Filter Title 1>"
+      },
+      {
+        "path": "/<incidentFilterRouteName2>",
+        "aiopsPanel": "incidentViewer",
+        "state": {
+          "filtername": "<incidentFilterName2>"
+        },
+        "title": "incident Filter Title 2"
+      }
+    ],
+    "frameSrcUrls": ""
+  }
+}
+```
+
+> Use your preferred editor, e.g.:
+>
+> ```bash
+> vi config/routes.json
+> ```
+
+---
 
 
-## Architecture
+## Step 7 — Deploy the Examples to the Cluster
 
-### Shared Utilities
-The project includes a shared utilities module [`lib/aiops-k8s-utils.mjs`](../lib/aiops-k8s-utils.mjs) that provides common functionality for both deployment and enablement scripts:
+```bash
+npm run deploy -- -n <AIOps-namespace>
+```
 
-- **Kubernetes client management** - Creates and configures Kubernetes API clients
-- **ConfigMap operations** - Functions to check, create, and patch ConfigMaps
-- **Routes handling** - Loads and processes routes.json with bundle path replacement
-- **Pod management** - Utilities to recycle and wait for pods to be ready
-- **Constants** - Shared configuration values (namespaces, ConfigMap names, label selectors)
+This single command will:
 
-This modular approach ensures consistency across scripts and makes maintenance easier.
+1. **Build** the bundle (`webpack` — fully local, no network calls)
+2. **Upload** the bundle files to the CP4AIOps cluster via the bundle API
+3. **Update** the `aiops-ir-ui-extensions` ConfigMap on the cluster with the routes from `config/routes.json`
+
+Expected output ends with:
+
+```
+✅ Deployment complete! Bundle and routes updated successfully.
+```
+
+> If you see `⚠️ No kubeconfig found`, ensure Step 3 (`oc login`) was completed successfully.
+> You may need to wait a minute and reload the browser console to pick up the changes.
+
+---
+
+## Step 8 — Verify in the Browser
+
+Open the CP4AIOps console in a browser:
+
+```
+https://cpd-aiops.apps.<cluster-name>.<domain>
+```
+
+The following example dashboard pages should appear under the **"Example dashboards"** category in the main menu:
+
+| Page                     | Path                        |
+| ------------------------ | --------------------------- |
+| Alerts workflow          | `/alerts-workflow`        |
+| Alerts timeline          | `/alerts-timeline`        |
+| Alerts top 10            | `/alerts-top-10`          |
+| Incidents distribution   | `/incidents-distribution` |
+| Incidents top 10         | `/incidents-top-10`       |
+| Application heatmap      | `/application-heatmap`    |
+| Monitor boxes            | `/monitor-boxes`          |
+| Alert viewer with filter | `/alert-viewer-filter`    |
+
+> If the pages do not appear immediately, wait ~1 minute and hard-refresh the browser.
+
+---
+
+## Re-deploying After Changes
+
+Whenever you modify source files or `config/routes.json`, re-run deploy:
+
+```bash
+npm run deploy -- -n <AIOps-namespace>
+```
+
+No other steps are needed — this rebuilds the bundle and updates the cluster routes in one command.
+
+### Note: Re-deploying After Changes requires permission to run the above command . Better to have permissions to run this command with the project team
+
+---
 
 ## Troubleshooting
-### - For AIOps 4.13 - Bundle API not ready
-If after enabling the cluster for the toolkit (step 4) you notice this:
-```
-Waiting for 1 of 3 pods ...
-Waiting for 1 of 3 pods ...
-Waiting for 1 of 3 pods ...
-Waiting for 1 of 3 pods ...
-Waiting for 1 of 3 pods ...
-Waiting for 1 of 3 pods ...
-Waiting for 1 of 3 pods ...
-Waiting for 1 of 3 pods ...
-Waiting for 1 of 3 pods ...
-Waiting for 1 of 3 pods ...
-Waiting for 1 of 3 pods ...
-1 of 3 pods not ready after 30 tries.
-```
-It is likely due to a missing secret in the bundle API. You can check this by running:
 
-`kubectl describe pods -n aiops -l component=aiops-ir-ui-bundle-api` 
+### "Failed to get valid local kubeconfig file"
 
-In the events you should see:
+Your `~/.kube/config` has an invalid context entry. Open it and ensure every context has non-empty `cluster` and `user` fields:
 
-`Warning  FailedMount  87s (x10 over 5m37s)  kubelet            MountVolume.SetUp failed for volume "trustedcas" : secret "aimanager-aio-tls" not found`.
-
-If so, run the following to create a secret to workaround this issue:
-```
-oc get configmap ibm-cp-watson-aiops-tls-ca -n aiops -o jsonpath='{.data.ca\.crt}' > /tmp/ca.crt
-
-# Create a Secret with the key name that the volume mount expects
-oc create secret generic aimanager-aio-tls \         
-  --from-file=tls.cacrt=/tmp/ca.crt \
-  -n aiops \
-  --dry-run=client -o yaml | kubectl apply -f -
-
-# Clean up
-rm /tmp/ca.crt
-secret/aimanager-aio-tls created
-```
-
-At this point you can delete the existing bundle-api pod to force it to recreate.
-### - For error "Failed to get valid local kubeconfig file"
-The enable function will load your local kubeconfig file whilst getting your local kube client. If ther are invalid definitions in this file, the script will fail. To resolve, validate your kubeconfig file has correctly populated context entries. The file can typically be found at `/Users/myuser/.kube/config` and an example of an invalid entry would be:
-```
-contexts:
-- context:
-    cluster: ""
-    user: ""
-  name: test-cluster:6443
-```
-
-An example of a valid entry would be:
-```
+```yaml
+# Valid entry
 contexts:
 - context:
     cluster: test-cluster:6443
@@ -137,27 +283,26 @@ contexts:
   name: test-namespace/test-cluster:6443/kube:admin
 ```
 
-You can either correct or remove invalid entries.
+Remove or correct any entries where `cluster` or `user` are empty strings, then re-run the failed command.
 
-### - Nothing loading and seeing "ChunkLoadError"/"ERR_TOO_MANY_RETRIES" in the browser console
-When running the development server locally (i.e when using `npm run start`) you may find that the content does not load and on inspection of the browser developer tools you may see this error:
-![Chunk loading error](images/chunk_loading_error.png)
+### "Unauthorized" error during deploy
 
-This is caused by having an untrusted certificate and seemingly linked to https://issues.chromium.org/issues/40418163. In order to solve, you simply need to trust the localhost certificate.
+Your API key in `target.json` is invalid or expired. Repeat Step 2 to generate a new key and update `target.json`.
 
-#### For Mac and Chrome combination:
+### Bundle uploaded but routes not updated
 
-In Chrome you will see the following:
-![Not secure](images/not_secure.png)
+The bundle API upload succeeded but the kubeconfig was not available for the routes update. Ensure `oc login` (Step 3) was run in the same shell session, then run:
 
-Click the "Not Secure" button, followed by "Certificate details". This will bring up the localhost certificate. Click on the details tab, and then "Export..."![Certifcate deails](images/certificate_details.png). Find the downloaded certificate, double click and it will open up in Keychain Access:
-![Keychain access](images/keychain_access.png)
+```bash
+npm run examples -- -n <AIOps-namespace>
+```
 
-Double click the localhost entry, then expand the "Trust" section and set the "When using this certificate" dropdown to "Always Trust":
-![Always trust](images/always_trust.png)
+### Pods not ready after enable
 
-Close the dialog, confirm the changes, and then you will see the certificate marked as trusted:
-![Trusted](images/trusted.png)
+The `enable` script waits up to 5 minutes (30 retries × 10s) for pods to become ready. If it times out, check pod status manually:
 
-Now, when opening the pages in Chrome you will not see the "Not secure" warning and the pages will load with no issues:
-![No not secure](images/no_not_secure.png)
+```bash
+oc get pods -n <AIOps-namespace> -l app.kubernetes.io/name=ibm-watson-aiops-ui-operator
+oc get pods -n <AIOps-namespace> -l app.kubernetes.io/component=zen-watcher
+oc get pods -n <AIOps-namespace> -l component=aiops-ir-ui-bundle-api
+```
